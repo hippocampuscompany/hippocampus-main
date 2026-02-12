@@ -1,0 +1,1052 @@
+---
+layout: layout.njk
+title: Hippocampus Learning Centres
+---
+<style>
+.academy-container{
+      padding: 150px 0 60px 0 !important;
+}
+</style>
+<section class="academy-container position-relative">
+<div class="container">  
+<div class="row g-4 pt-3">
+<div class="col-md-7 col-lg-7 my-auto">
+<h2 class="fw-normal text-start d-none text-white mb-2">
+Hello Schools Owners & Trustees! 
+</h2>
+<h3 class="fw-bold text-start text-white mb-3 heading-responsive">
+17 Schools, 7000+ Students & Growing...
+</h3>
+</div>
+<div class="col-md-5 col-lg-5 my-auto">
+<div class="video-wrapper"><iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/J9f0jo_duIU&autoplay=1"
+  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/J9f0jo_duIU?autoplay=1><img src=https://img.youtube.com/vi/J9f0jo_duIU/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
+'><span>▶</span></a>"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
+></iframe></div>
+
+
+<h5 class="text-white text-center pt-3"><i>{{home.AcademySection.description}}</i></h5>
+</div>
+</div>
+</div>
+</section>
+<style>
+.video-wrapper {
+position: relative; 
+}
+
+.video-wrapper::before,
+.video-wrapper::after {
+content: "";
+position: absolute;
+width: 40px;   /* length of lines */
+height: 40px;
+border: 2px solid #fff; /* line color */
+}
+
+.video-wrapper::before {
+top: -10px;
+left: -10px;
+border-right: none;
+border-bottom: none;
+}
+
+.video-wrapper::after {
+bottom: -10px;
+right: -10px;
+border-left: none;
+border-top: none;
+}
+
+/* Responsive heading */
+.heading-responsive {
+font-size: clamp(2rem, 6vw, 4.5rem); 
+line-height: 1.2;
+}
+.academy-container {
+background: linear-gradient(135deg, #5a2ca0, #7b42f6); /* optional bg */
+padding: 60px 0;
+}
+</style>
+<!-- My Schools Section -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">Our Schools</h2>
+
+  <!-- Filters -->
+<div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-4">
+
+  <!-- Board Tabs -->
+  <ul class="nav nav-pills" id="filterTabs">
+    <li class="nav-item mx-2">
+      <button class="nav-link active" data-group="all">All Schools</button>
+    </li>
+    <li class="nav-item mx-2">
+      <button class="nav-link" data-group="cbse">CBSE Board</button>
+    </li>
+    <li class="nav-item mx-2">
+      <button class="nav-link" data-group="state">State Board</button>
+    </li>
+  </ul>
+
+  <!-- City Dropdown (ONLY ONE) -->
+  <select id="citySelect" class="form-select w-auto">
+    <option value="all">All Locations</option>
+  </select>
+
+</div>
+
+<p id="schoolCountText" class="text-start mb-4 fw-semibold">
+  Showing all schools
+</p>
+
+
+    <!-- Schools Grid -->
+    <div class="row g-4 my-shuffle" id="schoolsGrid">
+
+<!-- 1. HIPPOCAMPUS SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card" data-groups='["cbse"]' data-city="Rangareddy">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school-1-6517bea0b45ee.webp" class="img-fluid">
+      <span class="school-label cbse">CBSE</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">HIPPOCAMPUS SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Rangapur Village, Telangana - 509288</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+919154029990">+91-9154029990</a> /
+        <a href="tel:+919154029991">9991</a> /
+        <a href="tel:+919154029992">9992</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2304@hippocampus.in">2304@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://www.rangapur.hippocampus.in/" target="_blank">rangapur.hippocampus.in</a>
+      </p>
+	  
+    </div>
+	  <div class="card-footer bg-white border-0 text-center">
+      <a href="https://www.rangapur.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 2. MILLENNIUM HIPPOCAMPUS SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card" data-groups='["cbse"]' data-city="Koppal">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/mps.webp" class="img-fluid">
+      <span class="school-label cbse">CBSE</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">MILLENNIUM HIPPOCAMPUS SCHOOL (CBSE), KOPPAL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> NH 63, Gadag Road, Koppal - 583231</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+919945728113">9945728113</a>,
+        <a href="tel:+919008257769">9008257769</a>,
+        <a href="tel:+919743756876">9743756876</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2502@hippocampus.in">2502@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://millennium.hippocampus.in/" target="_blank">millennium.hippocampus.in</a>
+      </p>
+	  
+    </div>
+	 <div class="card-footer bg-white border-0 text-center">
+      <a href="https://millennium.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 3. MALENADU FUTURE SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card" data-groups='["state"]' data-city="Hassan">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/malenadu.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">MALENADU FUTURE SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Arkalgud Taluk, Hassan District</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+918951755086">+91-8951755086</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2501@hippocampus.in">2501@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://malenadu.futureschools.in/" target="_blank">malenadu.futureschools.in</a>
+      </p>
+    </div>
+	 <div class="card-footer bg-white border-0 text-center">
+      <a href="https://malenadu.futureschools.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 4. VIDYAKULA HIPPOCAMPUS SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card" data-groups='["cbse"]' data-city="Mandya">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school-15-6517beb0338b3.webp" class="img-fluid">
+      <span class="school-label cbse">CBSE</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">VIDYAKULA HIPPOCAMPUS SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Mandya District - 571418</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+917550776666">+91-7550776666</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2309@hippocampus.in">2309@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://vidyakula.hippocampus.in/" target="_blank">vidyakula.hippocampus.in</a>
+      </p>
+    </div>
+	 <div class="card-footer bg-white border-0 text-center">
+      <a href="https://vidyakula.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 5. VIDYA VAIBHAV HIPPOCAMPUS PUBLIC SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state","bangalore"]'
+     data-city="Bangalore">
+  <div class="polaroid-card shadow random-tilt">
+  
+    <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school-6-6517bea5e5a05.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">VIDYA VAIBHAV HIPPOCAMPUS PUBLIC SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> HMT Main Road, Gokul Extension, Mathikere, Bangalore – 560054</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+918040974743">080 40974743</a>,
+        <a href="tel:+918023476655">080 23476655</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2303@hippocampus.in">2303@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://vidyavaibhav.hippocampus.in/" target="_blank">vidyavaibhav.hippocampus.in</a>
+      </p>
+    </div>
+    <div class="card-footer bg-white border-0 text-center">
+      <a href="https://vidyavaibhav.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 6. RAYEN HIPPOCAMPUS VIDYA MANDIRA SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state","bangalore"]'
+     data-city="Bangalore">
+  <div class="polaroid-card shadow random-tilt">
+    <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/rayen-66e4281a55ae2.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">RAYEN HIPPOCAMPUS VIDYA MANDIRA SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> No 18/1, 6th Cross, Vittasandra Main Road, Begur Road, Bangalore - 560068</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+919955535559">+91-9955535559</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2403@hippocampus.in">2403@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://rayen.hippocampus.in/" target="_blank">rayen.hippocampus.in</a>
+      </p>
+    </div>
+    <div class="card-footer bg-white border-0 text-center">
+      <a href="https://rayen.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 7. MALNAD INTERNATIONAL HIPPOCAMPUS SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["cbse"]'
+     data-city="Hassan">
+  <div class="polaroid-card shadow random-tilt">
+    <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/malnad.webp" class="img-fluid">
+      <span class="school-label cbse">CBSE</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">MALNAD INTERNATIONAL HIPPOCAMPUS SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> MG Road, Near M C E Ganapathi Temple, Vidhya Nagar, Hassan - 573202</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+919108902540">9108902540</a>,
+        <a href="tel:+917760508337">7760508337</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:1703@hippocampus.in">1703@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://malnad.hippocampus.in/" target="_blank">malnad.hippocampus.in</a>
+      </p>
+    </div>
+    <div class="card-footer bg-white border-0 text-center">
+      <a href="https://malnad.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 8. SRI BASAVESHWARA HIPPOCAMPUS ENGLISH MEDIUM SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state"]'
+     data-city="Belgaum">
+  <div class="polaroid-card shadow random-tilt">
+    <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school5-6517bea5ab0e2.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">SRI BASAVESHWARA HIPPOCAMPUS ENGLISH MEDIUM SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Kalloli, Belgaum - 591224</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+917259575075">7259575075</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:1801@hippocampus.in">1801@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://sribasaveshwar.hippocampus.in/" target="_blank">sribasaveshwar.hippocampus.in</a>
+      </p>
+    </div>
+    <div class="card-footer bg-white border-0 text-center">
+      <a href="https://sribasaveshwar.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 9. SRI SIDDHAROODH PUBLIC SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["cbse"]'
+     data-city="Bidar">
+  <div class="polaroid-card shadow random-tilt">
+    <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school122-6517bead21abf.webp" class="img-fluid">
+      <span class="school-label cbse">CBSE</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">SRI SIDDHAROODH PUBLIC SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Gumpa, Hyderabad Outer Ring Road, Bidar - 585403</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+918971987462">8971987462</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2305@hippocampus.in">2305@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://ssps.hippocampus.in/" target="_blank">ssps.hippocampus.in</a>
+      </p>
+    </div>
+    <div class="card-footer bg-white border-0 text-center">
+      <a href="https://ssps.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 10. NATCO SCHOOL OF LEARNING -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["cbse"]'
+     data-city="Guntur">
+  <div class="polaroid-card shadow random-tilt">
+    <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/nsl-66e42816e6627.webp" class="img-fluid">
+      <span class="school-label cbse">CBSE</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">NATCO SCHOOL OF LEARNING</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Gollamudipadu Village, Ponnur Mandal, Guntur (D), Andhra Pradesh - 522212</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+918106800119">8106800119</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2401@hippocampus.in">2401@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://hippocampus.in/hippocampus-schools/" target="_blank">nsl.hippocampus.in</a>
+      </p>
+    </div>
+    <div class="card-footer bg-white border-0 text-center">
+      <a href="https://hippocampus.in/hippocampus-schools/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 11. SIDDH BHARATI VIDYA MANDIR -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["cbse"]'
+     data-city="Gulbarga">
+  <div class="polaroid-card shadow random-tilt">
+    <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school-13-6517beb00b2d2.webp" class="img-fluid">
+      <span class="school-label cbse">CBSE</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">SIDDH BHARATI VIDYA MANDIR CBSE SECONDARY SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Mahagaon Cross, Gulbarga - 585316</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+918971982960">8971982960</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2306@hippocampus.in">2306@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://sbvm.hippocampus.in/" target="_blank">sbvm.hippocampus.in</a>
+      </p>
+    </div>
+    <div class="card-footer bg-white border-0 text-center">
+      <a href="https://sbvm.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 12. NETAJI HIPPOCAMPUS ENGLISH MEDIUM SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state"]'
+     data-city="Gokak">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/netaji.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">NETAJI HIPPOCAMPUS ENGLISH MEDIUM SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Bhagya Nagar Colony, Gokak – 591307</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+917892915199">+91-7892915199</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:1914@hippocampus.in">1914@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://netaji.hippocampus.in/" target="_blank">netaji.hippocampus.in</a>
+      </p>
+    </div>
+	 <div class="card-footer bg-white border-0 text-center">
+      <a href="https://netaji.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 13. SHRI PRABHULINGESHWAR INTERNATIONAL SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state"]'
+     data-city="Rabakavi-Banahatti">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/splis-66e4281ae0dc0.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">SHRI PRABHULINGESHWAR INTERNATIONAL SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Chimmad, Rabakavi-Banahatti (T) – 587312</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+919686776132">+91-9686776132</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2404@hippocampus.in">2404@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://shriprabhulingeshwar.hippocampus.in/" target="_blank">shriprabhulingeshwar.hippocampus.in</a>
+      </p>
+    </div>
+	 <div class="card-footer bg-white border-0 text-center">
+      <a href="https://shriprabhulingeshwar.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 14. SSVM HIPPOCAMPUS ENGLISH MEDIUM SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state"]'
+     data-city="Ramanagara">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school-7-6517bea824b49.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">SSVM HIPPOCAMPUS ENGLISH MEDIUM SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Kanakapura (T), Ramanagara (D)</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+919620414635">+91-9620414635</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:1401@hippocampus.in">1401@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://ssvm.hippocampus.in/" target="_blank">ssvm.hippocampus.in</a>
+      </p>
+    </div>
+	 <div class="card-footer bg-white border-0 text-center">
+      <a href="https://ssvm.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 15. DB DARURE HIPPOCAMPUS ENGLISH MEDIUM SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state"]'
+     data-city="Belgaum">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/school9-6517beaa76313.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">DB DARURE HIPPOCAMPUS ENGLISH MEDIUM SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Kudachi, Belgaum – 591311</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+918971988625">+91-8971988625</a> /
+        <a href="tel:+917022340032">7022340032</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:1903@hippocampus.in">1903@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://darure.hippocampus.in/" target="_blank">darure.hippocampus.in</a>
+      </p>
+    </div>
+	<div class="card-footer bg-white border-0 text-center">
+      <a href="https://darure.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 16. JNANASAGARA PUBLIC SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state"]'
+     data-city="Sagar">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/jnanasagara-66e42816c67e2.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">JNANASAGARA PUBLIC SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Ikkeri Road, Sagar – 577401</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+919148538525">+91-9148538525</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2402@hippocampus.in">2402@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://jnanasagara.hippocampus.in/" target="_blank">jnanasagara.hippocampus.in</a>
+      </p>
+    </div>
+	<div class="card-footer bg-white border-0 text-center">
+      <a href="https://jnanasagara.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+<!-- 17. DMS JNANA KUTEERA HIPPOCAMPUS SCHOOL -->
+<div class="col-md-4 col-12 mb-4 school-card"
+     data-groups='["state"]'
+     data-city="Mandya">
+  <div class="polaroid-card shadow random-tilt">
+   <div class="pin-logo">
+      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
+    </div>
+    <div class="img-wrapper">
+      <img src="https://hippocampus.in/assets/images/dms.webp" class="img-fluid">
+      <span class="school-label state">State</span>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-uppercase mb-2">DMS JNANA KUTEERA HIPPOCAMPUS SCHOOL</h5>
+      <p class="small text-muted mb-1"><strong>Address:</strong> Pandavapura Taluk, Mandya Dist – 571455</p>
+      <p class="small text-muted mb-1"><strong>Phone:</strong>
+        <a href="tel:+917676496864">7676496864</a>,
+        <a href="tel:+919972838225">9972838225</a>,
+        <a href="tel:+919845470869">9845470869</a>,
+        <a href="tel:+918971985141">8971985141</a>
+      </p>
+      <p class="small text-muted mb-1"><strong>Email:</strong>
+        <a href="mailto:2503@hippocampus.in">2503@hippocampus.in</a>
+      </p>
+      <p class="small text-muted"><strong>Website:</strong>
+        <a href="https://dmsjnanakuteera.hippocampus.in/" target="_blank">dmsjnanakuteera.hippocampus.in</a>
+      </p>
+    </div>
+	<div class="card-footer bg-white border-0 text-center">
+      <a href="https://dmsjnanakuteera.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Us Form starts -->
+<section id="contactus_form" class="appointment section-bg" style="background-color:#674ea7;">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2 class="text-white text-center">Admission Enquiry</h2>
+         
+        </div>
+ <div class="row justify-content-center">
+            <div class="col-md-12 form-group">
+        <form action="forms/appointment.php" method="post" role="form" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+            </div>
+          </div>
+          <div class="row">
+           
+            <div class="col-md-4 form-group mt-3">
+              <select name="department" id="department" class="form-select">
+                <option value="">Select Grade</option>
+                <option value="Kindergarten (KG)">Kindergarten (KG)</option>
+                <option value="Grades 1-5">Grades 1-5</option>
+                <option value="Grades 6-8">Grades 6-8</option>
+				<option value="Grades 9-10">Grades 9-10</option>
+              </select>
+            </div>
+			
+            <div class="col-md-4 form-group mt-3">
+            
+ 
+  <select id="citySelect" class="form-select">
+    <option value="">-- Select City --</option>
+  </select>
+</div>
+			
+            <div class="col-md-4 form-group mt-3">
+
+<div class="mb-3">
+  <select id="schoolSelect" class="form-select" disabled>
+    <option value="">-- Select School --</option>
+  </select>
+</div>
+
+            </div>
+          </div>      
+         
+          <div class="text-center mt-4"><button class="btn btn-warning btn-hippo" type="submit">Submit</button></div>
+        </form>
+
+      </div></div></div>
+    </section>
+
+<script>
+const schoolData = {
+  "Bangalore": [
+    "Vidya Vaibhav Hippocampus Public School",
+    "Rayen Hippocampus Vidya Mandira School"
+  ],
+  "Hassan": [
+    "Malnad International Hippocampus School",
+    "Malenadu Future School"
+  ],
+  "Mandya": [
+    "DMS Jnana Kuteera Hippocampus School",
+    "Vidyakula Hippocampus School"
+  ],
+  "Belgaum": [
+    "Sri Basaveshwara Hippocampus English Medium School",
+    "DB Darure Hippocampus English Medium School"
+  ],
+  "Koppal": [
+    "Millennium Hippocampus School (CBSE)"
+  ],
+  "Guntur": [
+    "Natco School of Learning"
+  ],
+  "Ramanagara": [
+    "SSVM Hippocampus English Medium School"
+  ],
+  "Gulbarga": [
+    "Siddh Bharati Vidya Mandir CBSE Secondary School"
+  ],
+  "Bidar": [
+    "Sri Siddharoodh Public School"
+  ],
+  "Sagar": [
+    "Jnanasagara Public School"
+  ],
+  "Rabakavi-Banahatti": [
+    "Shri Prabhulingeshwar International School"
+  ],
+  "Gokak": [
+    "Netaji Hippocampus English Medium School"
+  ],
+  "Rangareddy": [
+    "Hippocampus School"
+  ]
+};
+
+const citySelect = document.getElementById("citySelect");
+const schoolSelect = document.getElementById("schoolSelect");
+
+/* Populate City Dropdown */
+Object.keys(schoolData).sort().forEach(city => {
+  const option = document.createElement("option");
+  option.value = city;
+  option.textContent = city;
+  citySelect.appendChild(option);
+});
+
+/* On City Change */
+citySelect.addEventListener("change", function () {
+  const selectedCity = this.value;
+  schoolSelect.innerHTML = '<option value="">-- Select School --</option>';
+  schoolSelect.disabled = true;
+
+  if (!selectedCity) return;
+
+  const schools = schoolData[selectedCity];
+
+  schools.forEach(school => {
+    const option = document.createElement("option");
+    option.value = school;
+    option.textContent = school;
+    schoolSelect.appendChild(option);
+  });
+
+  schoolSelect.disabled = false;
+
+  // Auto-select if only one school
+  if (schools.length === 1) {
+    schoolSelect.selectedIndex = 1;
+  }
+});
+</script>
+
+<section class="testimonial-section">
+  <h2 class="text-white">What Parents Say</h2>
+<div class="container">
+<div class=" row align-items-center">
+ <div class="col-12">
+  <div class="swiper testimonialSwiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide testimonial-card">
+        <h5>Excellent program!</h5>
+        <div class="stars">★★★★★</div>
+        <p>My daughter loves Early Steps Academy.</p>
+        <p>I see her confidence grow, not only in speaking and thinking, but also in everyday activities.</p>
+        <p>An excellent program! Highly recommend to all parents.</p>
+        <div class="reviewer">
+          <img src="https://i.imgur.com/v8aQK9m.png" alt="Kerly">
+          <div class="reviewer-info">
+            <strong>Kerly</strong><br>
+            <small>Mom, USA</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide testimonial-card">
+        <h5>Truly Transformative</h5>
+        <div class="stars">★★★★★</div>
+        <p>My son enjoys every class and has become more articulate and curious.</p>
+        <p>The learning experience is fun, engaging, and truly world-class.</p>
+        <div class="reviewer">
+          <img src="https://i.pravatar.cc/100?img=5" alt="Liam’s Dad">
+          <div class="reviewer-info">
+            <strong>Mark Evans</strong><br>
+            <small>Dad, UK</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide testimonial-card">
+        <h5>Great Support!</h5>
+        <div class="stars">★★★★★</div>
+        <p>The teachers are very supportive and responsive to our questions.</p>
+        <p>We’ve seen a big change in our child’s speaking confidence and curiosity.</p>
+        <div class="reviewer">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Sophie’s Mom">
+          <div class="reviewer-info">
+            <strong>Priya Nair</strong><br>
+            <small>Mom, India</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div></div></div></div>
+</section>
+
+<section class="nudge">
+<div class="container">
+<div class="row justify-content-center">
+<h3 class="text-center text-white">Empower your school.. Find out more about Sankalp90 Program</h3>
+<div class="mbr-section-btn item-footer mt-2 pb-3 text-center"><a href="/hippocampus-main/our-schools/" class="btn btn-hippo display-7" target="_blank" style="border-radius: 25px;">Sankalp90 <i class="bi bi-arrow-right-circle-fill"></i></a></div>
+</div>
+</div>
+</section>
+<style>
+.nudge{
+padding: 3rem 1rem;
+    background-color: var(--color-primary);
+}
+/* Tabs Styling */
+#filterTabs .nav-link {
+  border-radius: 50px;
+  border: 2px solid #ffc107;
+  color: #333;
+  transition: all .3s ease;
+  background: #fff;
+}
+#filterTabs .nav-link.active {
+  background: #ffc107;
+  color: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+#filterTabs .nav-link:hover {
+  background: #ffe08a;
+  color: #000;
+}
+
+/* Polaroid card */
+.polaroid-card {
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+  transition: transform .3s ease, box-shadow .3s ease;
+  transform: rotate(-1deg);
+}
+.polaroid-card:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+.img-wrapper {
+  position: relative;
+}
+.school-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ffc107;
+  color: #000;
+  font-size: 12px;
+  padding: 4px 10px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+.school-label.cbse {
+  background: #007bff;
+  color: #fff;
+}
+.school-label.state {
+  background: #28a745;
+  color: #fff;
+}
+
+/* Pin Logo */
+.pin-logo {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  animation: swing 4s ease-in-out infinite;
+  transform-origin: top center; /* Pivot from the top */
+}
+
+.pin-logo img {
+  width: 40px;
+  height: auto;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4));
+  transition: transform 0.3s;
+}
+
+/* Swing Animation */
+@keyframes swing {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  25% { transform: translateX(-50%) rotate(10deg); }
+  50% { transform: translateX(-50%) rotate(-10deg); }
+  75% { transform: translateX(-50%) rotate(10deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* Optional Hover Effect */
+.pin-logo:hover img {
+  transform: scale(1.2);
+}
+
+
+/* Card Body */
+.polaroid-card .card-body {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.polaroid-card h5 {
+  font-size: 16px;
+  color: #222;
+}
+.polaroid-card p {
+  margin-bottom: 6px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll('#filterTabs button');
+  const citySelect = document.getElementById('citySelect');
+  const cards = document.querySelectorAll('.school-card');
+  const displayText = document.getElementById('schoolCountText');
+
+  let activeGroup = 'all';
+  let activeCity = 'all';
+
+  function populateCities() {
+    const cities = new Set();
+
+    cards.forEach(card => {
+      const groups = JSON.parse(card.dataset.groups);
+      const city = card.dataset.city;
+
+      if (activeGroup === 'all' || groups.includes(activeGroup)) {
+        cities.add(city);
+      }
+    });
+
+    citySelect.innerHTML = `<option value="all">All Locations</option>`;
+    [...cities].sort().forEach(city => {
+      citySelect.innerHTML += `<option value="${city}">${city}</option>`;
+    });
+
+    activeCity = 'all';
+    citySelect.value = 'all';
+  }
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const groups = JSON.parse(card.dataset.groups);
+      const city = card.dataset.city;
+
+      const matchGroup =
+        activeGroup === 'all' || groups.includes(activeGroup);
+
+      const matchCity =
+        activeCity === 'all' || city === activeCity;
+
+      if (matchGroup && matchCity) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (activeGroup === 'all' && activeCity === 'all') {
+      displayText.textContent = `Showing all schools`;
+    } else if (activeCity !== 'all' && activeGroup === 'all') {
+      displayText.textContent = `Showing ${visibleCount} schools in ${activeCity}`;
+    } else if (activeCity === 'all') {
+      displayText.textContent = `Showing ${visibleCount} ${activeGroup.toUpperCase()} schools`;
+    } else {
+      displayText.textContent = `Showing ${visibleCount} ${activeGroup.toUpperCase()} schools in ${activeCity}`;
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      tabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      activeGroup = this.dataset.group;
+      populateCities();
+      applyFilters();
+    });
+  });
+
+  citySelect.addEventListener('change', function () {
+    activeCity = this.value;
+    applyFilters();
+  });
+
+  populateCities();
+  applyFilters();
+});
+</script>
+

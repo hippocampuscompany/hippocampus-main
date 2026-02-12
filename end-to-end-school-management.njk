@@ -1,0 +1,1067 @@
+---
+layout: layout.njk
+title: Hippocampus Learning Centres
+---
+<style>
+.academy-container{
+      padding: 150px 0 60px 0 !important;
+}
+
+</style>
+<section class="academy-container position-relative">
+<div class="container">  
+<div class="row g-4 pt-3">
+<div class="col-md-7 col-lg-7 my-auto">
+<h2 class="fw-normal text-start text-white mb-2">
+Hello Schools Owners & Trustees! 
+</h2>
+<h3 class="fw-bold text-start text-white  mb-3 heading-responsive">
+Partner With Us for End-to-End School Management
+</h3>
+</div>
+<div class="col-md-5 col-lg-5 my-auto">
+<div class="video-wrapper"><iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/TV7HkxTx1eQ&autoplay=1"
+  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/TV7HkxTx1eQ?autoplay=1><img src=https://img.youtube.com/vi/TV7HkxTx1eQ/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
+'><span>▶</span></a>"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
+></iframe></div>
+
+<h5 class="text-white text-center pt-3"><i>{{home.AcademySection.description}}</i></h5>
+</div>
+</div>
+</div>
+</section>
+<style>
+.video-wrapper {
+position: relative; 
+}
+
+.video-wrapper::before,
+.video-wrapper::after {
+content: "";
+position: absolute;
+width: 40px;   /* length of lines */
+height: 40px;
+border: 2px solid #fff; /* line color */
+}
+
+.video-wrapper::before {
+top: -10px;
+left: -10px;
+border-right: none;
+border-bottom: none;
+}
+
+.video-wrapper::after {
+bottom: -10px;
+right: -10px;
+border-left: none;
+border-top: none;
+}
+
+/* Responsive heading */
+.heading-responsive {
+font-size: clamp(2rem, 6vw, 4.5rem); 
+line-height: 1.2;
+}
+.academy-container {
+background: linear-gradient(135deg, #5a2ca0, #7b42f6); /* optional bg */
+padding: 60px 0;
+}
+</style>
+<style>
+  .challenge-card .teacherdevefficiencyicon{
+		cursor:pointer;
+  }
+.card-box{
+	border-radius:25px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	padding:30px;
+}
+.card-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+.card-box li {
+      padding-left: 10px;
+	  font-size: 14px;
+}
+.card-box-kbc li{
+	font-size: 16px;
+}
+.card-box li::marker  {
+ content: '✓';
+ color: var(--color-primary);
+ padding-right: 0.5em;
+}
+.feature-box {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
+    background-color: #f8f9fa;
+    margin: 10px 0px 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.box2{
+	background-color:var(--color-primary);
+}
+.box2 li{
+	color: #fff;
+	    padding-left: 10px;
+		font-size: 14px;
+}
+.box2 li::marker  {
+ content: '✓';
+ color: #fff;
+ padding-right: 0.5em;
+}
+.card-box hr {
+    margin: 0.5rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 3px solid var(--color-primary);;
+    opacity: 1;
+}
+.box2 hr {
+    margin: 0.5rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 3px solid #fff;
+    opacity: 1;
+}
+.ripple {
+	height:25px;
+	width:25px;
+    position: relative;
+    text-decoration: none;
+    color: #000;   
+    background-color: #e6e5e5;
+    margin: 0 auto;  
+    -webkit-animation: ripple 1s linear infinite;
+    animation: ripple 1s linear infinite;
+	border-radius: 50%
+}
+.ripple svg { 
+padding-top:5px;
+	vertical-align: baseline;}
+
+.theme-blue{
+	color:var(--color-primary);
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+            box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+  };
+  100% {
+    -webkit-box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+            box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+  }
+}
+@keyframes ripple {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+            box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+            box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+  }
+}
+ .check-icon {
+            color: green;
+            font-size: 22px;            
+            border-radius: 50%;           
+          
+        }
+		.icon-check{
+			margin-top: -25px;
+		}
+        p.feature-text {
+			font-size: 14px;  
+            margin: 0;
+        }
+	.listss	li::marker {
+    content: '✓';
+    color: #fff;
+    padding-right: 0.5em;
+}
+.listss li {
+    padding-left: 5px;
+}
+</style>
+
+
+<!-- Contact Us Form ends -->
+<section id="about" class="about" style="scroll-margin-top: 100em;">
+         <div class="container" data-aos="fade-up">
+         <div class="row gy-4">
+         <div class="col-lg-5"> 
+<div class="video-wrapper"><iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/d6IVMS1ojB8&autoplay=1"
+  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/d6IVMS1ojB8?autoplay=1><img src=https://img.youtube.com/vi/d6IVMS1ojB8/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
+'><span>▶</span></a>"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
+></iframe></div>
+
+        
+         </div>
+         <div class="col-lg-7 my-auto">
+         <div class="content ps-0 ps-lg-5 pt-3">         
+         <h2 class="pb-2" style="color:var(--color-primary);">We transform the lives of children through
+high quality education.</h2>
+         <ol class="fst-italic" style="font-size:1.3rem">
+		 <li>Foundational Literacy and Numeracy (FLN)</li>
+         <li>Experiential &amp; Activity Based Learning</li>
+<li>Personality Development Through Clubs</li>
+<li>Fostering Creativity and Curiosity with STEAM</li>
+<li>Competitive skills for career excellence via SANKALP90</li>
+
+         </ol> 
+         
+		<p class="pb-2" style="color:#000;font-size:1.3rem"> 
+		 Children in Hippocampus schools get ready
+for the 21st century by building their
+<span style="color:#ed4b41;">Knowledge, Behaviours, Competencies</span> and through our unique
+KBC Pedagogy
+</p>
+
+
+        <h3 class="pb-2" style="color:#000;font-weight: bold;font-size:1.3rem"> <i>Our mission is to transform the lives of 1 Lakh students by 2030 by way of improving their Knowledge, Behavior and Competencies.</i></h3>
+
+         </div>   
+         </div>
+         </div>
+         </div>
+         </section>
+
+<section id="our-packages" class="pt-3 ">	
+
+   <div class="about d-none" style="scroll-margin-top: 0px;background-color:#fff">  
+
+
+
+	
+			 <div class="container" data-aos="fade-up">
+
+
+<div class="card-box my-4" style="">
+ <h4 class="mbr-text mbr-section-text mbr-fonts-style display-6 text-center text-md-start animate__animated animate__delay-1s animate__fadeInUp">
+                           <strong>Striving for excellence in education, character, and behaviour
+                        </strong></h4>
+		  <div class="row px-0 py-0 justify-content-center">
+<div class="col-lg-6 my-3">
+          <div data-bs-version="5.1" class="features12 cid-tUgB1x98rR" id="features12-60">
+    
+
+    
+
+   
+                
+                       
+                
+
+            <div class="mbr-figure m-auto animate__animated animate__delay-1s animate__fadeInUp">
+                <img src="{{ '/assets/img/untitled-1-644x442.png' | url }}" alt="" title="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp">
+            </div> 
+            <div class="block-content align-left">
+                <div class="pl-3 pr-3">
+                                  
+
+                   
+                        <p class="mbr-text mbr-section-text mbr-fonts-style display-7 animate__animated animate__delay-1s animate__fadeInUp">
+                            Our school is unique because we offer a well-rounded education that goes beyond academics. Our focus on character development, community service, and extracurricular activities helps students develop into well-rounded individuals who are prepared for success in all areas of life. We call this the KBC approach. It focuses on the <strong>knowledge, behaviours,</strong> and <strong>competencies</strong> required to shine in the <strong>21st century.</strong></p>
+                    </div>
+               
+
+                
+            </div>
+        </div> 
+</div>
+
+<div class="col-lg-6 my-md-auto my-3">
+
+<p class="mb-0" style="color:var(--color-primary);font-size: 16px;;font-weight:bold">KBC Model of Transformation:</p>
+<ul class="card-box-kbc px-3"><li>Knowledge</li>
+<li>Behavior</li>
+<li>Competencies</li></ul>
+<div class="row pt-3">
+        <div class="col-md-6 mb-3">
+            <div class="feature-box h-100">
+               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+			   </div>
+                <p class="feature-text">CURRICULUM ENHANCEMENTS</p>
+            </div>
+        </div>    
+        <div class="col-md-6 mb-3">
+            <div class="feature-box  h-100">
+               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+			   </div>
+                <p class="feature-text">REGULAR PERFORMANCE REPORTING</p>
+            </div>
+        </div>
+<div class="col-md-6 mb-3">
+            <div class="feature-box  h-100">
+               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+			   </div>
+                <p class="feature-text">END TO END AUTOMATION </p>
+            </div>
+        </div>
+<div class="col-md-6 mb-3">
+            <div class="feature-box  h-100">
+               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+			   </div>
+                <p class="feature-text">PROFITABILITY OF SCHOOL
+</p>
+            </div>
+        </div>
+<div class="col-md-6 mb-3">
+            <div class="feature-box  h-100">
+               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+			   </div>
+                <p class="feature-text">TRANSPORTATION OPTIMIZATION</p>
+            </div>
+        </div>
+<div class="col-md-6 mb-3">
+            <div class="feature-box  h-100">
+               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+			   </div>
+                <p class="feature-text">PRINCIPAL HIRING &amp; TRAINING</p>
+            </div>
+        </div>		
+    </div>
+	</div>
+  </div>	
+</div>
+
+</div>
+</div>	
+	</section>
+<!-- School Challenges Section -->
+<section class="py-5 scllanges" style="background-color: #E1E1E1;">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">Read about our innovative approach to solve some of your common problems</h2>
+    <div class="row align-items-center">
+      <!-- Left Column: Buttons (col-5) -->
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <div class="d-grid gap-3">
+          <button class="problem-btn" data-id="1"><i class="bi bi-hand-index blink"></i>School is unable to compete with bigger schools academically</button>
+          <button class="problem-btn" data-id="2"><i class="bi bi-hand-index blink"></i>Parents move children to other schools frequently</button>
+          <button class="problem-btn" data-id="3"><i class="bi bi-hand-index blink"></i>Teachers frequently leave, creating instability</button>
+          <button class="problem-btn" data-id="4"><i class="bi bi-hand-index blink"></i>School is seen as “low profile” compared to established competitors</button>
+          <button class="problem-btn" data-id="5"><i class="bi bi-hand-index blink"></i>Costs are high, revenue streams unstable</button>
+          <button class="problem-btn" data-id="6"><i class="bi bi-hand-index blink"></i>Parents feel disconnected and uninformed</button>
+        </div>
+      </div>
+
+      <!-- Right Column: Card (col-7) -->
+      <div class="col-lg-7">
+        <div class="challenge-card position-relative rounded shadow" style="height:400px; overflow:hidden; background:rgba(255,255,255,0.1);">
+          <img id="challenge-image" src="{{ '/assets/img/HOO-Thinking.png' | url }}" class="w-100 h-100 position-absolute top-0 start-0 blur-bg" alt="School Challenge">
+          <div id="challenge-text" class="p-4 text-start text-dark" style="height:100%; overflow-y:auto; white-space:pre-wrap;"></div>
+        </div>
+
+      </div>
+<div class="justify-content-center text-center">
+<a href="#hipposchools" class="btn-hippo animate__animated animate__delay-1s animate__fadeInUp mt-md-5 mt-3 px-5">Connect with us</a>
+</div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Modern button styles */
+.problem-btn {
+  border-radius: 50px;
+  padding: 0.9rem 1.8rem;
+  /*font-weight:600;*/
+  font-size:1rem;
+  background: #f7f7f7;
+  color:#6f42c1;
+  border:1px solid #6f42c1;
+  transition:0.3s;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+.problem-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:0 6px 16px rgba(0,0,0,0.25);
+  cursor:pointer;
+}
+
+/* Section highlights */
+.statement { color: #6f42c1; font-weight:600; }
+.reason { color: #000; font-weight:600; }
+.solution { color: #000; font-weight:600; }
+.timeline { color: #000; font-weight:600; }
+
+/* Text container over image */
+#challenge-text {
+  opacity:0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  background: rgba(255,255,255,0.7); /* glass effect */
+  backdrop-filter: blur(8px);
+  border-radius:12px;
+  height:calc(100% - 1rem);
+  overflow-y:auto;
+}
+
+/* Background image blur & opacity */
+.blur-bg {
+  object-fit:cover;
+  opacity:1; /* fully visible initially */
+  transition: all 0.5s ease;
+}
+</style>
+
+<script>
+const challenges = {
+  1: {
+	statement: "School is unable to compete with bigger schools academically",
+    reason: "Weak teaching methodology, outdated pedagogy, and lack of structured academic monitoring.",
+    solution: "Implement Hippocampus 4D Academic Excellence Method (diagnosis, design, delivery, and demonstration of results). Train teachers to adopt structured teaching-learning cycles.",
+    timeline: "Academic results visibly improve within 12 months."
+  },
+  2: {
+	statement: "Parents move children to other schools frequently",
+    reason: "Dissatisfaction with learning quality, lack of extracurricular opportunities, and peer pressure to shift to 'brand schools.'",
+    solution: "Launch a “Parent Engagement Program” + consistent co-curricular activities that build student pride. Create visible “student progress dashboards” for parents.",
+    timeline: "Retention rates improve in 1–2 admission cycles (9–18 months)."
+  },
+  3: {
+	statement: "Teachers frequently leave, creating instability",
+    reason: "Lack of professional development, poor support systems, and limited recognition.",
+    solution: "Introduce continuous teacher training (C-TIES model), performance-linked recognition, and peer learning communities.",
+    timeline: "Reduced attrition and higher teacher satisfaction within 6–9 months."
+  },
+  4: {
+	statement: "School is seen as “low profile” compared to established competitors",
+    reason: "Poor marketing, weak storytelling of success, and lack of community presence.",
+    solution: "Build brand campaigns highlighting student success, social impact, and unique pedagogy. Conduct local events to raise visibility.",
+    timeline: "Brand visibility improves within 6 months; strong reputation building takes 18–24 months."
+  },
+  5: {
+	statement: "Costs are high, revenue streams unstable",
+    reason: "Poor resource planning, underutilized assets, and lack of fee discipline.",
+    solution: "Implement school ERP for fee tracking, optimize resources, and explore alternate revenue (after-school programs, summer camps, skill-based add-ons).",
+    timeline: "Operational stability achievable within 6–12 months."
+  },
+  6: {
+	statement: "Parents feel disconnected and uninformed",
+    reason: "No structured communication channel; feedback is ignored or ad-hoc.",
+    solution: "Create a structured communication calendar (newsletters, WhatsApp flows, PTMs, parent workshops). Deploy transparent feedback mechanisms.",
+    timeline: "Communication quality improves within 3 months, measurable parent satisfaction within 6–9 months."
+  }
+};
+
+let typingInterval; // keep track of interval
+
+function typeText(element, data, speed = 15) {
+  clearInterval(typingInterval); // clear any previous typing
+  const fullText = `Problem Statement:\n${data.statement}\n\nProbable Reason:\n${data.reason}\n\nSolution:\n${data.solution}\n\nTimeline:\n${data.timeline}`;
+  let i = 0;
+  element.innerHTML = "";
+  element.style.opacity = 1;
+  element.style.transform = "translateY(0)";
+  
+  // Fade the image during typing
+  document.getElementById('challenge-image').style.opacity = 0.9;
+
+  typingInterval = setInterval(() => {
+    const text = fullText.substring(0, i+1)
+	  .replace("Problem Statement:", `<span class="statement">Problem Statement:</span>`)
+      .replace("Probable Reason:", `<span class="reason">Probable Reason:</span>`)
+      .replace("Solution:", `<span class="solution">Hippocampus Solution:</span>`)
+      .replace("Timeline:", `<span class="timeline">Hippocampus Timeline:</span>`);
+    element.innerHTML = text;
+    i++;
+    if (i >= fullText.length) clearInterval(typingInterval);
+  }, speed);
+}
+
+// Button click
+document.querySelectorAll('.problem-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.getAttribute('data-id');
+    const data = challenges[id];
+    const textContainer = document.getElementById('challenge-text');
+    const card = document.querySelector('.challenge-card');
+
+    // Reset typing and image
+    clearInterval(typingInterval);
+    textContainer.style.opacity = 0;
+    textContainer.style.transform = "translateY(20px)";
+    document.getElementById('challenge-image').style.opacity = 1; // reset image
+
+    // Scroll into view with offset to prevent hiding behind header
+    if (window.innerWidth <= 768) {
+      const headerOffset = 100; // adjust based on your header height
+      const elementPosition = card.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+
+    setTimeout(() => typeText(textContainer, data), 100);
+  });
+});
+
+
+</script>
+
+<!-- ====== School Challenges Section ====== -->
+<section class="school-challenges py-5 bg-light">
+<div class="container">
+<div class="text-center mb-5">
+<h4 class="fw-semibold">We undertake full responsibility for running and improving your school, while you can focus on your other priorities</h4>
+</div>
+
+<div class="row g-4 justify-content-center">
+
+<!-- Card 1 -->
+<div class="col-md-4">
+<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
+
+	<div class="icon-box mb-3 icon-purple ">
+			<i class="bi bi-trophy" style="font-size: 2rem;"></i>
+	</div>
+
+<h5 class="card-title fw-bold pb-3">Academic Excellence</h5>
+
+<p class="outcome d-none"><i class="bi bi-stars blink"></i>
+<strong>Outcome</strong> <hr></p>
+<p class="text-muted">
+<ul class="text-start">
+<li>Design curriculum and pedagogy aligned with international or national standards.</li>
+<li>Implement assessment systems, lesson plans, and teaching methodologies.</li>
+<li>Provide teacher training, classroom audits, and academic performance tracking.</li>
+</ul>
+</p>
+
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="col-md-4">
+<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
+<div class="icon-box mb-3 icon-purple">
+<i class="bi bi-gear-fill" style="font-size: 2rem;"></i>
+</div>
+<h5 class="card-title fw-bold pb-3">Operations & Administration</h5>
+<p class="outcome d-none"><i class="bi bi-stars blink"></i>
+<strong>Outcome</strong><hr>
+</p>
+<p class="text-muted ">
+<ul class="text-start">
+<li>Manage day-to-day administration (attendance, transport, safety, discipline, timetable scheduling).</li>
+<li>Deploy digital ERP/CRM systems to streamline communication and operations.</li>
+<li>Handle vendor management (canteen, uniforms, buses, infrastructure maintenance).</li>
+</ul>
+</p>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="col-md-4">
+<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
+<div class="icon-box mb-3 icon-purple">
+<i class="bi bi-megaphone" style="font-size: 2rem;"></i>
+</div>
+<h5 class="card-title fw-bold pb-3">Admissions & Marketing</h5>
+
+<p class="outcome d-none"><i class="bi bi-stars blink"></i>
+<strong>Outcome</strong> <hr>
+</p>
+<p class="text-muted ">
+<ul class="text-start">
+<li>Build brand identity and market the school to parents.</li>
+<li>Run admission campaigns, digital marketing, parent engagement programs.</li>
+<li>Standardize admission processes and fee collection systems.</li>
+</ul>
+</p>
+</div>
+</div>
+
+<!-- Card 4 -->
+<div class="col-md-4">
+<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
+<div class="icon-box mb-3 icon-purple">
+<i class="bi bi-currency-dollar" style="font-size: 2rem;"></i>
+</div>
+<h5 class="card-title fw-bold pb-3">Finance & Compliance</h5>
+
+<p class="outcome d-none"><i class="bi bi-stars blink"></i>
+<strong>Outcome</strong><hr>
+</p>
+<p class="text-muted ">
+<ul class="text-start">
+<li>Set and manage fee structures, budgets, and expense controls.</li>
+<li>Ensure regulatory compliance with education boards and government requirements.</li>
+<li>Provide financial reporting and audits for transparency.</li>
+</ul>
+</p>
+</div>
+</div>
+
+<!-- Card 5 -->
+<div class="col-md-4">
+<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
+<div class="icon-box mb-3 icon-purple">
+<i class="bi bi-person-workspace" style="font-size: 2rem;"></i>
+</div>
+<h5 class="card-title fw-bold pb-3">Teacher & Staff Management</h5>
+
+<p class="outcome d-none"><i class="bi bi-stars blink"></i>
+<strong>Outcome</strong><hr>
+</p>
+<p class="text-muted ">
+<ul class="text-start">
+<li>Recruit, train, and retain high-quality teachers.</li>
+<li>Create appraisal systems and career development programs.</li>
+<li>Establish clear HR policies for accountability and motivation.</li>
+</ul>
+</div>
+</div>
+
+<!-- Card 6 -->
+<div class="col-md-4">
+<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
+<div class="icon-box mb-3 icon-purple">
+<i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
+</div>
+<h5 class="card-title fw-bold pb-3">Technology & Innovation</h5>
+
+<p class="outcome d-none"><i class="bi bi-stars blink"></i>
+<strong>Outcome</strong><hr>
+</p>
+<p class="text-muted ">
+<ul class="text-start">
+<li>Introduce smart-class tools, learning apps, ERP systems, and digital assessments.</li>
+<li>Leverage data analytics to track student progress and parent satisfaction.</li>
+<li>Innovate in pedagogy with project-based and activity-driven learning.</li>
+</ul>
+</div>
+</div>
+
+<!-- Card 7 -->
+<div class="col-md-4">
+<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
+<div class="icon-box mb-3 icon-purple">
+<i class="bi bi-people" style="font-size: 2rem;"></i>
+</div>
+<h5 class="card-title fw-bold pb-3">Parent & Community Engagement</h5>
+
+<p class="outcome d-none"><i class="bi bi-stars blink"></i>
+<strong>Outcome</strong><hr>
+</p>
+<p class="text-muted ">
+<ul class="text-start">
+<li>Run parent-teacher interactions, surveys, and engagement events.</li>
+<li>Ensure transparent communication channels (WhatsApp, newsletters, apps).</li>
+<li>Build community trust and strengthen school reputation.</li>
+</ul>
+</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section data-bs-version="5.1" class="features4 cid-tR9sQWBXaU" id="hipposchools">
+    
+    
+    <div class="container">
+        <div class="mbr-section-head mt-4">
+            <h4 class="mbr-section-title mbr-fonts-style text-center mb-0 display-6 animate__animated animate__delay-1s animate__fadeInUp">Start here:<strong> Choose your schools board</strong></h4>            
+        </div>
+        <div class="row mt-4 justify-content-center">
+            <div class="item features-image сol-12 col-md-6 col-lg-4">
+                <div class="item-wrapper text-center">                  
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-5 animate__animated animate__delay-1s animate__fadeInUp"><strong>CBSE Board</strong></h5>
+                        
+                    </div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="https://hippocampus.in/hlcgrowth/cbse-schools.php" target="_blank" class="btn-hippo display-7 animate__animated animate__delay-1s animate__fadeInUp">My School is CBSE Board</a></div>
+                </div>
+            </div>
+            <div class="item features-image сol-12 col-md-6 col-lg-4">
+                <div class="item-wrapper text-center">                  
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-5 animate__animated animate__delay-1s animate__fadeInUp"><strong>State Board</strong></h5>
+                        
+                    </div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="https://hippocampus.in/hlcgrowth/state-schools.php" target="_blank" class="btn-hippo animate__animated animate__delay-1s animate__fadeInUp">My School is State Board</a></div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section>
+
+
+<!--<div class="container d-none">  
+<div class="row g-4 justify-content-end">
+<div class="col-md-8 text-end position-relative">
+<img src="{{ '/assets/img/img10-removebg-preview.png' | url }}"  class="img-fluid outside-img shadow-img">
+</div></div></div>-->
+
+
+<section class="academy-section d-none">
+<div class="container">  
+<h2 class="fw-normal text-center">Ready To Get Started With<h2><h1 class="fw-bold text-center mb-5">Hippocampus Academy?</span></h1>
+<div class="row g-4 justify-content-center">
+
+<div class="col-md-6 col-lg-4">
+<div class="academy-card w-100 text-center">
+<div class="academy-icon text-center">
+<img src="{{ '/assets/img/tutor.png' | url }}" alt="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp">
+</div>
+<h4 class="academy-title">Teachers Training (Online)</h4>
+<div class="academy-text">LNS+ Recorded workshops for educators</div>
+
+<div class="academy-bottom">
+<button class="academy-button" data-bs-toggle="modal" data-bs-target="#modalTrainingOnline">Sign Up</button>
+<div class="flip-container">
+<div class="flipper">
+<div class="front"> <img src="{{ '/assets/img/Green-animated-arrow.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;520 teachers trained</div>
+<div class="back"><img src="{{ '/assets/img/Red-animated-arrow-down.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;Grab todays offer!</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4 d-flex">
+<div class="academy-card w-100">
+<div class="academy-icon"><img src="{{ '/assets/img/online-learning.png' | url }}" alt="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp"></div>
+<h4 class="academy-title">Teachers Training (In-School)</h4>
+<div class="academy-text">On-ground training & mentoring</div>
+
+<div class="academy-bottom">
+<button class="academy-button" data-bs-toggle="modal" data-bs-target="#modalTrainingSchool">Talk to Expert</button>
+<div class="flip-container">
+<div class="flipper">
+<div class="front"><img src="{{ '/assets/img/Green-animated-arrow.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;5 sets purchased today</div>
+<div class="back"><img src="{{ '/assets/img/Red-animated-arrow-down.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;Today's deal: 10% off</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4 d-flex">
+<div class="academy-card w-100">
+<div class="academy-icon"><img src="{{ '/assets/img/computer.png' | url }}" alt="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp"></div>
+<h4 class="academy-title">Students Courses (Online)</h4>
+<div class="academy-text">English, STEM, Logic etc. (for grades 1–6)</div>
+
+<div class="academy-bottom">
+<button class="academy-button" data-bs-toggle="modal" data-bs-target="#modalStudentCourses">Talk to Expert</button>
+<div class="flip-container">
+<div class="flipper">
+<div class="front"><img src="{{ '/assets/img/Green-animated-arrow.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;5 sets purchased today</div>
+<div class="back"><img src="{{ '/assets/img/Red-animated-arrow-down.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;Today's deal: 10% off</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4 d-flex">
+<div class="academy-card w-100">
+<div class="academy-icon"><img src="{{ '/assets/img/strategy.png' | url }}" alt="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp"></div>
+<h4 class="academy-title">Strategies for Schools (Online)</h4>
+<div class="academy-text">Implementation support and strategic planning</div>
+
+<div class="academy-bottom">
+<button class="academy-button" data-bs-toggle="modal" data-bs-target="#modalStrategies">Enroll Now</button>
+<div class="flip-container">
+<div class="flipper">
+<div class="front"><img src="{{ '/assets/img/Green-animated-arrow.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;16 Stratigies in practice</div>
+<div class="back"><img src="{{ '/assets/img/Red-animated-arrow-down.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;Enroll your school today</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6 col-lg-4 d-flex">
+<div class="academy-card w-100">
+<div class="academy-icon"><img src="{{ '/assets/img/books.png' | url }}" alt="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp"></div>
+<h4 class="academy-title">Booksets for Purchase</h4>
+<div class="academy-text">Complete academic kits available for purchase</div>
+
+<div class="academy-bottom">
+<button class="academy-button" data-bs-toggle="modal" data-bs-target="#modalBooksets">Buy Now</button>
+<div class="flip-container">
+<div class="flipper">
+<div class="front"><img src="{{ '/assets/img/Green-animated-arrow.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;5 sets purchased today</div>
+<div class="back"><img src="{{ '/assets/img/Red-animated-arrow-down.gif' | url }}" alt="CTA Image" width="10" class="img-fluid">&nbsp;Today's deal: 10% off</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+</section>
+
+
+<section class="client-slider-section py-5 mt-4" style="background-color: #fffbfb;">
+<div class="container">
+
+<div class="row g-4">
+<div class="col-md-3 col-lg-3 my-auto">
+<div class="">
+<h3 class="fw-normal text-center py-4">Trusted by <br><span class="fw-bold"> News & Media</span></h3>
+</div>
+</div>
+<div class="col-md-8 col-lg-8 my-auto">
+
+<div class="swiper client-swiper">
+<div class="swiper-wrapper">     
+<div class="swiper-slide"><img src="{{ '/assets/img/1.png' | url }}" width="100" alt="Client 1" /></div>
+<div class="swiper-slide"><img src="{{ '/assets/img/2.png' | url }}" width="100" alt="Client 2" /></div>
+<div class="swiper-slide"><img src="{{ '/assets/img/3.png' | url }}" width="100" alt="Client 3" /></div>
+<div class="swiper-slide"><img src="{{ '/assets/img/4.png' | url }}" width="100" alt="Client 4" /></div>
+<div class="swiper-slide"><img src="{{ '/assets/img/5.png' | url }}" width="100" alt="Client 5" /></div>
+<div class="swiper-slide"><img src="{{ '/assets/img/6.png' | url }}" width="100" alt="Client 6" /></div>   
+<div class="swiper-slide"><img src="{{ '/assets/img/4.png' | url }}" width="100" alt="Client 4" /></div>
+<div class="swiper-slide"><img src="{{ '/assets/img/5.png' | url }}" width="100" alt="Client 5" /></div>		
+</div>
+</div> 
+</div>
+</div>
+</div>
+</section>
+<section class="impact-section">
+<div class="container">
+<div class="row justify-content-end my-auto">
+<div class="col-md-5 col-lg-4 mt-3">
+<div class="impact-box mt-5">
+<h2>The Hippocampus Academy Impact</h2>
+<ul>
+<li>✓ 100+ Schools Signed</li>
+<li>✓ 2000+ Teachers Trained</li>
+<li>✓ 5000+ Students Enrolled</li>
+<li>✓ 8000+ Books Sold</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="signup-section d-none">
+<div class="container">
+<h2 class="fw-normal text-center mb-5"><span class="fw-bold">Who Should Sign Up?</span></h2>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="schools-tab" data-bs-toggle="tab" data-bs-target="#schools" type="button" role="tab" aria-controls="schools" aria-selected="true">
+<span class="icon-box"><i class="bi bi-building"></i></span> Schools
+</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="students-tab" data-bs-toggle="tab" data-bs-target="#students" type="button" role="tab" aria-controls="students" aria-selected="false">
+<span class="icon-box"><i class="bi bi-mortarboard mx-auto"></i></span> Students
+</button>
+</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+<!-- Schools Tab -->
+<div class="tab-pane fade show active" id="schools" role="tabpanel" aria-labelledby="schools-tab">
+
+<div class="table-card">
+<h3 class="table-title">SCHOOLS</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Key Challenges</th>
+<th>Hippocampus Academy Solution</th>
+<th>Your Advantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Schools struggling with undertrained English teachers which then hinder students' grades and skill development.</td>
+<td>C-TIES Program<br><i style="color:red;font-size:20px;cursor:pointer;" class="bi bi-file-earmark-text-fill" data-bs-toggle="modal" data-bs-target="#pdfPromoModal"></i>
+</td>
+<td><ul style="line-height: 1.8;">
+<li><strong>Practical spoken English sessions</strong> focused on real school contexts.</li>
+<li><strong>Strategies</strong> to simplify subject explanations in English.</li>
+<li><strong>Tools and techniques</strong> for interactive classroom engagement.</li>
+<li><strong>Confidence-building activities</strong> through group discussions, role plays, and micro-teaching.</li>
+<li><strong>Exposure to best practices</strong> in pedagogy for English-medium instruction.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>2</td><td>Schools unable to address the unique learning needs and gaps of their educators thereby suffering with low academic results and reputation</td><td>CPD Course</td>
+<td><ul>
+<li>Addresses individual learning needs of teachers through customized modules</li>
+<li>Enhances teaching effectiveness and classroom engagement</li>
+<li>Boosts student academic performance across subjects</li>
+<li>Improves school reputation through consistent academic results</li>
+<li>Builds confidence and motivation among educators</li>
+<li>Reduces teacher turnover by supporting professional growth</li>
+<li>Keeps educators updated with modern teaching strategies</li>
+<li>Promotes a culture of continuous learning and excellence</li>
+</ul></td>
+</tr>
+
+</tbody>
+</table>
+<button class="signup-btn">SIGNUP NOW</button>
+</div>
+
+</div>
+
+<!-- Students Tab -->
+<div class="tab-pane fade" id="students" role="tabpanel" aria-labelledby="students-tab">
+<!-- Students Table -->
+<div class="table-card">
+<h3 class="table-title">STUDENTS</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Key Challenges</th>
+<th>Hippocampus Academy Solution</th>
+<th>Your Advantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Bright students underperforming in Grades 8–10 failing to secure 90% and above marks</td>
+<td>Sankalp-90<br><a href="https://www.youtube.com/watch?v=j3tXGcPXI_g&t=2s"><i style="color:red;font-size:20px;" class="bi bi-youtube"></i></a>
+</td><td><ul class="">
+<li>Sankalp90 is an exclusive program from Hippocampus School to help bright students 
+score 90% marks in Science and Math in their board examination. </li>
+<li>The program offers a refund guarantee to students if they fail to score 90% marks in their tenth board.</li>
+<li>The program is applicable for students of class 8<sup>th</sup> and 9<sup>th</sup></li>
+<li>The Sankalp90 program also lays a solid foundation for JEE and NEET examinations.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>2</td><td>Students struggling with Engish subject fearing overall reduction in their marks</td><td>English For G-10 Exams</td><td><ul>
+<li>Improves understanding of grammar, vocabulary, and comprehension skills</li>
+<li>Builds confidence in answering both objective and descriptive English questions</li>
+<li>Reduces fear and anxiety around the English exam</li>
+<li>Provides focused practice aligned with G-10 exam patterns</li>
+<li>Helps improve overall academic performance by strengthening the weakest subject</li>
+<li>Offers tips and techniques to write better answers and score higher</li>
+<li>Creates a supportive learning environment for consistent progress</li>
+<li>Directly contributes to higher aggregate marks in board exams</li>
+</ul>
+</td>
+</tr>
+
+</tbody>
+</table>
+<button class="signup-btn">SIGNUP NOW</button>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+<section class="cta-section py-0">
+<div class="container-fluid">
+<div class=" row align-items-center">    <!-- Left Image -->
+<div class="col-md-3 text-center">
+<img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="CTA Image" class="cta-image img-fluid1">
+</div>
+<!-- Right Text + Button -->
+<div class="col-md-6 cta-content text-center">
+<h2 class="text-white">Empowering Schools. Inspiring Students.</h2>
+<p>Unlock your institution's full potential with tailored educational solutions designed to elevate learning, enhance engagement, and drive student success.</p>
+<button class="cta-btn d-none">Book A Free Call →</button>
+</div>
+
+<div class="col-md-3 text-center">
+<img src="{{ '/assets/img/kkbc-2__1_-removebg-preview.png' | url }}" alt="CTA Image" class="cta-image img-fluid">
+</div>
+</div>
+</section>
+<section class="testimonial-section">
+<h2 class="text-white">What Parents Say</h2>
+<div class="container">
+<div class=" row align-items-center">
+<div class="col-12">
+<div class="swiper testimonialSwiper">
+<div class="swiper-wrapper">
+
+<!-- Slide 1 -->
+<div class="swiper-slide testimonial-card">
+<h5>Excellent program!</h5>
+<div class="stars">★★★★★</div>
+<p>My daughter loves Early Steps Academy.</p>
+<p>I see her confidence grow, not only in speaking and thinking, but also in everyday activities.</p>
+<p>An excellent program! Highly recommend to all parents.</p>
+<div class="reviewer">
+<img src="https://i.imgur.com/v8aQK9m.png" alt="Kerly">
+<div class="reviewer-info">
+<strong>Kerly</strong><br>
+<small>Mom, USA</small>
+</div>
+</div>
+</div>
+
+<!-- Slide 2 -->
+<div class="swiper-slide testimonial-card">
+<h5>Truly Transformative</h5>
+<div class="stars">★★★★★</div>
+<p>My son enjoys every class and has become more articulate and curious.</p>
+<p>The learning experience is fun, engaging, and truly world-class.</p>
+<div class="reviewer">
+<img src="https://i.pravatar.cc/100?img=5" alt="Liam’s Dad">
+<div class="reviewer-info">
+<strong>Mark Evans</strong><br>
+<small>Dad, UK</small>
+</div>
+</div>
+</div>
+
+<!-- Slide 3 -->
+<div class="swiper-slide testimonial-card">
+<h5>Great Support!</h5>
+<div class="stars">★★★★★</div>
+<p>The teachers are very supportive and responsive to our questions.</p>
+<p>We’ve seen a big change in our child’s speaking confidence and curiosity.</p>
+<div class="reviewer">
+<img src="https://i.pravatar.cc/100?img=12" alt="Sophie’s Mom">
+<div class="reviewer-info">
+<strong>Priya Nair</strong><br>
+<small>Mom, India</small>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Pagination -->
+<div class="swiper-pagination"></div>
+</div></div></div></div>
+</section>

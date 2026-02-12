@@ -1,0 +1,1826 @@
+---
+layout: layout.njk
+permalink: /about/
+title: About Us
+---
+
+{% set aboutPage = null %}
+{% for p in pages %}
+  {% if p.slug == "about-us" %}
+    {% set aboutPage = p %}
+  {% endif %}
+{% endfor %}
+{% set sections = aboutPage.sections %}
+{% set hero = sections | selectattr("__component", "equalto", "page-sections.hero") | first %}
+{% set aboutImpact = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.about-impact" %}
+    {% set aboutImpact = s %}
+  {% endif %}
+{% endfor %}
+
+{% set coreTenets = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.core-tenets" %}
+    {% set coreTenets = s %}
+  {% endif %}
+{% endfor %}
+
+{% set kbcApproach = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.kbc-approach" %}
+    {% set kbcApproach = s %}
+  {% endif %}
+{% endfor %}
+
+
+{% set kbcSlider = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.kbc-slider" %}
+    {% set kbcSlider = s %}
+  {% endif %}
+{% endfor %}
+
+
+{% set timeline = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.timeline" %}
+    {% set timeline = s %}
+  {% endif %}
+{% endfor %}
+
+
+{% set teamSection = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.team-section" %}
+    {% set teamSection = s %}
+  {% endif %}
+{% endfor %}
+
+
+<style>
+/* =====================================================
+   KBC SLIDER – FINAL, CLEAN, PRODUCTION CSS
+   Scoped. Stable. Balanced. Non-plain.
+   ===================================================== */
+
+:root {
+  --color-primary: #674ea7;
+  --color-secondary: #fcd84e;
+
+
+  --color-default: #1f1f1f;
+}
+
+/* ==============================
+   SECTION WRAPPER (SCOPED)
+   ============================== */
+.kbc-slider-section {
+  background: linear-gradient(180deg, #f7f5fb 0%, #ffffff 100%);
+  padding: 60px 20px;
+  border-radius: 32px;
+}
+
+/* Only affect grid inside this section */
+.kbc-slider-section > .row > .col-md-4 {
+  display: flex;
+}
+
+/* ==============================
+   SWIPER SAFETY
+   ============================== */
+.kbc-slider-section .swiper {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 28px;
+}
+
+.kbc-slider-section .swiper-slide {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==============================
+   CARD BASE (ALL TYPES)
+   ============================== */
+.kbc-slider-section .kbc-card,
+.kbc-slider-section .behavior-item,
+.kbc-slider-section .competency-card {
+  width: 100%;
+  min-height: 380px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfaff 100%);
+  border-radius: 20px;
+  padding: 48px 28px 60px;
+  text-align: center;
+  box-shadow: 0 14px 36px rgba(0,0,0,.08);
+  box-sizing: border-box;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* ==============================
+   ICON SYSTEM (UNIFIED)
+   ============================== */
+.kbc-slider-section .icon-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,var(--color-primary),#563d8a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.kbc-slider-section .icon-wrap i {
+  font-size: 36px;
+  color: #fff;
+}
+
+/* Soft glow behind icon */
+.kbc-slider-section .icon-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(103,78,167,0.25) 0%,
+    rgba(103,78,167,0.05) 45%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+/* ==============================
+   LETTER BADGE (K / B / C)
+   ============================== */
+.kbc-slider-section .kbc-letter-badge {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: var(--color-secondary);
+  color: var(--color-default);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==============================
+   TYPOGRAPHY (NORMALIZED)
+   ============================== */
+.kbc-slider-section h3 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.kbc-slider-section h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.kbc-slider-section p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #666;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* Divider */
+.kbc-slider-section .kbc-divider {
+  width: 48px;
+  height: 4px;
+  margin: 12px auto 18px;
+  border-radius: 4px;
+  background: linear-gradient(90deg,var(--color-primary),var(--color-secondary));
+}
+
+/* ==============================
+   SYSTEM ACCENT (ALL CARDS)
+   ============================== */
+.kbc-slider-section .kbc-card::after,
+.kbc-slider-section .behavior-item::after,
+.kbc-slider-section .competency-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  opacity: 0.9;
+}
+
+/* ==============================
+   PAGINATION
+   ============================== */
+.kbc-slider-section .swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+}
+.kbc-slider-section .swiper-pagination-bullet-active {
+  background: var(--color-primary);
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 767px) {
+  .kbc-slider-section {
+    padding: 40px 16px;
+  }
+
+  .kbc-slider-section .kbc-card,
+  .kbc-slider-section .behavior-item,
+  .kbc-slider-section .competency-card {
+    min-height: 340px;
+    padding: 36px 22px 50px;
+  }
+
+  .kbc-slider-section h3 {
+    font-size: 1.45rem;
+  }
+
+  .kbc-slider-section h4 {
+    font-size: 1.2rem;
+  }
+}
+
+
+.cid-uuQ7biPH1u {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 0;     /* responsive height, adjust as needed */   
+    padding: 60px 20px;
+    background-image: url('../assets/img/banner-2.jpg');
+  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Overlay */
+.cid-uuQ7biPH1u::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.cid-uuQ7biPH1u .container {
+    position: relative;
+    z-index: 2;
+}
+</style>
+ <!-- Hero Section -->
+  <section class="hero d-flex align-items-center">
+    <video autoplay muted loop playsinline>
+      <source src="{{ '/assets/img/hlc-video.mp4' | url }}" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="container text-center text-lg-start">
+      <div class="row justify-content-center align-items-center">
+    <div class="col-md-8 content-wrap text-center pt-3 my-auto">
+                <h2 class="display-4 fw-bold text-white pt-1 text-center">{{ hero.heading }}</h2>
+                <span style="
+  font-size: 3rem;
+    background: linear-gradient(90deg, #f04e43, #fcd84e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    text-shadow: 0 2px 6px rgb(255 255 255 / 3%);
+">
+  {{ hero.body }}
+</span>
+            </div>
+        <div class="col-lg-6 text-center mt-4 mt-lg-0 d-none">
+          <img src="{{ '/assets/img/kkbc-2__1_-removebg-preview.png' | url }}" class="img-fluid" alt="Student">
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down d-none"><a href="#about"><i class="bi bi-chevron-double-down"></i></a></div>
+  </section>
+
+
+<section data-bs-version="5.1" class="header4 d-none cid-uuQ7biPH1u" id="header4-8l">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 content-wrap pt-5 my-auto">
+                <h2 class="display-4 fw-bold text-white pt-5 text-center">About Us</h2>
+                <p class="lead text-white text-center">
+                    Our journey in delivering educational outcomes provides insights on how impact can be created in a commercial framework.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- About Us Section -->
+ <section class="about-section py-5 bg-light" id="about-us">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="text-center mb-5 d-none">
+      <h2 class="fw-bold display-6 ">About Hippocampus — We Build Thinkers </h2>
+      <p class="text-muted">Hippocampus was established in 2003 by professionals from the IT industry. Over the years, we have built a network of libraries, preschools and schools with one purpose — to transform the lives of children through quality education.</p> 
+
+    </div>
+
+    <div class="row align-items-center gy-5">
+      <!-- Image -->
+      <div class="col-lg-5 text-center">
+     <img src= "http://localhost:1337{{ aboutImpact.image.url }}" alt="Our Mission & Impact" class="img-fluid rounded-4 shadow-lg animate-fade-in">
+      </div>
+
+      <!-- Text -->
+      <div class="col-lg-7">
+	   <h3 class="fw-bold mb-3">{{ aboutImpact.beliefTitle }}</h3>
+        <p class="text-muted mb-4">
+        {% for block in aboutImpact.beliefText %}
+  {{ block.children[0].text }}
+{% endfor %}
+        </p>
+	  
+        <h3 class="fw-bold mb-3">{{ aboutImpact.missionTitle }}</h3>
+        <p class="text-muted mb-4">
+                {% for block in aboutImpact.missionText %}
+  {{ block.children[0].text }}
+{% endfor %}
+        </p>
+
+        <h3 class="fw-bold mb-3">{{ aboutImpact.visionTitle }}</h3>
+        <p class="text-muted mb-4">
+                        {% for block in aboutImpact.visionText %}
+  {{ block.children[0].text }}
+{% endfor %}
+        </p>
+
+        <h3 class="fw-bold mb-3">{{ aboutImpact.impactTitle }}</h3>
+        <p class="text-muted">
+                                {% for block in aboutImpact.impactText %}
+  {{ block.children[0].text }}
+{% endfor %}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section> 
+
+
+<style>
+.core-section {
+  background: #faf9ff;
+  padding: 60px 0;
+}
+
+.core-card {
+  border: none;
+  border-radius: 14px;
+  padding: 25px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+  height: 100%;
+}
+
+.core-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+.core-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.core-title {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--color-default);
+}
+.kbc-section {
+  padding: 80px 0;
+ /* background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);*/
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  line-height: 1.8;
+}
+</style>
+
+
+<section class="core-section">
+  <div class="container">
+  
+      <div class="title-wrapper mb-5 text-center">
+      <h3 class="fw-bold display-6">{{coreTenets.heading}}</h3>
+      <p class="text-muted">{{coreTenets.introText}}</p>
+    </div>
+
+    <div class="row g-4">
+
+    {# Loop through all 6 cards coming from Strapi #}
+{# coreTenets.coreTenetItem is the array from API #}
+
+
+{% for item in coreTenets.coreTenetItem %}
+  <div class="col-md-6 col-lg-4">
+    <div class="core-card">
+
+      <div class="core-icon">
+        <i class="bi {{ item.icon }}"></i>
+      </div>
+
+      <h5 class="core-title">{{ item.title }}</h5>
+
+      <p>{{ item.Description }}</p>
+
+    </div>
+  </div>
+{% endfor %}
+
+
+
+     <div class="col-md-6 d-none col-lg-4">
+        <div class="core-card">
+          <div class="core-icon"><i class="bi bi-people"></i></div>
+          <h5 class="core-title">Egalitarian</h5>
+          <p>Every learner matters. Every child deserves support, dignity and high-quality education.</p>
+        </div>
+      </div> 
+
+      <div class=" d-none col-md-6 col-lg-4">
+        <div class="core-card">
+          <div class="core-icon"><i class="bi bi-bar-chart-line"></i></div>
+          <h5 class="core-title">Data-Driven</h5>
+          <p>Insights and analytics inform instructional decisions, enabling personalised and effective learning experiences.</p>
+        </div>
+      </div>
+
+      <div class=" d-none col-md-6 col-lg-4">
+        <div class="core-card">
+          <div class="core-icon"><i class="bi bi-check2-circle"></i></div>
+          <h5 class="core-title">Execution Excellence</h5>
+          <p>We uphold the highest standards in delivering quality education and operations — every classroom, every day.</p>
+        </div>
+      </div>
+
+      <div class=" d-none col-md-6 col-lg-4">
+        <div class="core-card">
+          <div class="core-icon"><i class="bi bi-person-check"></i></div>
+          <h5 class="core-title">Empowered Educators</h5>
+          <p>We support teachers with training, resources and guidance so they can lead transformational learning journeys.</p>
+        </div>
+      </div>
+
+      <div class=" d-none col-md-6 col-lg-4">
+        <div class="core-card">
+          <div class="core-icon"><i class="bi bi-globe"></i></div>
+          <h5 class="core-title">Social Impact Focused</h5>
+          <p>We work to ensure children from modest backgrounds receive world-class learning opportunities equal to the privileged.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- KBC Approach Section -->
+    <section class="kbc-section">
+        <div class="container">
+            <!-- Header -->
+            <div class="row mb-3">
+                <div class="col-lg-8 mx-auto my-auto text-center">
+				
+                   <h2 class="section-title">{{ kbcApproach.heading }}</h2>
+                    <p class="section-subtitle">{{ kbcApproach.introText }}</p>
+                </div>
+				<div class="col-lg-4 mx-auto text-center">				
+                 <img 
+  src="http://localhost:1337{{ kbcApproach.image.url }}"
+  class="img-fluid w-50 animate__animated animate__delay-1s animate__fadeInUp"
+  style="-webkit-filter: drop-shadow(5px 5px 5px #222);filter: drop-shadow(5px 5px 5px #222);"
+>
+                </div>
+            </div></div>
+
+
+
+ <div class="container-fluid ">
+    <div class="kbc-slider-section">
+  <div class="row g-4">
+
+    <!-- ================= KNOWLEDGE ================= -->
+    <div class="col-md-4">
+      <div class="swiper knowledgeSwiper">
+        <div class="swiper-wrapper">
+
+{% if kbcSlider and kbcSlider.mainCards[0] %}
+  {% set card = kbcSlider.mainCards[0] %}
+  
+  <div class="swiper-slide">
+    <div class="kbc-card">
+
+      <div class="icon-wrap">
+        <i class="bi {{ card.icon }}"></i>
+      </div>
+
+      <div class="kbc-letter-badge">
+        {{ card.badgeLetter }}
+      </div>
+
+      <h3>{{ card.title }}</h3>
+
+      <div class="kbc-divider"></div>
+
+      <p>{{ card.description }}</p>
+
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+          <div class="swiper-slide d-none">
+            <div class="kbc-card">
+              <div class="icon-wrap">
+                <i class="bi bi-book-fill"></i>
+              </div>
+              <div class="kbc-letter-badge">K</div>
+              <h3>Knowledge</h3>
+              <div class="kbc-divider"></div>
+              <p>Building conceptual understanding and real-world awareness</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+
+
+    <!-- ================= BEHAVIOURS ================= -->
+    <div class="col-md-4 ">
+      <div class="swiper behaviourSwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Main Behaviour Card -->
+
+
+            {% if kbcSlider %}
+
+  {# ================= MAIN BEHAVIOUR CARD ================= #}
+  {% if kbcSlider.mainCards[1] %}
+    {% set main = kbcSlider.mainCards[1] %}
+    
+    <div class="swiper-slide">
+      <div class="kbc-card">
+
+        <div class="icon-wrap">
+          <i class="bi {{ main.icon }}"></i>
+        </div>
+
+        <div class="kbc-letter-badge">
+          {{ main.badgeLetter }}
+        </div>
+
+        <h3>{{ main.title }}</h3>
+
+        <div class="kbc-divider"></div>
+
+        <p>{{ main.description }}</p>
+
+      </div>
+    </div>
+
+  {% endif %}
+
+
+  {# ================= ALL BEHAVIOUR ITEMS ================= #}
+  {% for item in kbcSlider.behaviourItems %}
+    <div class="swiper-slide">
+      <div class="behavior-item">
+
+        <div class="icon-wrap">
+          <i class="bi {{ item.icon }}"></i>
+        </div>
+
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.description }}</p>
+
+      </div>
+    </div>
+  {% endfor %}
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+          <div class="swiper-slide d-none">
+            <div class="kbc-card">
+              <div class="icon-wrap">
+                <i class="bi bi-lightbulb-fill"></i>
+              </div>
+              <div class="kbc-letter-badge">B</div>
+              <h3>Behaviours</h3>
+              <div class="kbc-divider"></div>
+              <p>Developing the mindset and character needed for success</p>
+            </div>
+          </div>
+
+          <!-- ALL Behaviour Cards -->
+          <div class="swiper-slide d-none">
+            <div class="behavior-item">
+              <div class="icon-wrap"><i class="bi bi-palette"></i></div>
+              <h4>Creativity</h4>
+              <p>Solving problems with new ideas</p>
+            </div>
+          </div>
+
+        <div class="swiper-slide d-none">
+            <div class="behavior-item">
+              <div class="icon-wrap"><i class="bi bi-gear"></i></div>
+              <h4>Critical Thinking</h4>
+              <p>Evaluating information and forming independent conclusions</p>
+            </div>
+          </div>
+
+         <div class="swiper-slide d-none">
+            <div class="behavior-item">
+              <div class="icon-wrap"><i class="bi bi-people"></i></div>
+              <h4>Collaboration</h4>
+              <p>Listening, sharing and co-creating solutions</p>
+            </div>
+          </div>
+
+    <div class="swiper-slide d-none">
+            <div class="behavior-item">
+              <div class="icon-wrap"><i class="bi bi-chat-dots"></i></div>
+              <h4>Communication</h4>
+              <p>Expressing ideas clearly and confidently</p>
+            </div>
+          </div>
+
+         <div class="swiper-slide d-none">
+            <div class="behavior-item">
+              <div class="icon-wrap"><i class="bi bi-house-heart"></i></div>
+              <h4>Community Engagement</h4>
+              <p>Learning to contribute to society</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide d-none">
+            <div class="behavior-item">
+              <div class="icon-wrap"><i class="bi bi-globe"></i></div>
+              <h4>Cultural Appreciation</h4>
+              <p>Respecting diversity and broadening perspectives</p>
+            </div>
+          </div>
+
+         <div class="swiper-slide d-none">
+            <div class="behavior-item">
+              <div class="icon-wrap"><i class="bi bi-heart"></i></div>
+              <h4>Caring</h4>
+              <p>Developing empathy and compassion</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- ================= COMPETENCIES ================= -->
+    <div class="col-md-4">
+      <div class="swiper competencySwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Main Competency Card -->
+
+{% if kbcSlider %}
+
+  {# ================= MAIN COMPETENCY CARD ================= #}
+  {% if kbcSlider.mainCards[2] %}
+    {% set main = kbcSlider.mainCards[2] %}
+    
+    <div class="swiper-slide">
+      <div class="kbc-card">
+
+        <div class="icon-wrap">
+          <i class="bi {{ main.icon }}"></i>
+        </div>
+
+        <div class="kbc-letter-badge">
+          {{ main.badgeLetter }}
+        </div>
+
+        <h3>{{ main.title }}</h3>
+
+        <div class="kbc-divider"></div>
+
+        <p>{{ main.description }}</p>
+
+      </div>
+    </div>
+
+  {% endif %}
+
+  {# ================= ALL COMPETENCY ITEMS ================= #}
+  {% for item in kbcSlider.competencyItems %}
+    <div class="swiper-slide">
+      <div class="competency-card">
+
+        <div class="icon-wrap">
+          <i class="bi {{ item.icon }}"></i>
+        </div>
+
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.description }}</p>
+
+      </div>
+    </div>
+  {% endfor %}
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="swiper-slide d-none">
+            <div class="kbc-card">
+              <div class="icon-wrap">
+                <i class="bi bi-trophy-fill"></i>
+              </div>
+              <div class="kbc-letter-badge">C</div>
+              <h3>Competencies</h3>
+              <div class="kbc-divider"></div>
+              <p>Building the ability to apply thinking to life and work</p>
+            </div>
+          </div>
+
+          <!-- ALL Competency Cards -->
+             <div class="swiper-slide d-none">
+            <div class="competency-card">
+              <div class="icon-wrap"><i class="bi bi-search"></i></div>
+              <h4>Scientific Inquiry</h4>
+              <p>Exploring, observing and questioning the world</p>
+            </div>
+          </div>
+
+            <div class="swiper-slide d-none">
+            <div class="competency-card">
+              <div class="icon-wrap"><i class="bi bi-graph-up"></i></div>
+              <h4>Intellectual Rigour</h4>
+              <p>Embracing challenge and persisting until success</p>
+            </div>
+          </div>
+
+             <div class="swiper-slide d-none">
+            <div class="competency-card">
+              <div class="icon-wrap"><i class="bi bi-cpu"></i></div>
+              <h4>Digital Intelligence</h4>
+              <p>Using technology wisely and thinking critically online</p>
+            </div>
+          </div>
+
+            <div class="swiper-slide d-none">
+            <div class="competency-card">
+              <div class="icon-wrap"><i class="bi bi-person-check"></i></div>
+              <h4>Independent Learning</h4>
+              <p>Owning one's learning, motivation and growth</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+            <!-- Formula -->
+            <div class="row mb-5 d-none">
+                <div class="col-lg-12 mx-auto">
+                    <div class="formula-box">
+                        <p class="formula-text">When <strong>Knowledge + Behaviours + Competencies</strong> come together → children become <span class="highlight">THINKERS</span></p>
+                        <p class="formula-subtext">The KBC approach ensures that learning is not limited to textbooks or exams but deeply connected to real-life skills, values and application.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Behaviours Section -->
+            <div class="row mb-5 d-none">
+                <div class="col-lg-12 mx-auto">
+                    <div class="dimension-section">
+                        <h3 class="fw-bold display-6">Behaviours — The Mindset of a Thinker</h3>
+                        <p class="text-muted">Our classrooms help children learn how to respond, interact, collaborate and grow as individuals. These behaviours form the foundations of strong thinkers.</p>
+                        
+                        <div class="row g-3 mt-4">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="behavior-item">
+                                    <i class="bi bi-lightbulb-fill behavior-icon"></i>
+                                    <h4>Creativity</h4>
+                                    <p>Solving problems with new ideas</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="behavior-item">
+                                    <i class="bi bi-gear-fill behavior-icon"></i>
+                                    <h4>Critical Thinking</h4>
+                                    <p>Evaluating information and forming independent conclusions</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="behavior-item">
+                                    <i class="bi bi-people-fill behavior-icon"></i>
+                                    <h4>Collaboration</h4>
+                                    <p>Listening, sharing and co-creating solutions</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="behavior-item">
+                                    <i class="bi bi-chat-dots-fill behavior-icon"></i>
+                                    <h4>Communication</h4>
+                                    <p>Expressing ideas clearly and confidently</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="behavior-item">
+                                    <i class="bi bi-house-heart-fill behavior-icon"></i>
+                                    <h4>Community Engagement</h4>
+                                    <p>Learning to contribute to society</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="behavior-item">
+                                    <i class="bi bi-globe-americas behavior-icon"></i>
+                                    <h4>Cultural Appreciation</h4>
+                                    <p>Respecting diversity and broadening perspectives</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="behavior-item">
+                                    <i class="bi bi-heart-fill behavior-icon"></i>
+                                    <h4>Caring</h4>
+                                    <p>Developing empathy and compassion</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="dimension-conclusion">These behaviours turn learning into confidence, responsibility and character.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competencies Section -->
+            <div class="row mb-5 d-none">
+                <div class="col-lg-12 mx-auto">
+                    <div class="dimension-section">
+                        <h2 class="section-title">Competencies — The Ability to Think and Do</h2>
+                        <p class="muted">Competencies ensure that children learn to apply learning in real life.</p>
+                        
+                        <div class="row g-4 mt-4">
+                            <div class="col-md-6">
+                                <div class="competency-card">
+                                   <h4>Scientific Inquiry</h4>
+                                    <p>Exploring, observing and questioning the world</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="competency-card">
+                                   <h4>Intellectual Rigour</h4>
+                                    <p>Embracing challenge and persisting until success</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="competency-card">
+                                    <h4>Digital Intelligence</h4>
+                                    <p>Using technology wisely and thinking critically online</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="competency-card">
+                                    <h4>Independent Learning</h4>
+                                    <p>Owning one's learning, motivation and growth</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="dimension-conclusion">These prepare students for the jobs and challenges of the future — not just the next exam.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="row d-none">
+                <div class="col-lg-8 mx-auto">
+                    <div class="conclusion-box">
+                        <p class="conclusion-text">Hippocampus does not prepare children just for exams — we prepare them for <strong>life</strong> by building <span class="highlight">thinkers</span>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- CSS -->
+<style>
+  .about-section {
+    background: linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, #f7931e 0%, #00bfa6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about-section h3 {
+    color: #222;
+    position: relative;
+  }
+
+  .about-section h3::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #f7931e 0%, #00bfa6 100%);
+    margin-top: 6px;
+    border-radius: 2px;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .about-section p {
+    line-height: 1.7;
+  }
+</style>
+
+
+<section class="timeline-section bg-light py-5" id="timeline">
+  <div class="container">
+
+    <div class="title-wrapper mb-5 text-center">
+    <h3 class="fw-bold display-6">{{ timeline.heading }}</h3>
+      <p class="text-muted">{{ timeline.introtext }}</p>
+    </div>
+
+    
+
+
+<div class="timeline">
+
+{% if timeline and timeline.timelineItems %}
+  {% for item in timeline.timelineItems %}
+
+    {% set isEven = loop.index % 2 == 0 %}
+
+    <div class="timeline-item">
+
+      {% if isEven %}
+        <!-- Image Left -->
+        <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+         {% if item.image and item.image.url %}
+  <img src="http://localhost:1337{{ item.image.url }}" alt="{{ item.year }}" class="img-fluid rounded-4 shadow">
+{% endif %}
+        </div>
+      {% endif %}
+
+      <div class="timeline-content {% if isEven %}right{% else %}left{% endif %}" 
+     data-aos="fade-right" 
+     data-aos-delay="100">
+        <div class="timeline-text glass-card p-4">
+
+          <h5 class="fw-bold mb-2">
+            <i class="bi {{ item.icon }}"></i> {{ item.title }}
+          </h5>
+
+          <p>{{ item.description }}</p>
+
+          {% if item.buttonLink and item.buttonText %}
+            <a href="{{ item.buttonLink }}" 
+               class="btn btn-hippo display-7"
+               target="_blank"
+               style="border-radius: 25px;">
+              {{ item.buttonText }}
+              <i class="bi bi-arrow-right-circle-fill"></i>
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+
+      {% if not isEven %}
+        <!-- Image Right -->
+        <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="http://localhost:1337{{ item.image.url }}" alt="{{ item.year }}" class="img-fluid rounded-4 shadow">
+        </div>
+      {% endif %}
+
+      <div class="timeline-badge pulse" data-year="{{ item.year }}"></div>
+
+    </div>
+
+  {% endfor %}
+{% endif %}
+
+</div>
+
+
+
+
+
+      <!-- 2003 -->
+      <div class="timeline-item d-none">
+        <div class="timeline-content left" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-text glass-card p-4">
+            <h5 class="fw-bold mb-2"><i class="bi bi-book"></i> The Beginning</h5>
+            <p>Expansion into government and small private schools with the <strong>GROWBY Reading program</strong>, reaching children from Ladakh to Tiruvannamalai and has been adopted internationally.</p>
+          </div>
+        </div>
+        <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="https://hippocampus.in/assets/images/2003.webp" alt="2003" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="timeline-badge pulse" data-year="2003"></div>
+      </div>
+
+      <!-- 2007 -->
+      <div class="timeline-item d-none">
+        <div class="timeline-img" data-aos="fade-right" data-aos-delay="100">
+          <img src="https://hippocampus.in/assets/images/2007.webp" alt="2007" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="timeline-content right" data-aos="fade-left" data-aos-delay="200">
+          <div class="timeline-text glass-card p-4">
+            <h5 class="fw-bold mb-2"><i class="bi bi-globe"></i> Expanding Horizons</h5>
+            <p>Expansion into government and small private schools with the <strong>GROW BY Reading</strong> program, reaching children from <strong>Ladakh to Tiruvannamalai</strong>, later adopted internationally.</p>
+          </div>
+        </div>
+        <div class="timeline-badge pulse" data-year="2007"></div>
+      </div>
+
+      <!-- 2011 -->
+      <div class="timeline-item d-none">
+	   <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="https://hippocampus.in/assets/images/2011.webp" alt="2011" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="timeline-content right" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-text glass-card p-4">
+            <h5 class="fw-bold mb-2"><i class="bi bi-building"></i> Preschools in Rural Karnataka</h5>
+            <p>Hippocampus launched preschool centres in rural India and had 200+ centres operational by 2020.</p>
+          </div>
+        </div>
+       
+        <div class="timeline-badge pulse" data-year="2011"></div>
+      </div>
+
+      <!-- 2015 -->
+      <div class="timeline-item d-none">
+       
+        <div class="timeline-content right" data-aos="fade-left" data-aos-delay="200">
+          <div class="timeline-text glass-card p-4">
+            <h5 class="fw-bold mb-2"><i class="bi bi-mortarboard"></i> K–12 Schools</h5>
+            <p>Hippocampus started its first school in 2015 to deliver world class learning opportunities to students from modest backgrounds and from beyond big cities. Hippocampus operates 8 CBSE and 9 state board schools (17 schools) currently.</p>
+          </div>
+        </div>
+		 <div class="timeline-img" data-aos="fade-right" data-aos-delay="100">
+          <img src="https://hippocampus.in/assets/images/nsl-66e42816e6627.webp" alt="2015" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="timeline-badge pulse" data-year="2015"></div>
+      </div>
+
+      <!-- 2017 -->
+      <div class="timeline-item d-none">
+	   <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="https://hippocampus.in/hlcgrowth/assets/img/gal-1.jpg" alt="2017" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="timeline-content left" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-text glass-card p-4">
+            <h5 class="fw-bold mb-2"><i class="bi bi-shield-check"></i> Resilience & Innovation</h5>
+            <p>Commissioned international impact study on rural kindergarten education.</p>
+          </div>
+        </div>
+       
+        <div class="timeline-badge pulse" data-year="2017"></div>
+      </div>
+	  
+ <!-- 2020 -->
+      <div class="timeline-item d-none">
+        <div class="timeline-content left" data-aos="fade-right" data-aos-delay="100">
+          <div class="timeline-text glass-card p-4">
+            <h5 class="fw-bold mb-2"><i class="bi bi-shield-check"></i> Resilience & Innovation</h5>
+            <p>Hippocampus started its first school in 2015 to deliver world class learning opportunities to students from modest backgrounds and from beyond big cities. Hippocampus operates 8 CBSE and 9 state board schools (17 schools) currently.</p>
+          </div>
+        </div>
+        <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="https://hippocampus.in/assets/images/2020.webp" alt="2020" class="img-fluid rounded-4 shadow">
+        </div>
+        <div class="timeline-badge pulse" data-year="2020"></div>
+      </div>
+
+     <!-- 2022 -->
+<div class="timeline-item d-none">
+ 
+  <div class="timeline-content right" data-aos="fade-left" data-aos-delay="200">
+    <div class="timeline-text glass-card p-4">
+      <h5 class="fw-bold mb-2"><i class="bi bi-lightbulb"></i> KBC</h5>
+      <p>Hippocampus launched the new curriculum of building thinkers. When Knowledge + Behaviours + Competencies come together → children become THINKERS.</p>
+    </div>
+  </div>
+   <div class="timeline-img" data-aos="fade-right" data-aos-delay="100">
+    <img src="https://hippocampus.in/assets/images/2020.webp" alt="2022" class="img-fluid rounded-4 shadow">
+  </div>
+  <div class="timeline-badge pulse" data-year="2022"></div>
+</div>
+
+<!-- 2024 -->
+<div class="timeline-item d-none">
+ <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+    <img src="https://nsl.hippocampus.in/assets/images/nsl-27.webp" alt="2024" class="img-fluid rounded-4 shadow">
+  </div>
+  <div class="timeline-content left" data-aos="fade-right" data-aos-delay="100">
+    <div class="timeline-text glass-card p-4">
+      <h5 class="fw-bold mb-2"><i class="bi bi-robot"></i> Robotics, Programming & AI</h5>
+      <p>Introduced hands-on learning in robotics, programming and artificial intelligence to prepare children for a technology-driven world.</p>
+    </div>
+  </div>
+ 
+  <div class="timeline-badge pulse" data-year="2024"></div>
+</div>
+
+<!-- 2025 -->
+<div class="timeline-item d-none">
+  
+  <div class="timeline-content right" data-aos="fade-left" data-aos-delay="200">
+    <div class="timeline-text glass-card p-4">
+      <h5 class="fw-bold mb-2"><i class="bi bi-rocket-takeoff"></i> Sankalp90 Launch</h5>
+      <p>Launched Sankalp90 — Score 90%+ in Class 10 Math & Science - Guaranteed. Stronger English. Stronger fundamentals for IIT-JEE & NEET.</p>
+	  <a href="https://hippocampus.in/sankalp90/schools.php" class="btn btn-hippo display-7" target="_blank" style="border-radius: 25px;">Sankalp90 <i class="bi bi-arrow-right-circle-fill"></i></a>
+    </div>
+  </div>
+  <div class="timeline-img p-md-5 p-1" data-aos="fade-right" data-aos-delay="100">
+    <img src="https://hippocampus.in/sankalp90/assets/img/Sankalp90.png" alt="2025" class="img-fluid rounded-4 shadow">
+  </div>
+  <div class="timeline-badge pulse" data-year="2025"></div>
+</div>
+
+<!-- 2026 -->
+<div class="timeline-item d-none">
+ <div class="timeline-img" data-aos="fade-left" data-aos-delay="200">
+    <img src="https://nsl.hippocampus.in/assets/images/intel-nsl-677f713db22c0.webp" alt="2026" class="img-fluid rounded-4 shadow">
+  </div>
+  <div class="timeline-content left" data-aos="fade-right" data-aos-delay="100">
+    <div class="timeline-text glass-card p-4">
+      <h5 class="fw-bold mb-2"><i class="bi bi-mortarboard"></i> Plus 2 Programs + Finishing School</h5>
+      <p>Launching Plus-2 and Finishing School programmes focused on engineering skills, entrepreneurship, community building, career exploration, and the intelligent use of AI - preparing students to thrive in a rapidly evolving 2030-ready world.       
+      </p>
+    </div>
+  </div>
+ 
+  <div class="timeline-badge pulse" data-year="2026"></div>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- AOS Animations -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic' });</script>
+
+<!-- Bootstrap icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+/* Timeline Base */
+.timeline { position: relative; padding: 2rem 0; }
+.timeline::before {
+  content: "";
+  position: absolute; top: 0; bottom: 0;
+  left: 50%; width: 4px;
+  background: linear-gradient(180deg,#6d5dfc,#c77dff,#ff85a1);
+  background-size: 300% 300%;
+  animation: gradientFlow 6s ease infinite;
+  transform: translateX(-50%);
+  border-radius: 2px; z-index: 0;
+}
+
+/* Timeline Items */
+.timeline-item { position: relative; display: flex; flex-wrap: wrap; margin-bottom: 6rem; }
+.timeline-content, .timeline-img { width: 50%; padding: 1rem; z-index: 1; }
+* Modern Image Styling */
+.timeline-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+padding:1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.timeline-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(145deg, rgba(109,93,252,0.2), rgba(199,125,255,0.15));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+.timeline-img img {
+  width: 100%;
+  border-radius: inherit;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.95) contrast(1.05);
+}
+.timeline-img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+.timeline-img:hover::before { opacity: 1; }
+.timeline-img:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* Add glow ring animation (optional aesthetic touch) */
+.timeline-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(199,125,255,0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 2;
+}
+.timeline-img:hover::after { opacity: 0.8; }
+/* Badge */
+.timeline-badge {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#6d5dfc,#c77dff);
+  color: #fff; font-weight: bold; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 2;
+}
+.timeline-badge::before { content: attr(data-year); }
+
+/* Pulse Glow */
+.pulse { animation: pulseGlow 2.5s infinite; }
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(199,125,255,0.6); }
+  70% { box-shadow: 0 0 0 25px rgba(199,125,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(199,125,255,0); }
+}
+
+/* Cards */
+.timeline-text {
+  border-radius: 1rem;
+  line-height: 1.7;
+  font-size: 15px;
+}
+.glass-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,0.15); }
+.glass-card h5 { font-size: 1.2rem; color: #5c3f9e; }
+
+/* Alignment */
+.timeline-content.left { text-align: right; padding-right: 3rem; margin:auto 0; }
+.timeline-content.right { text-align: left; padding-left: 3rem; margin:auto 0; }
+
+/* Heading Gradient */
+.text-gradient {
+  background: linear-gradient(135deg,#6d5dfc,#c77dff,#ff85a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mobile */
+@media(max-width: 767px) {
+  .timeline::before { left: 20px; transform: none; }
+  .timeline-content, .timeline-img { width: 100%; text-align: left !important; padding: 1rem !important; }
+  .timeline-badge {
+    left: -5px; top: -20px; transform: none;
+    width: 65px; height: 65px; font-size: 15px;
+  }
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>
+
+
+
+
+<section data-bs-version="5.1" class="video5 cid-tLziB9VHrw bg-light d-none" id="video5-0">
+    
+
+    
+    
+    <div class="container">
+        <div class="title-wrapper mb-5">
+            <h3 class="fw-bold text-center">Welcome to Hippocampus<strong>:&nbsp; International Learning, Local Pricing → Update to KBC details</strong></h3>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-5 video-block">
+               <img src="https://hippocampus.in/assets/images/who-we.webp" alt="Who We Are" class="img-fluid rounded shadow">
+                
+            </div>
+            <div class="col-12 col-lg">
+                <div class="text-wrapper pt-sm-3">
+                    
+                    <p class="mbr-text mbr-fonts-style display-7 animate__animated animate__delay-1s animate__fadeInUp">At Hippocampus, we offer affordable international education with engaging, activity-based learning. Our trained teachers create dynamic classrooms, analyze student results, and promote diverse learning experiences. Special assemblies and tailored programs focus on behavior development and essential competencies. We empower students with responsibility, design thinking, and leadership skills.
+<br>
+<br>Our investments in Research and Development benefit our schools, while trustee support keeps fees affordable. Join us on an educational journey that inspires lifelong learning and equips students for their futures. Watch our video for a glimpse of the Hippocampus experience.<br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="team-section py-5" id="team">
+  <div class="container">
+
+    {% if teamSection %}
+      <div class="title-wrapper mb-5 text-center">
+        <h3 class="fw-bold">{{ teamSection.heading }}</h3>
+      </div>
+
+      <div class="row justify-content-center gy-5">
+
+        {% for member in teamSection.members %}
+          <div class="col-6 col-md-3 text-center">
+            <div class="team-member position-relative">
+
+              <div class="image-wrapper position-relative d-inline-block">
+
+                {% if member.image %}
+                  <img src="http://localhost:1337{{ member.image.url }}"
+                       class="rounded-circle team-img"
+                       alt="{{ member.name }}">
+                {% endif %}
+
+                {% if member.linkedin %}
+                  <a href="{{ member.linkedin }}"
+                     target="_blank"
+                     class="linkedin-icon">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                {% endif %}
+
+              </div>
+
+              <h5 class="fw-semibold mt-3 mb-1">
+                {{ member.name }}
+              </h5>
+
+              <p class="text-muted mb-0">
+                {{ member.designation }}
+              </p>
+
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="team-section py-5" id="team ">
+  <div class="container">
+    <div class="title-wrapper mb-5 text-center d-none">
+    <h3>{{ teamSection.heading }}</h3>
+    </div>
+
+    <div class="row justify-content-center gy-5">
+
+      <!-- Team Member -->
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/umesh-malhotra.webp" class="rounded-circle team-img" alt="Umesh Malhotra">
+            <a href="https://www.linkedin.com/in/umeshmalhotra/" target="_blank" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Umesh Malhotra</h5>
+          <p class="text-muted mb-0">Founder and CEO</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/mahendra.webp" class="rounded-circle team-img" alt="Mahendra">
+            <a href="https://www.linkedin.com/in/mahendralnu/" target="_blank" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Mahendra</h5>
+          <p class="text-muted mb-0">President</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/lalitha-reddy.webp" class="rounded-circle team-img" alt="Lalitha Reddy">
+            <a href="https://www.linkedin.com/in/lalitha-reddy-877b661b0/" target="_blank" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Lalitha Reddy</h5>
+          <p class="text-muted mb-0">Vice President</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/sesha-saynam.webp" class="rounded-circle team-img" alt="Sesha Sayanam">
+            <a href="#" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Sesha Sayanam</h5>
+          <p class="text-muted mb-0">HRF Trustee and Advisor</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/asad-umri.webp" class="rounded-circle team-img" alt="Asad Umri">
+            <a href="https://in.linkedin.com/in/umrirainmaker" target="_blank" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Asad Umri</h5>
+          <p class="text-muted mb-0">School Director</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/leena-pascal.webp" class="rounded-circle team-img" alt="Leena Pascal">
+            <a href="#" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Leena Pascal</h5>
+          <p class="text-muted mb-0">School Director</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/roopashree.webp" class="rounded-circle team-img" alt="Roopashree B C">
+            <a href="#" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Roopashree B C</h5>
+          <p class="text-muted mb-0">Sr. Consultant Academics</p>
+        </div>
+      </div>
+ <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+           <img src="{{ '/assets/img/pooja.png' | url }}" class="rounded-circle team-img" alt="Roopashree B C">
+            <a href="#" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Pooja R</h5>
+          <p class="text-muted mb-0">Sr. Consultant Academics</p>
+        </div>
+      </div>
+	  <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="{{ '/assets/img/Kalpana.png' | url }}" class="rounded-circle team-img" alt="Roopashree B C">
+            <a href="#" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Kalpana</h5>
+          <p class="text-muted mb-0">Sr. Consultant Academics</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 text-center d-none">
+        <div class="team-member position-relative">
+          <div class="image-wrapper position-relative d-inline-block">
+            <img src="https://hippocampus.in/assets/images/nived.webp" class="rounded-circle team-img" alt="Nived P">
+            <a href="#" class="linkedin-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+          <h5 class="fw-semibold mt-3 mb-1">Nived P</h5>
+          <p class="text-muted mb-0">Staff Member CEO's Office</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.team-section {
+  background: #fff;
+}
+
+.team-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #f4f4f4;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.linkedin-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: #5b47ff;
+  color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.linkedin-icon:hover {
+  background: #0a66c2;
+}
+</style>
+
+<!-- Our Investors Section -->
+<section class="investors-section py-5">
+  <div class="container">
+    <!-- Section Title -->
+    <div class="text-center mb-5">
+      <h3 class="fw-bold">Our Well-wishers Past & Present</h3>
+      <p class="text-muted mb-0">We’re backed by visionary organizations that believe in transforming education.</p>
+    </div>
+
+    <!-- Investors Grid -->
+    <div class="row g-4 justify-content-center">
+      <!-- Investor Card -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="investor-card">
+          <img src="https://hippocampus.in/assets/images/adb-64e888006d5c7.webp" alt="ADB" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="investor-card">
+          <img src="https://hippocampus.in/assets/images/asha-64e888007f412.webp" alt="Asha" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="investor-card">
+          <img src="https://hippocampus.in/assets/images/caspian-64e888019512e.webp" alt="Caspian" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="investor-card">
+          <img src="https://hippocampus.in/assets/images/khosla-64e888022e911.webp" alt="Khosla" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="investor-card">
+          <img src="https://hippocampus.in/assets/images/silicon-64e8880348f88.webp" alt="Silicon" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="investor-card">
+          <img src="https://hippocampus.in/assets/images/ubs-64e88803c5ad0.webp" alt="UBS" class="img-fluid">
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="investor-card">
+          <img src="https://hippocampus.in/assets/images/unitus-64e8880435672.webp" alt="Unitus" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="nudge">
+<div class="container">
+<div class="row justify-content-center">
+<h3 class="text-center text-white">Empower your school.. Find out more about Sankalp90 Program</h3>
+<div class="mbr-section-btn item-footer mt-2 pb-3 text-center"><a href="/hippocampus-main/our-schools/" class="btn btn-hippo display-7" target="_blank" style="border-radius: 25px;">Sankalp90 <i class="bi bi-arrow-right-circle-fill"></i></a></div>
+</div>
+</div>
+</section>
+<style>
+.nudge {
+    padding: 3rem 1rem;
+    background-color: var(--color-primary);
+}
+/* Section Background & Gradient Title */
+.investors-section {
+  background: linear-gradient(135deg, #f9fafc 0%, #ffffff 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #674ea7, #44ede8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Investor Card Styling */
+.investor-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.investor-card img {
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.investor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(103, 78, 167, 0.15);
+}
+
+.investor-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Responsive Tuning */
+@media (max-width: 576px) {
+  .investor-card {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  .investor-card img {
+    max-height: 60px;
+  }
+}
+</style>
+
+
