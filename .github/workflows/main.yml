@@ -1,0 +1,63 @@
+name: Build and Deploy Eleventy to cPanel
+
+on:
+  push:
+    branches:
+      - main
+      
+  repository_dispatch:
+    types: [strapi-content-change]
+    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'repository_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[deploy]'))
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Eleventy site
+        run: |
+          rm -rf _site
+          npx @11ty/eleventy --output=_site
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eleventy-build
+          path: _site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'repository_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[deploy]'))
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: eleventy-build
+          path: _site
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 142.93.214.65 >> ~/.ssh/known_hosts
+
+      - name: Test SSH connection
+        run: ssh -o StrictHostKeyChecking=no master_dgkexjvxex@142.93.214.65 "echo Connected!"
+
+      - name: Deploy via rsync
+        run: rsync -avz --delete _site/ master_dgkexjvxex@142.93.214.65:/home/master/applications/gnmarchvjx/public_html/eon-eleventy/
