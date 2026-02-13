@@ -57,6 +57,13 @@ title: About Us
   {% endif %}
 {% endfor %}
 
+{% set investorSection = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.investor-section" %}
+    {% set investorSection = s %}
+  {% endif %}
+{% endfor %}
+
 
 <style>
 /* =====================================================
@@ -1461,62 +1468,49 @@ padding:1.5rem;
 }
 </style>
 
+
 <!-- Our Investors Section -->
-<section class="investors-section py-5">
-  <div class="container">
-    <!-- Section Title -->
-    <div class="text-center mb-5">
-      <h3 class="fw-bold">Our Well-wishers Past & Present</h3>
-      <p class="text-muted mb-0">We’re backed by visionary organizations that believe in transforming education.</p>
+
+
+{% for section in pages[1].sections %}
+
+  {% if section.__component == "page-sections.investor-section" %}
+
+  <section class="investors-section py-5">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <h3 class="fw-bold">{{ section.heading }}</h3>
+        <p class="text-muted mb-0">{{ section.subheading }}</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        {% for investor in section.investors %}
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="investor-card">
+
+              {% if investor.image %}
+                <img
+                  src="http://localhost:1337{{ investor.image.url }}"
+                  alt="{{ investor.name }}"
+                  class="img-fluid">
+              {% endif %}
+
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+
     </div>
+  </section>
 
-    <!-- Investors Grid -->
-    <div class="row g-4 justify-content-center">
-      <!-- Investor Card -->
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="investor-card">
-          <img src="https://hippocampus.in/assets/images/adb-64e888006d5c7.webp" alt="ADB" class="img-fluid">
-        </div>
-      </div>
+  {% endif %}
 
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="investor-card">
-          <img src="https://hippocampus.in/assets/images/asha-64e888007f412.webp" alt="Asha" class="img-fluid">
-        </div>
-      </div>
+{% endfor %}
 
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="investor-card">
-          <img src="https://hippocampus.in/assets/images/caspian-64e888019512e.webp" alt="Caspian" class="img-fluid">
-        </div>
-      </div>
 
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="investor-card">
-          <img src="https://hippocampus.in/assets/images/khosla-64e888022e911.webp" alt="Khosla" class="img-fluid">
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="investor-card">
-          <img src="https://hippocampus.in/assets/images/silicon-64e8880348f88.webp" alt="Silicon" class="img-fluid">
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="investor-card">
-          <img src="https://hippocampus.in/assets/images/ubs-64e88803c5ad0.webp" alt="UBS" class="img-fluid">
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="investor-card">
-          <img src="https://hippocampus.in/assets/images/unitus-64e8880435672.webp" alt="Unitus" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="nudge">
 <div class="container">
 <div class="row justify-content-center">
@@ -1525,6 +1519,15 @@ padding:1.5rem;
 </div>
 </div>
 </section>
+
+
+
+
+
+
+
+
+
 <style>
 .nudge {
     padding: 3rem 1rem;

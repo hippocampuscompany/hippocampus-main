@@ -14,6 +14,41 @@ title: Hippocampus Learning Centres
 {% set sections = homePage.sections %}
 {% set hero = sections | selectattr("__component", "equalto", "page-sections.hero") | first %}
 
+
+
+{% set homeKbc = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.home-kbc" %}
+    {% set homeKbc = s %}
+  {% endif %}
+{% endfor %}
+
+
+
+{% set homeSlide = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.home-slide" %}
+    {% set homeSlide = s %}
+  {% endif %}
+{% endfor %}
+
+
+
+{% set schoolSlider = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.school-slider" %}
+    {% set schoolSlider = s %}
+  {% endif %}
+{% endfor %}
+
+
+{% set statsSection = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.stats-section" %}
+    {% set statsSection = s %}
+  {% endif %}
+{% endfor %}
+
 <style>
 
 .watch-video-btn {
@@ -255,9 +290,6 @@ p.lead{
         </div>
 
 
-
-
-
         <div class="col-lg-6 text-center mt-4 mt-lg-0 d-none">
           <img src="{{ '/assets/img/kkbc-2__1_-removebg-preview.png' | url }}" class="img-fluid" alt="Student">
         </div>
@@ -265,60 +297,71 @@ p.lead{
     </div>
     <div class="scroll-down d-none"><a href="#about"><i class="bi bi-chevron-double-down"></i></a></div>
   </section>
-  <div class="container" style="background-color:#fadb55; padding:20px 25px; border-radius:25px;margin-top:-35px;position:relative;z-index:9">
- 
+
+
+
+
+
+<!-- HOME KBC -->
+
+{% if homeKbc %}
+<div class="container" style="background-color:#fadb55; padding:20px 25px; border-radius:25px;margin-top:-35px;position:relative;z-index:9">
+
 <div class="row align-items-center">
-      
+
   <div class="col-lg-8 desc">
-  <h4 class="text-dark fw-bold animate__animated animate__delay-1s animate__fadeInUp">The Secret Sauce - Our integrated Knowledge- Behaviour – Competencies approach</h4>
-  
-  <h5 class="italic fw-bold animate__animated animate__delay-1s animate__fadeInUp d-none">Knowledge alone builds memory, but not mastery.</h5>
-  
-  <p class="lead animate__animated animate__delay-1s animate__fadeInUp">
-    To get ready for the 21st century, students must learn not only what to learn, 
-    but how to think, work, and succeed in life.
-  </p>
 
-  <p class="animate__animated animate__delay-1s animate__fadeInUp">
-    Hippocampus develops children across three key dimensions:
-  </p>
+    <h4 class="text-dark fw-bold">{{ homeKbc.heading }}</h4>
 
-<ul class="kbc-list">
-  <li class="kbc-item animate__animated animate__delay-1s animate__fadeInUp">
-    <div class="kbc-circle">K</div>
-    <p class="animate__animated animate__delay-1s animate__fadeInUp"><strong>Knowledge</strong>: Building conceptual understanding and real-world awareness</p>
-  </li>
-  <li class="kbc-item animate__animated animate__delay-1s animate__fadeInUp">
-    <div class="kbc-circle">B</div>
-    <p class="animate__animated animate__delay-1s animate__fadeInUp"><strong>Behaviours</strong>: Developing the mindset and character needed for success</p>
-  </li>
-  <li class="kbc-item animate__animated animate__delay-1s animate__fadeInUp">
-    <div class="kbc-circle">C</div>
-    <p class="animate__animated animate__delay-1s animate__fadeInUp"><strong>Competencies</strong>: Building the ability to apply thinking to life and work</p>
-  </li>
-</ul>
+    <p class="lead">{{ homeKbc.introText }}</p>
 
+    <p>{{ homeKbc.description }}</p>
 
+    <ul class="kbc-list">
+      <li class="kbc-item">
+        <div class="kbc-circle">K</div>
+        <p><strong>Knowledge</strong>: {{ homeKbc.knowledge }}</p>
+      </li>
 
-<p class="formula-text animate__animated animate__delay-1s animate__fadeInUp">When <strong>Knowledge + Behaviours + Competencies</strong> come together → children become <span class="highlight text-white">THINKERS</span></p>
-  <p class="animate__animated animate__delay-1s animate__fadeInUp">
-   The KBC approach ensures that learning goes beyond textbooks and exams and is deeply connected to real-life skills, values, and application.
-  </p>
+      <li class="kbc-item">
+        <div class="kbc-circle">B</div>
+        <p><strong>Behaviours</strong>: {{ homeKbc.behaviour }}</p>
+      </li>
+
+      <li class="kbc-item">
+        <div class="kbc-circle">C</div>
+        <p><strong>Competencies</strong>: {{ homeKbc.competency }}</p>
+      </li>
+    </ul>
+
+<p class="formula-text">
+  {{ homeKbc.formula }}
+  <span class="highlight text-white">THINKERS</span>
+</p>
+    <p>{{ homeKbc.footer }}</p>
+
+  </div>
+
+  <div class="col-md-4 mx-auto">
+    {% if homeKbc.image %}
+      <img
+        src="http://localhost:1337{{ homeKbc.image.url }}"
+        class="img-fluid w-75 mx-auto d-block"
+        alt="KBC">
+    {% endif %}
+  </div>
+
 </div>
+</div>
+{% endif %}
 
-      <div class="col-md-4 mx-auto">  
-<img 
-  src="{{ '/assets/img/kbc.png' | url }}" 
-  class="img-fluid w-75 w-md-50 mx-auto d-block animate__animated animate__delay-1s animate__fadeInUp"
-  style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);"
-  alt="Student"
->
-
-  </div></div></div>
-  
+  <!-- HOME KBC  END-->
   
   	  
-  
+
+
+
+   <!-- HOME-SLIDE-START -->
   <section data-bs-version="5.1" class="header3 cid-tXP4EevnkG" id="video5-0">
   <div class="container">
    
@@ -326,17 +369,18 @@ p.lead{
 
       <!-- LEFT IMAGE -->
       <div class="col-12 col-lg-6 video-block">
-        <div class="video-wrapper"><iframe
-  width="100%"
-  height="315"
-  src="https://www.youtube.com/embed/ZmDQ84ilWws&autoplay=1"
-  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/ZmDQ84ilWws?autoplay=1><img src=https://img.youtube.com/vi/ZmDQ84ilWws/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
-'><span>▶</span></a>"
-  frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
-></iframe></div>
+        <div class="video-wrapper">
+  {% if homeSlide and homeSlide.videoUrl %}
+    <iframe
+      width="100%"
+      height="315"
+      src="{{ homeSlide.videoUrl }}?autoplay=1"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  {% endif %}
+</div>
       </div>
 
       <!-- RIGHT SLIDER -->
@@ -344,88 +388,26 @@ p.lead{
         <div class="swiper mySwiper1">
 
           <div class="swiper-wrapper">
+  {% if homeSlide and homeSlide.slides %}
+    {% for slide in homeSlide.slides %}
+      <div class="swiper-slide">
 
-            <!-- 1 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Most classrooms ask children to imagine science. We let them do experiments.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
+        {% if slide.image %}
+          <img
+            src="http://localhost:1337{{ slide.image.url }}"
+            class="icon"
+            alt="{{ slide.title }}">
+        {% endif %}
 
-            <!-- 2 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Learning becomes meaningful when children touch, test, measure and see results for themselves.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
+        <div class="card-text">
+          {{ slide.discription }}
+          <span class="highlight">{{ slide.title }}</span>
+        </div>
 
-            <!-- 3 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Most schools limit reading to textbooks. We build reading comprehension and imagination.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Reading becomes a thinking habit — children infer, visualise, question and imagine beyond the page.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Most schools teach to use computers. We teach students to create using computers.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-            <!-- 6 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">We teach programming, website building, and early machine learning concepts.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-            <!-- 7 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Most clubs keep children busy. Our clubs build innovation and scientific mindset.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-            <!-- 8 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Our student councils create real change — manifestos, agendas, decision making.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-            <!-- 9 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Others push answers. We push students to think deeply — real rigor.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-            <!-- 10 -->
-            <div class="swiper-slide">
-              <img src="{{ '/assets/img/lightbulb.png' | url }}" class="icon">
-              <div class="card-text">Our assemblies build behaviour, values and mindset — not just activity time.
-                <span class="highlight">We build thinkers.</span>
-              </div>
-            </div>
-
-          </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
 
           <!-- Navigation -->
           <div class="swiper-button-prev"></div>
@@ -437,6 +419,12 @@ p.lead{
     </div>
   </div>
 </section>
+
+  <!-- HOME-SLIDE-END -->
+
+
+
+
 
   
 <section class="feature-slider py-5 d-none">
@@ -599,8 +587,8 @@ p.lead{
   filter: invert(1);
   z-index: 10;
 }
-
 </style>
+
 <h4 class="pt-3">Building Thinkers, Preparing students for the future</h4>
 <div class="justify-content-center text-md-start text-center">
 <!-- Watch Our Video Button -->
@@ -983,545 +971,140 @@ academy-section.item-wrapper .item-content {
 .academy-section .item-subtitle {
   text-align: left;
 }        </style>
+
+
+
+
+
+<!--academy-section-start-->
+
 <section class="academy-section">
   <div class="container">  
 
     <div class="row g-4 justify-content-center">
       <!-- Left Side Swiper -->
 	   <div class="col-md-6 my-auto  text-center">
-	  <h2 class="fw-normal text-center text-white">Get your child admitted in a<h2><h1 class="fw-bold text-center mb-5 text-white">Hippocampus School</span></h1>
+	  <h2 class="fw-normal text-center text-white">
+  {{ schoolSlider.heading }}
+</h2>
 	  
-	    <div class="mbr-section-btn item-footer mt-2 pb-3"><a href="{{ '/our-schools/' | url }}" class="btn btn-hippo display-7" target="_blank" style="border-radius: 25px;">Explore Our Schools</a></div>
- <div class="mbr-section-btn item-footer mt-2 d-none"><a href="#" class="btn btn-hippo display-7" target="_blank" style="border-radius: 25px;">Explore State Schools</a></div>
+	    <div class="mbr-section-btn item-footer mt-2 pb-3">
+  <a href="{{ schoolSlider.buttonLink | url }}"
+     class="btn btn-hippo display-7"
+     style="border-radius:25px;">
+     {{ schoolSlider.buttonText }}
+  </a>
+</div>
 	  </div>
       <div class="col-md-6">
     <div class="swiper featureSwiper">
-      <div class="swiper-wrapper">
-<!-- Card 1 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/school-1-6517bea0b45ee.webp" class="img-fluid" alt="hippocampus-school">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>HIPPOCAMPUS SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (CBSE)</span>
-        </h5>
-        <p class="text-dark">
-          Rangapur Village, J P Dargah Road, Rangareddy (D), Telangana – 509288
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Card 2 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/nsl-66e42816e6627.webp" class="img-fluid" alt="natco">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>NATCO SCHOOL OF LEARNING</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (CBSE)</span>
-        </h5>
-        <p class="text-dark">
-          Gollamudipadu Village, Ponnur Mandal, Guntur (D), Andhra Pradesh – 522212
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+    <div class="swiper-wrapper">
+{% if schoolSlider and schoolSlider.schools %}
+  {% for school in schoolSlider.schools %}
 
-<!-- Card 3 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/malnad.webp" class="img-fluid" alt="malnad">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>MALNAD INTERNATIONAL HIPPOCAMPUS SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (CBSE)</span>
-        </h5>
-        <p class="text-dark">
-          MG Road, Vidya Nagar, Hassan – 573202
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+  {% set img = school.image.url
+      or (school.image.data and school.image.data.url) %}
 
-<!-- Card 4 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/school122-6517bead21abf.webp" class="img-fluid" alt="ssps">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>SRI SIDDHAROODH PUBLIC SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (CBSE)</span>
-        </h5>
-        <p class="text-dark">
-          Gumpa, Bidar – 585403
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+  <div class="swiper-slide">
+    <div class="item features-image">
+      <div class="item-wrapper">
 
-<!-- Card 5 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/mps.webp" class="img-fluid" alt="millennium">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>MILLENNIUM HIPPOCAMPUS SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (CBSE)</span>
-        </h5>
-        <p class="text-dark">
-          NH 63, Gadag Road, Koppal – 583231
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 6 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/school-15-6517beb0338b3.webp" class="img-fluid" alt="vidyakula">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>VIDYAKULA HIPPOCAMPUS SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (CBSE)</span>
-        </h5>
-        <p class="text-dark">
-          Nagamangala (T), Mandya (D) – 571418
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 7 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/malenadu.webp" class="img-fluid" alt="malenadu">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>MALENADU FUTURE SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Arkalgud Taluk, Hassan District
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 8 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/school-6-6517bea5e5a05.webp" class="img-fluid" alt="vidyavaibhav">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>VIDYA VAIBHAV HIPPOCAMPUS PUBLIC SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Mathikere, Bangalore – 560054
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 9 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/rayen-66e4281a55ae2.webp" class="img-fluid" alt="rayen">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>RAYEN HIPPOCAMPUS VIDYA MANDIRA SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Begur Road, Bangalore – 560068
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 10 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/netaji.webp" class="img-fluid" alt="netaji">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>NETAJI HIPPOCAMPUS ENGLISH MEDIUM SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Bhagya Nagar Colony, Gokak – 591307
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 11 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/splis-66e4281ae0dc0.webp" class="img-fluid" alt="splis">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>SHRI PRABHULINGESHWAR INTERNATIONAL SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Chimmad, Rabakavi-Banahatti – 587312
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 12 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/school-7-6517bea824b49.webp" class="img-fluid" alt="ssvm">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>SSVM HIPPOCAMPUS ENGLISH MEDIUM SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Kanakapura (T), Ramanagara (D)
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 13 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/school9-6517beaa76313.webp" class="img-fluid" alt="darure">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>DB DARURE HIPPOCAMPUS ENGLISH MEDIUM SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Kudachi, Belgaum – 591311
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 14 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/jnanasagara-66e42816c67e2.webp" class="img-fluid" alt="jnanasagara">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>JNANASAGARA PUBLIC SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Ikkeri Road, Sagar – 577401
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Card 15 -->
-<div class="swiper-slide">
-  <div class="item features-image">
-    <div class="item-wrapper">
-      <div class="item-img">
-        <img src="https://hippocampus.in/assets/images/dms.webp" class="img-fluid" alt="dms">
-      </div>
-      <div class="item-content p-3 text-center">
-        <h5 class="item-title display-7">
-          <strong>DMS JNANA KUTEERA HIPPOCAMPUS SCHOOL</strong>
-          <span class="fw-bold display-7" style="color:#ed4b41;"> (STATE)</span>
-        </h5>
-        <p class="text-dark">
-          Pandavapura Taluk, Mandya – 571455
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-       
-
-      </div>
-
-   <!-- Wrapper for arrows + pagination -->
-  <div class="custom-controls d-none">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>
-  </div>
-   <!-- Right Side Text -->
-            <div class="col-md-6 d-none">
-    <div class="swiper featureSwiper school-challenges">
-      <div class="swiper-wrapper">
-
-        <!-- Card 1 -->
-        <div class="swiper-slide">
-        <div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
-
-	<div class="icon-box mb-3 icon-purple teacherdevefficiencyicon">
-		<a href="{{ 'about/' | url }}" target="_blank" class="inline-block">
-			<i class="bi bi-person-badge icon-purple" style="font-size: 2rem;"></i>
-		</a>
-	</div>
-
-<h5 class="card-title fw-bold pb-3">Teacher Development & Efficiency</h5>
-<p class="text-muted"><strong>Solution:</strong> Regular training & certification, lesson planning support, peer-learning forums, efficiency dashboards</p>
-<hr style="color:000">
-<p class="outcome"><i class="bi bi-stars blink"></i>
-<strong>Outcome:</strong> Better teacher performance, consistent pedagogy, improved classroom delivery
-</p>
-</div>
+        <div class="item-img">
+          {% if img %}
+          <img src="http://localhost:1337{{ img }}"
+               class="img-fluid"
+               alt="{{ school.name }}">
+          {% endif %}
         </div>
 
-        <!-- Card 2 -->
-        <div class="swiper-slide">
-      <div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
-<div class="icon-box mb-3 icon-purple">
-<i class="bi bi-graph-up-arrow icon-purple" style="font-size: 2rem;"></i>
-</div>
-<h5 class="card-title fw-bold pb-3">Student Learning Outcomes</h5>
-<p class="text-muted"><strong>Solution:</strong> Customized learning pathways, diagnostic & benchmark tests, remedial programs, 21st-century curriculum integration</p>
-<hr style="color:000">
-<p class="outcome"><i class="bi bi-stars blink"></i>
-<strong>Outcome:</strong> Higher student engagement, improved foundational skills, measurable academic progress
-</p>
-</div>
+        <div class="item-content p-3 text-center">
+          <h5 class="item-title display-7">
+            <strong>{{ school.name }}</strong>
+            <span class="fw-bold display-7" style="color:#ed4b41;">
+              {{ school.board }}
+            </span>
+          </h5>
+
+          <p class="text-dark">
+            {{ school.address }}
+          </p>
         </div>
 
-        <!-- Card 3 -->
-        <div class="swiper-slide">
-        <div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
-<div class="icon-box mb-3 icon-purple icon-purple">
-<a href="{{ '/academic-excellence-results/' | url }}" target="_blank" class="inline-block">
-<i class="bi bi-award" style="font-size: 2rem;"></i>
-</a>
-</div>
-<h5 class="card-title fw-bold pb-3">Academic Excellence & Results</h5>
-<p class="text-muted"><strong>Solution:</strong> Outcome-based programs (e.g., Sankalp90), continuous assessment framework, structured improvement modules</p>
-<hr style="color:000">
-<p class="outcome"><i class="bi bi-stars blink"></i>
-<strong>Outcome:</strong> Improved board exam results, sustained academic growth, school reputation uplift
-</p>
-</div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="swiper-slide">
-<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
-<div class="icon-box mb-3 icon-purple">
-<i class="bi bi-laptop icon-purple" style="font-size: 2rem;"></i>
-</div>
-<h5 class="card-title fw-bold pb-3">Digital & Innovative Pedagogy</h5>
-<p class="text-muted"><strong>Solution:</strong> Blended learning solutions, digital lesson libraries, multimedia classroom aids, AI-powered analytics, modernized teaching methods</p>
-<hr style="color:000">
-<p class="outcome"><i class="bi bi-stars blink"></i>
-<strong>Outcome:</strong> Higher student engagement, improved foundational skills, measurable academic progress
-</p>
-</div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="swiper-slide">
-             
-    <div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
-<div class="icon-box mb-3 icon-purple">
-<i class="bi bi-building icon-purple" style="font-size: 2rem;"></i>
-</div>
-<h5 class="card-title fw-bold pb-3">Whole-School Improvement</h5>
-<p class="text-muted"><strong>Solution:</strong> Academic audits, customized 1–3 year improvement roadmaps, parent engagement models, brand positioning support</p>
-<hr style="color:000">
-<p class="outcome"><i class="bi bi-stars blink"></i>
-<strong>Outcome:</strong> Systematic school transformation, stronger parent trust, improved enrollments & retention
-</p>
-</div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="swiper-slide">
-<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
-<div class="icon-box mb-3 icon-purple">
-<a href="{{ '/segment-specific-focus-(6–10)/' | url }}" target="_blank" class="inline-block">
-<i class="bi bi-lightbulb icon-purple" style="font-size: 2rem;"></i>
-</a>
-</div>
-<h5 class="card-title fw-bold pb-3">Segment-Specific Focus (6–10)</h5>
-<p class="text-muted"><strong>Solution:</strong> Subject mastery programs, exam-readiness, higher-order thinking skill development</p>
-<hr style="color:000">
-<p class="outcome"><i class="bi bi-stars blink"></i>
-<strong>Outcome:</strong> Stronger board exam outcomes, competitive edge, better higher-education readiness
-</p>
-</div>
-        </div>
-
-        <!-- Card 7 -->
-        <div class="swiper-slide">
-<div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
-<div class="icon-box mb-3 icon-purple">
-<a href="{{ '/segment-specific-focus-(KG–5)/' | url }}" target="_blank" class="inline-block">
-<i class="bi bi-book icon-purple" style="font-size: 2rem;"></i>
-</a>
-</div>
-<h5 class="card-title fw-bold pb-3">Segment-Specific Focus (KG–5)</h5>
-<p class="text-muted"><strong>Solution:</strong> Literacy & numeracy programs, phonics, storytelling, foundational skill-building</p>
-<hr style="color:000">
-<p class="outcome"><i class="bi bi-stars blink"></i>
-<strong>Outcome:</strong> Strong early learning base, confident young learners, reduced dropouts
-</p>
-</div>
-        </div>
-      
-
-      </div>
-
-   <!-- Wrapper for arrows + pagination -->
-  <div class="custom-controls d-none">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
       </div>
     </div>
   </div>
-   <div class="col-md-6  d-none my-auto text-center">
-	  <h2 class="fw-normal text-center text-white">Train your teachers tith<h2><h1 class="fw-bold text-center mb-5 text-white">Hippocampus Academy</span></h1>
-	   <div class="mbr-section-btn item-footer mt-2"><a href="https://hippocampus.in/hippocampus-academy/" class="btn btn-hippo display-7" target="_blank" style="border-radius: 25px;">Explore Academy &gt;</a></div>
-	  </div>
-  </div></div>
+
+  {% endfor %}
+{% endif %}
+</div>
+
+ 
+    </div>
+  </div>
+
+
+
+</div></div>
 </section>
 
+<!--academy-section-end -->
 
 
 
 
-<!-- ====== School Stats Section ====== -->
+<!-- ======  Stats Section ====== -->
+
+
+{% if statsSection %}
 <section class="school-stats-section py-5" style="background-color:#e3696121">
   <div class="container-fluid">
+
     <!-- Heading -->
     <div class="text-center mb-5">
-      <h6 class="text-danger fw-bold">Numbers That Speak</h6>
-      <h2 class="fw-bold">Proven Excellence.<br>Unmatched Growth.</h2>
-      <p class="text-muted">Our schools are shaping future leaders with quality education and dedicated teaching.</p>
+      <h6 class="text-danger fw-bold">{{ statsSection.smallHeading }}</h6>
+      <h2 class="fw-bold">{{ statsSection.heading }}</h2>
+      <p class="text-muted">{{ statsSection.description }}</p>
     </div>
 
     <div class="row g-4 justify-content-center">
-      <!-- CBSE Schools -->
-      <div class="col-md-2">
-        <div class="school-stats-card p-4 bg-white shadow-sm rounded h-100 text-center">
-<div class="img-wrapper">
-						<img src="{{ '/assets/img/cbse.png' | url }}" alt="" data-slide-to="0" data-bs-slide-to="0" class="img-fluid w-50 animate__animated animate__delay-1s animate__fadeInUp">
-					</div>
-          <h2 class="fw-bold text-danger">7</h2>
-          <p class="mb-0">CBSE Schools</p>
-        </div>
-      </div>
 
-      <!-- State Board Schools -->
-      <div class="col-md-2">
-        <div class="school-stats-card p-4 bg-white shadow-sm rounded h-100 text-center">
-<div class="img-wrapper">
-						<img src="{{ '/assets/img/state.png' | url }}" alt="" data-slide-to="2" data-bs-slide-to="0" class="img-fluid w-50 animate__animated animate__delay-1s animate__fadeInUp">
-					</div>
-          <h2 class="fw-bold text-danger">10</h2>
-          <p class="mb-0">State Board Schools</p>
-        </div>
-      </div>
+      {% for item in statsSection.stats %}
 
-      <!-- Pre-Schools -->
-      <div class="col-md-2">
-        <div class="school-stats-card p-4 bg-white shadow-sm rounded h-100 text-center">
-<div class="img-wrapper">
-						<img src="{{ '/assets/img/kg-icon.png' | url }}" alt="" data-slide-to="3" data-bs-slide-to="3" class="img-fluid w-50 animate__animated animate__delay-1s animate__fadeInUp">
-					</div>
-          <h2 class="fw-bold text-danger">55</h2>
-          <p class="mb-0">Pre-Schools</p>
-        </div>
-      </div>
+        {% set icon = item.icon.url or (item.icon.data and item.icon.data.url) %}
 
-      <!-- Students -->
-      <div class="col-md-2">
-        <div class="school-stats-card p-4 bg-white shadow-sm rounded h-100 text-center">
-<div class="img-wrapper">
-						<img src="{{ '/assets/img/icon222.png' | url }}" alt="Mobirise Website Builder" data-slide-to="4" data-bs-slide-to="4" class="img-fluid w-50 animate__animated animate__delay-1s animate__fadeInUp">
-					</div>
-          <h2 class="fw-bold text-danger">9000+</h2>
-          <p class="mb-0">Students</p>
-        </div>
-      </div>
+        <div class="col-md-2">
+          <div class="school-stats-card p-4 bg-white shadow-sm rounded h-100 text-center">
 
-      <!-- Teachers -->
-      <div class="col-md-2">
-        <div class="school-stats-card p-4 bg-white shadow-sm rounded h-100 text-center">
-<div class="img-wrapper">
-						<img src="{{ '/assets/img/icon-13.png' | url }}" alt="" data-slide-to="5" data-bs-slide-to="5" class="img-fluid w-50 animate__animated animate__delay-1s animate__fadeInUp">
-					</div>
-          <h2 class="fw-bold text-danger">700</h2>
-          <p class="mb-0">Teachers</p>
+            {% if icon %}
+            <div class="img-wrapper">
+              <img src="http://localhost:1337{{ icon }}" class="img-fluid w-50">
+            </div>
+            {% endif %}
+
+            <h2 class="fw-bold text-danger">{{ item.value }}</h2>
+            <p class="mb-0">{{ item.title }}</p>
+
+          </div>
         </div>
-      </div>
+
+      {% endfor %}
+
     </div>
   </div>
 </section>
+{% endif %}
+
+<!-- ======  Stats Section end == -->
+
+
+
+
+
+
 <!-- ====== /School Stats Section ====== -->
+
+
 <section data-bs-version="5.1" class="cid-tNWLdXl271" id="dahomygallery-2m">
 
 
@@ -1616,110 +1199,23 @@ academy-section.item-wrapper .item-content {
     </div>
   
              </div>
-   
-            
-        
-
+  
 </section>
-<section class="container py-5 d-none">
-  <div class="row align-items-center">
-    <!-- Left Heading -->
-    <div class="col-lg-4 mb-4 mb-lg-0">
-      <h2 class="fw-bold color-primary">
-        Striving for excellence in <br> education, character, and behaviour
-      </h2>
-    </div>
 
-    <!-- Center Pyramid -->
-    <div class="col-lg-4 text-center mb-4 mb-lg-0">
-      <img src="{{ '/assets/img/untitled-1-644x442.png' | url }}" alt="KBC Pyramid" class="img-fluid rotate-img">
-    </div>
 
-    <!-- Right Text -->
-    <div class="col-lg-4">
-      <p>
-        Our school is unique because we offer a well-rounded education that goes beyond academics.
-        Our focus on character development, community service, and extracurricular activities helps 
-        students develop into well-rounded individuals who are prepared for success in all areas of life.
-      </p>
-      <p>
-        We call this the <strong>KBC approach</strong>. It focuses on the 
-        <strong>knowledge, behaviours, and competencies</strong> required to shine in the 
-        <strong>21st century</strong>.
-      </p>
-    </div>
-  </div>
-</section>
-<!-- Unique Flip Section -->
-<div class="container">
-  <div class="row g-4 justify-content-center">
-    <!-- Card 1 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front -->
-          <div class="flip-card-front d-flex align-items-center justify-content-center">
-            <img src="{{ '/assets/img/knoledge.png' | url }}" class="img-fluid rounded-4" alt="Knowledge">
-          </div>
-          <!-- Back -->
-          <div class="flip-card-back d-flex align-items-center justify-content-center text-center p-4">
-            <div>
-              <h5 class="fw-bold text-warning">Behaviours</h5>
-              <ul class="list-unstyled text-white">
-                <li>- Caring</li>
-                <li>- Creativity</li>
-                <li>- Collaboration</li>
-                <li>- Communication</li>
-                <li>- Critical Thinking</li>
-                <li>- Cultural Appreciation</li>
-                <li>- Community Engagement</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Card 2 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front -->
-          <div class="flip-card-front d-flex align-items-center justify-content-center">
-            <img src="{{ '/assets/img/compi.webp' | url }}" class="img-fluid rounded-4" alt="Competencies">
-          </div>
-          <!-- Back -->
-          <div class="flip-card-back d-flex align-items-center justify-content-center text-center p-4">
-            <div>
-              <h5 class="fw-bold text-warning">Competencies</h5>
-              <p class="text-white">Skills that prepare students to thrive in the 21st century through innovation, leadership, and adaptability.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Card 3 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front -->
-          <div class="flip-card-front d-flex align-items-center justify-content-center">
-            <img src="{{ '/assets/img/behaviour.webp' | url }}" class="img-fluid rounded-4" alt="Knowledge">
-          </div>
-          <!-- Back -->
-          <div class="flip-card-back d-flex align-items-center justify-content-center text-center p-4">
-            <div>
-              <h5 class="fw-bold text-warning">Knowledge</h5>
-              <p class="text-white">A strong academic foundation across all subjects, nurturing curiosity and lifelong learning.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  </div>
-</div>
+
+
+
+
+ 
+    
+
+    
+
+ 
 
 <!-- CSS -->
 <style>
