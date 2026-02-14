@@ -88,12 +88,13 @@ title: Hippocampus Learning Centres
 {% endfor %}
 
 
-{% set testimonialSection = null %}
+{% set ctaSection = null %}
 {% for s in sections %}
-  {% if s.__component == "page-sections.testimonial-section" %}
-    {% set testimonialSection = s %}
+  {% if s.__component == "page-sections.cta-section" %}
+    {% set ctaSection = s %}
   {% endif %}
 {% endfor %}
+
 
 
 
@@ -1837,17 +1838,37 @@ citySelect.addEventListener("change", function () {
 <section class="nudge">
 <div class="container">
 <div class="row justify-content-center">
-<h3 class="text-center text-white">Empower your school.. Find out more about Sankalp90 Program</h3>
-<div class="mbr-section-btn item-footer mt-2 pb-3 text-center d-none"><a href="/hippocampus-main/our-schools/" class="btn btn-hippo display-7" target="_blank" style="border-radius: 25px;">Sankalp90 <i class="bi bi-arrow-right-circle-fill"></i></a></div>
+{% if ctaSection %}
+<section class="nudge">
+  <div class="container">
+    <div class="row justify-content-center">
 
+      <h3 class="text-center text-white">
+        {{ ctaSection.title }}
+      </h3>
 
-<div id="feedback-float-btn">
-  <i class="bi bi-whatsapp"></i>
-  <span>Send Feedback</span>
-</div>
+      <a href="{{ ctaSection.buttonLink }}"
+         target="_blank"
+         id="feedback-float-btn">
+
+        <i class="bi bi-whatsapp"></i>
+        <span>{{ ctaSection.buttonText }}</span>
+
+      </a>
+
+    </div>
+  </div>
+</section>
+{% endif %}
+
 </div>
 </div>
 </section>
+
+
+
+
+
 <style>
 .nudge{
 padding: 3rem 1rem;
