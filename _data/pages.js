@@ -13,7 +13,12 @@ const res = await fetch(
   "&populate[sections][on][page-sections.home-kbc][populate]=image" +
  "&populate[sections][on][page-sections.home-slide][populate][slides][populate]=image" +
   "&populate[sections][on][page-sections.school-slider][populate][schools][populate]=image"+
-  "&populate[sections][on][page-sections.stats-section][populate][stats][populate]=icon"
+  "&populate[sections][on][page-sections.stats-section][populate][stats][populate]=icon" +
+"&populate[sections][on][page-sections.home-gallery][populate][galleries][populate]=image" +
+"&populate[sections][on][page-sections.media-slider][populate][clientlogo][populate]=image" +
+"&populate[sections][on][page-sections.impact-image][populate][impactpoints]=*"
+
+
   );
 
   const json = await res.json();

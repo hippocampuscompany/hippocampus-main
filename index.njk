@@ -49,6 +49,54 @@ title: Hippocampus Learning Centres
   {% endif %}
 {% endfor %}
 
+
+{% set homeGallery = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.home-gallery" %}
+    {% set homeGallery = s %}
+  {% endif %}
+{% endfor %}
+
+{% set clientSlider = null %}
+{% for s in page.sections %}
+  {% if s.__component == "page-sections.client-slider" %}
+    {% set clientSlider = s %}
+  {% endif %}
+{% endfor %}
+
+{% set investorSection = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.investor-section" %}
+    {% set investorSection = s %}
+  {% endif %}
+{% endfor %}
+
+
+{% set mediaClient = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.media-slider" %}
+    {% set mediaClient = s %}
+  {% endif %}
+{% endfor %}
+
+
+{% set impactSection = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.impact-image" %}
+    {% set impactSection = s %}
+  {% endif %}
+{% endfor %}
+
+
+{% set testimonialSection = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.testimonial-section" %}
+    {% set testimonialSection = s %}
+  {% endif %}
+{% endfor %}
+
+
+
 <style>
 
 .watch-video-btn {
@@ -1249,111 +1297,45 @@ academy-section.item-wrapper .item-content {
 }
 </style>
 
-<section class="" style="background-color:#e3696121">
-<div class="container-fluid">
-<div class="title-wrapper mb-5 text-center">
-      <h3 class="fw-bold">Our Gallery</h3>
+<!-- ====== /homeGallery ====== -->
+
+{% if homeGallery %}
+<section style="background-color:#e3696121">
+  <div class="container-fluid">
+
+    <div class="title-wrapper mb-5 text-center">
+      <h3 class="fw-bold">{{ homeGallery.title }}</h3>
     </div>
-  <div class="row g-4">
 
-    <!-- Card 1 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="gallery-card position-relative overflow-hidden rounded-3">
-        <img src="{{ '/assets/img/gallery-1-654a2072820f7.webp' | url }}" class="img-fluid w-100" alt="Primary Years">
-       <!-- Always visible text -->
-        <div class="card-text position-absolute bottom-0 start-0 w-100 p-3">
-          <h6 class="fw-bold text-white text-uppercase d-none  m-0">Primary Years Programme</h6>
-        </div>
+    <div class="row g-4">
 
-        <!-- Hover overlay -->
-        <div class="overlay d-flex flex-column justify-content-center p-4">
-         
-          <a href="{{ '/wall-of-dreams/' | url }}" class="btn btn-gall">View Gallery</a>
+      {% for item in homeGallery.galleries %}
+      <div class="col-md-4 col-sm-6">
+        <div class="gallery-card position-relative overflow-hidden rounded-3">
+
+          {% if item.image %}
+            <img 
+              src="http://localhost:1337{{ item.image.url }}" 
+              class="img-fluid w-100" 
+              alt="">
+          {% endif %}
+
+          <div class="overlay d-flex flex-column justify-content-center p-4">
+            <a href="{{ item.buttonLink | url }}" class="btn btn-gall">
+              {{ item.buttonText }}
+            </a>
+          </div>
+
         </div>
       </div>
+      {% endfor %}
+
     </div>
-
-    <!-- Card 2 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="gallery-card position-relative overflow-hidden rounded-3">
-        <img src="{{ '/assets/img/gallery-2-654a216351563.webp' | url }}" class="img-fluid w-100" alt="Middle Years">
-       <!-- Always visible text -->
-        <div class="card-text position-absolute bottom-0 start-0 w-100 p-3">
-          <h6 class="fw-bold text-white text-uppercase d-none  m-0">Primary Years Programme</h6>
-        </div>
-
-        <!-- Hover overlay -->
-        <div class="overlay d-flex flex-column justify-content-center p-4">
-           <a href="{{ '/wall-of-dreams/' | url }}" class="btn btn-gall">View Gallery</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="gallery-card position-relative overflow-hidden rounded-3">
-        <img src="{{ '/assets/img/gallery-3-654a20751e2cc.webp' | url }}" class="img-fluid w-100" alt="Diploma Programme">
-       <!-- Always visible text -->
-        <div class="card-text position-absolute bottom-0 start-0 w-100 p-3">
-          <h6 class="fw-bold text-white text-uppercase d-none m-0">Primary Years Programme</h6>
-        </div>
-
-        <!-- Hover overlay -->
-        <div class="overlay d-flex flex-column justify-content-center p-4">
-         <a href="{{ '/wall-of-dreams/' | url }}" class="btn btn-gall">View Gallery</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="gallery-card position-relative overflow-hidden rounded-3">
-        <img src="{{ '/assets/img/gallery-4-654a2075c90e2.webp' | url }}" class="img-fluid w-100" alt="Career Programme">
-        <!-- Always visible text -->
-        <div class="card-text position-absolute bottom-0 start-0 w-100 p-3">
-          <h6 class="fw-bold text-white text-uppercase d-none  m-0">Primary Years Programme</h6>
-        </div>
-
-        <!-- Hover overlay -->
-        <div class="overlay d-flex flex-column justify-content-center p-4">
-         <a href="{{ '/wall-of-dreams/' | url }}" class="btn btn-gall">View Gallery</a>
-        </div>
-      </div>
-    </div>
-  <!-- Card 4 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="gallery-card position-relative overflow-hidden rounded-3">
-        <img src="{{ '/assets/img/gallery-5-654a2078baaa7.webp' | url }}" class="img-fluid w-100" alt="Career Programme">
-        <!-- Always visible text -->
-        <div class="card-text position-absolute bottom-0 start-0 w-100 p-3">
-          <h6 class="fw-bold text-white text-uppercase d-none  m-0">Primary Years Programme</h6>
-        </div>
-
-        <!-- Hover overlay -->
-        <div class="overlay d-flex flex-column justify-content-center p-4">
-          <a href="{{ '/wall-of-dreams/' | url }}" class="btn btn-gall">View Gallery</a>
-        </div>
-      </div>
-    </div>
-  <!-- Card 4 -->
-    <div class="col-md-4 col-sm-6">
-      <div class="gallery-card position-relative overflow-hidden rounded-3">
-        <img src="{{ '/assets/img/gallery-6-654a207b85620.webp' | url }}" class="img-fluid w-100" alt="Career Programme">
-        <!-- Always visible text -->
-        <div class="card-text position-absolute bottom-0 start-0 w-100 p-3">
-          <h6 class="fw-bold text-white text-uppercase d-none  m-0">Primary Years Programme</h6>
-        </div>
-
-        <!-- Hover overlay -->
-        <div class="overlay d-flex flex-column justify-content-center p-4">
-        <a href="{{ '/wall-of-dreams/' | url }}" class="btn btn-gall">View Gallery</a>
-        </div>
-      </div>
-    </div>
-
-
-  </div> </div>
+  </div>
 </section>
+{% endif %}
+
+<!-- ====== /homeGallery end ====== -->
 
 <style>
 .gallery-card {
@@ -1717,69 +1699,76 @@ citySelect.addEventListener("change", function () {
 </script>
 
 
+<!-- ====== /mediaSlider start ====== -->
+
+{% if mediaClient %}
 <section class="client-slider-section py-5">
   <div class="container">
     
-<div class="row g-4">
- <div class="col-md-3 col-lg-3 my-auto">
- <div class="">
- <h3 class="fw-normal text-center py-4">Trusted by <br><span class="fw-bold"> News & Media</span></h3>
- </div>
- </div>
-  <div class="col-md-8 col-lg-8 my-auto">
+    <div class="row g-4">
       
-    <div class="swiper client-swiper">
-      <div class="swiper-wrapper">     
-        <div class="swiper-slide"><img src="{{ '/assets/img/1.png' | url }}" width="100" alt="Client 1" /></div>
-        <div class="swiper-slide"><img src="{{ '/assets/img/2.png' | url }}" width="100" alt="Client 2" /></div>
-        <div class="swiper-slide"><img src="{{ '/assets/img/3.png' | url }}" width="100" alt="Client 3" /></div>
-        <div class="swiper-slide"><img src="{{ '/assets/img/4.png' | url }}" width="100" alt="Client 4" /></div>
-        <div class="swiper-slide"><img src="{{ '/assets/img/5.png' | url }}" width="100" alt="Client 5" /></div>
-        <div class="swiper-slide"><img src="{{ '/assets/img/6.png' | url }}" width="100" alt="Client 6" /></div>   
-        <div class="swiper-slide"><img src="{{ '/assets/img/4.png' | url }}" width="100" alt="Client 4" /></div>
-        <div class="swiper-slide"><img src="{{ '/assets/img/5.png' | url }}" width="100" alt="Client 5" /></div>		
+      <div class="col-md-3 col-lg-3 my-auto">
+        <h3 class="fw-normal text-center py-4">
+          {{ mediaClient.title | safe }}
+        </h3>
       </div>
-    </div> 
-	</div>
+
+      <div class="col-md-8 col-lg-8 my-auto">
+        <div class="swiper client-swiper">
+          <div class="swiper-wrapper">
+
+            {% for logo in mediaClient.clientlogo %}
+              {% if logo.image %}
+              <div class="swiper-slide">
+                <img 
+                  src="http://localhost:1337{{ logo.image.url }}" 
+                  width="100" 
+                  alt="">
+              </div>
+              {% endif %}
+            {% endfor %}
+
+          </div>
+        </div> 
+      </div>
+
     </div>
+
   </div>
 </section>
+{% endif %}
+
+<!-- ====== /mediaSlider end ====== -->
+
+<!-- ====== /impactSection start ====== -->
+
+{% if impactSection %}
 <section class="impact-section">
   <div class="container">
     <div class="row justify-content-end my-auto">
       <div class="col-md-5 col-lg-4 mt-3">
         <div class="impact-box mt-5">
-          <h2>The Hippocampus Academy Impact</h2>
+
+          <h2>{{ impactSection.title }}</h2>
+
           <ul>
-            <li>✓ 100+ Schools Signed</li>
-            <li>✓ 2000+ Teachers Trained</li>
-            <li>✓ 5000+ Students Enrolled</li>
-            <li>✓ 8000+ Books Sold</li>
+            {% for item in impactSection.impactpoints %}
+              <li>✓ {{ item.text }}</li>
+            {% endfor %}
           </ul>
+
         </div>
       </div>
     </div>
   </div>
 </section>
+{% endif %}
 
- <section class="cta-section py-0 d-none">
-   <div class="container-fluid">
-  <div class=" row align-items-center">    <!-- Left Image -->
-   <div class="col-md-3 text-center">
-      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="CTA Image" class="cta-image img-fluid1">
-    </div>
-    <!-- Right Text + Button -->
-    <div class="col-md-6 cta-content text-center">
-      <h2 class="text-white">Empowering Schools. Inspiring Students.</h2>
-      <p>Unlock your institution's full potential with tailored educational solutions designed to elevate learning, enhance engagement, and drive student success.</p>
-      <button class="cta-btn d-none">Book A Free Call →</button>
-    </div>
-	 
-	  <div class="col-md-3 text-center">
-      <img src="{{ '/assets/img/kkbc-2__1_-removebg-preview.png' | url }}" alt="CTA Image" class="cta-image img-fluid">
-    </div>
-  </div>
-</section>
+<!-- ====== /impactSection end ====== -->
+
+
+
+
 <section class="testimonial-section">
   <h2 class="text-white">What Parents Say</h2>
 <div class="container">
@@ -1796,7 +1785,7 @@ citySelect.addEventListener("change", function () {
         <p>I see her confidence grow, not only in speaking and thinking, but also in everyday activities.</p>
         <p>An excellent program! Highly recommend to all parents.</p>
         <div class="reviewer">
-          <img src="https://i.imgur.com/v8aQK9m.png" alt="Kerly">
+          <img src="https://i.pravatar.cc/100?img=32" alt="Kerly">
           <div class="reviewer-info">
             <strong>Kerly</strong><br>
             <small>Mom, USA</small>
@@ -1840,6 +1829,11 @@ citySelect.addEventListener("change", function () {
     <div class="swiper-pagination"></div>
   </div></div></div></div>
 </section>
+
+
+
+
+
 <section class="nudge">
 <div class="container">
 <div class="row justify-content-center">

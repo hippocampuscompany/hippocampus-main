@@ -11,6 +11,8 @@ title: About Us
   {% endif %}
 {% endfor %}
 {% set sections = aboutPage.sections %}
+
+
 {% set hero = sections | selectattr("__component", "equalto", "page-sections.hero") | first %}
 {% set aboutImpact = null %}
 {% for s in sections %}
@@ -57,12 +59,6 @@ title: About Us
   {% endif %}
 {% endfor %}
 
-{% set investorSection = null %}
-{% for s in sections %}
-  {% if s.__component == "page-sections.investor-section" %}
-    {% set investorSection = s %}
-  {% endif %}
-{% endfor %}
 
 
 <style>
