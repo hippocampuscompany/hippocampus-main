@@ -54,10 +54,10 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 142.93.214.65 >> ~/.ssh/known_hosts
+          ssh-keyscan -H ns27.interactivedns.com >> ~/.ssh/known_hosts
 
       - name: Test SSH connection
-        run: ssh -o StrictHostKeyChecking=no master_dgkexjvxex@142.93.214.65 "echo Connected!"
+        run: ssh -o StrictHostKeyChecking=no thehip7@ns27.interactivedns.com "echo Connected!"
 
       - name: Deploy via rsync
-        run: rsync -avz --delete _site/ master_dgkexjvxex@142.93.214.65:/home/master/applications/gnmarchvjx/public_html/eon-eleventy/
+        run: rsync -avz --delete _site/ thehip7@ns27.interactivedns.com:/home/thehip7/public_html/hippocampus-main/
