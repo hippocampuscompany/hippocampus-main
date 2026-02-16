@@ -7,7 +7,6 @@ on:
       
   repository_dispatch:
     types: [strapi-content-change]
-    
 
 jobs:
   build:
