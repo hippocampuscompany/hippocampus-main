@@ -59,6 +59,14 @@ title: About Us
   {% endif %}
 {% endfor %}
 
+{% set investorSection = null %}
+{% for s in sections %}
+  {% if s.__component == "page-sections.investor-section" %}
+    {% set investorSection = s %}
+  {% endif %}
+{% endfor %}
+
+
 
 
 <style>
@@ -1278,154 +1286,6 @@ padding:1.5rem;
 
 
 
-
-
-
-
-
-
-
-<section class="team-section py-5" id="team ">
-  <div class="container">
-    <div class="title-wrapper mb-5 text-center d-none">
-    <h3>{{ teamSection.heading }}</h3>
-    </div>
-
-    <div class="row justify-content-center gy-5">
-
-      <!-- Team Member -->
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/umesh-malhotra.webp" class="rounded-circle team-img" alt="Umesh Malhotra">
-            <a href="https://www.linkedin.com/in/umeshmalhotra/" target="_blank" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Umesh Malhotra</h5>
-          <p class="text-muted mb-0">Founder and CEO</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/mahendra.webp" class="rounded-circle team-img" alt="Mahendra">
-            <a href="https://www.linkedin.com/in/mahendralnu/" target="_blank" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Mahendra</h5>
-          <p class="text-muted mb-0">President</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/lalitha-reddy.webp" class="rounded-circle team-img" alt="Lalitha Reddy">
-            <a href="https://www.linkedin.com/in/lalitha-reddy-877b661b0/" target="_blank" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Lalitha Reddy</h5>
-          <p class="text-muted mb-0">Vice President</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/sesha-saynam.webp" class="rounded-circle team-img" alt="Sesha Sayanam">
-            <a href="#" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Sesha Sayanam</h5>
-          <p class="text-muted mb-0">HRF Trustee and Advisor</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/asad-umri.webp" class="rounded-circle team-img" alt="Asad Umri">
-            <a href="https://in.linkedin.com/in/umrirainmaker" target="_blank" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Asad Umri</h5>
-          <p class="text-muted mb-0">School Director</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/leena-pascal.webp" class="rounded-circle team-img" alt="Leena Pascal">
-            <a href="#" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Leena Pascal</h5>
-          <p class="text-muted mb-0">School Director</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/roopashree.webp" class="rounded-circle team-img" alt="Roopashree B C">
-            <a href="#" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Roopashree B C</h5>
-          <p class="text-muted mb-0">Sr. Consultant Academics</p>
-        </div>
-      </div>
- <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-           <img src="{{ '/assets/img/pooja.png' | url }}" class="rounded-circle team-img" alt="Roopashree B C">
-            <a href="#" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Pooja R</h5>
-          <p class="text-muted mb-0">Sr. Consultant Academics</p>
-        </div>
-      </div>
-	  <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="{{ '/assets/img/Kalpana.png' | url }}" class="rounded-circle team-img" alt="Roopashree B C">
-            <a href="#" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Kalpana</h5>
-          <p class="text-muted mb-0">Sr. Consultant Academics</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-3 text-center d-none">
-        <div class="team-member position-relative">
-          <div class="image-wrapper position-relative d-inline-block">
-            <img src="https://hippocampus.in/assets/images/nived.webp" class="rounded-circle team-img" alt="Nived P">
-            <a href="#" class="linkedin-icon">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-          <h5 class="fw-semibold mt-3 mb-1">Nived P</h5>
-          <p class="text-muted mb-0">Staff Member CEO's Office</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <style>
 .team-section {
   background: #fff;
@@ -1468,21 +1328,19 @@ padding:1.5rem;
 <!-- Our Investors Section -->
 
 
-{% for section in pages[1].sections %}
 
-  {% if section.__component == "page-sections.investor-section" %}
 
   <section class="investors-section py-5">
     <div class="container">
 
       <div class="text-center mb-5">
-        <h3 class="fw-bold">{{ section.heading }}</h3>
-        <p class="text-muted mb-0">{{ section.subheading }}</p>
+        <h3 class="fw-bold">{{ investorSection.heading }}</h3>
+        <p class="text-muted mb-0">{{ investorSection.subheading }}</p>
       </div>
 
       <div class="row g-4 justify-content-center">
 
-        {% for investor in section.investors %}
+        {% for investor in investorSection.investors %}
           <div class="col-6 col-md-4 col-lg-3">
             <div class="investor-card">
 
@@ -1502,9 +1360,7 @@ padding:1.5rem;
     </div>
   </section>
 
-  {% endif %}
 
-{% endfor %}
 
 
 <section class="nudge">

@@ -2,41 +2,65 @@
 layout: layout.njk
 title: Hippocampus Learning Centres
 ---
+
+
+{% set page = null %}
+
+{% for p in pages %}
+  {% if p.slug == "our-school" %}
+    {% set page = p %}
+  {% endif %}
+{% endfor %}
+
+{% if page %}
+
+  {% for section in page.sections %}
+    {% if section.__component == "page-sections.hero" %}
+
+      <section class="academy-container position-relative">
+        <div class="container">
+          <div class="row g-4 pt-3">
+
+            <div class="col-md-7 my-auto">
+              <h3 class="fw-bold text-white mb-3 heading-responsive">
+                {{ section.heading }}
+              </h3>
+            </div>
+
+            <div class="col-md-5 my-auto">
+              {% if section.videoUrl %}
+                <div class="video-wrapper">
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src="{{ section.videoUrl }}"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    {% endif %}
+  {% endfor %}
+
+{% endif %}
+
+
+
+
+
+
+
 <style>
 .academy-container{
       padding: 150px 0 60px 0 !important;
 }
 </style>
-<section class="academy-container position-relative">
-<div class="container">  
-<div class="row g-4 pt-3">
-<div class="col-md-7 col-lg-7 my-auto">
-<h2 class="fw-normal text-start d-none text-white mb-2">
-Hello Schools Owners & Trustees! 
-</h2>
-<h3 class="fw-bold text-start text-white mb-3 heading-responsive">
-17 Schools, 7000+ Students & Growing...
-</h3>
-</div>
-<div class="col-md-5 col-lg-5 my-auto">
-<div class="video-wrapper"><iframe
-  width="100%"
-  height="315"
-  src="https://www.youtube.com/embed/J9f0jo_duIU&autoplay=1"
-  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/J9f0jo_duIU?autoplay=1><img src=https://img.youtube.com/vi/J9f0jo_duIU/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
-'><span>▶</span></a>"
-  frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
-></iframe></div>
 
-
-<h5 class="text-white text-center pt-3"><i>{{home.AcademySection.description}}</i></h5>
-</div>
-</div>
-</div>
-</section>
 <style>
 .video-wrapper {
 position: relative; 
@@ -75,7 +99,13 @@ background: linear-gradient(135deg, #5a2ca0, #7b42f6); /* optional bg */
 padding: 60px 0;
 }
 </style>
+
+
+
+
+
 <!-- My Schools Section -->
+
 <section class="py-5">
   <div class="container">
     <h2 class="text-center mb-5 fw-bold">Our Schools</h2>
@@ -113,35 +143,20 @@ padding: 60px 0;
 
 <!-- 1. HIPPOCAMPUS SCHOOL -->
 <div class="col-md-4 col-12 mb-4 school-card" data-groups='["cbse"]' data-city="Rangareddy">
-  <div class="polaroid-card shadow random-tilt">
-   <div class="pin-logo">
-      <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo">
-    </div>
-    <div class="img-wrapper">
-      <img src="https://hippocampus.in/assets/images/school-1-6517bea0b45ee.webp" class="img-fluid">
-      <span class="school-label cbse">CBSE</span>
-    </div>
-    <div class="card-body text-center">
-      <h5 class="fw-bold text-uppercase mb-2">HIPPOCAMPUS SCHOOL</h5>
-      <p class="small text-muted mb-1"><strong>Address:</strong> Rangapur Village, Telangana - 509288</p>
-      <p class="small text-muted mb-1"><strong>Phone:</strong>
-        <a href="tel:+919154029990">+91-9154029990</a> /
-        <a href="tel:+919154029991">9991</a> /
-        <a href="tel:+919154029992">9992</a>
-      </p>
-      <p class="small text-muted mb-1"><strong>Email:</strong>
-        <a href="mailto:2304@hippocampus.in">2304@hippocampus.in</a>
-      </p>
-      <p class="small text-muted"><strong>Website:</strong>
-        <a href="https://www.rangapur.hippocampus.in/" target="_blank">rangapur.hippocampus.in</a>
-      </p>
-	  
-    </div>
-	  <div class="card-footer bg-white border-0 text-center">
-      <a href="https://www.rangapur.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
-    </div>
-  </div>
-</div>
+ <div class="polaroid-card shadow random-tilt"> 
+ <div class="pin-logo">
+  <img src="{{ '/assets/img/hippo-logo.png' | url }}" alt="Pin Logo"> </div> 
+  <div class="img-wrapper"> 
+  <img src="https://hippocampus.in/assets/images/school-1-6517bea0b45ee.webp" class="img-fluid">
+   <span class="school-label cbse">CBSE</span> </div> <div class="card-body text-center">
+    <h5 class="fw-bold text-uppercase mb-2">HIPPOCAMPUS SCHOOL</h5> 
+    <p class="small text-muted mb-1"><strong>Address:</strong> Rangapur Village, Telangana - 509288</p>
+     <p class="small text-muted mb-1"><strong>Phone:</strong> <a href="tel:+919154029990">+91-9154029990</a> / <a href="tel:+919154029991">9991</a> / <a href="tel:+919154029992">9992</a> </p> 
+     <p class="small text-muted mb-1"><strong>Email:</strong> <a href="mailto:2304@hippocampus.in">2304@hippocampus.in</a> </p>
+      <p class="small text-muted"><strong>Website:</strong> <a href="https://www.rangapur.hippocampus.in/" target="_blank">rangapur.hippocampus.in</a> </p> </div> 
+      <div class="card-footer bg-white border-0 text-center"> <a href="https://www.rangapur.hippocampus.in/" class="btn btn-warning px-4" target="_blank">View More</a>
+       </div> </div> </div>
+
 
 <!-- 2. MILLENNIUM HIPPOCAMPUS SCHOOL -->
 <div class="col-md-4 col-12 mb-4 school-card" data-groups='["cbse"]' data-city="Koppal">
