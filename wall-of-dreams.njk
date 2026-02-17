@@ -3,22 +3,61 @@ layout: layout.njk
 title: Wall of Dreams
 ---
 
-<!-- HERO -->
-<section class="academy-container position-relative pt-100">
-  <div class="container">  
-    <div class="row g-4">
-      <div class="col-md-10 my-auto py-2">
-        <h1 class="fw-bold text-start text-white">Wall of Dreams</h1>
-        <h2 class="text-start text-white mb-2">
-          Structured learning that empowers teachers and builds brighter futures for schools and students.
-        </h2>
-      </div>
-      <div class="col-md-2 my-auto py-2 text-end">
-        <img src="{{ '/assets/img/hippo-logo.png' | url }}" class="img-fluid">
+
+{% set page = null %}
+
+{% for p in pages %}
+  {% if p.slug == "wall-of-dreams" %}
+    {% set page = p %}
+  {% endif %}
+{% endfor %}
+
+{% if page %}
+
+  {% set heroSection = null %}
+
+  {% for s in page.sections %}
+    {% if s.__component == "page-sections.wall-of-dreams-hero" %}
+      {% set heroSection = s %}
+    {% endif %}
+  {% endfor %}
+
+   <!-- heroSection -->
+
+  {% if heroSection %}
+  <section class="academy-container position-relative pt-100">
+    <div class="container">  
+      <div class="row g-4">
+
+        <div class="col-md-10 my-auto py-2">
+          <h1 class="fw-bold text-start text-white">
+            {{ heroSection.heading }}
+          </h1>
+
+          <h2 class="text-start text-white mb-2">
+            {{ heroSection.subHeading }}
+          </h2>
+        </div>
+
+        <div class="col-md-2 my-auto py-2 text-end">
+          {% if heroSection.image %}
+            <img 
+              src="http://localhost:1337{{ heroSection.image.url }}" 
+              class="img-fluid">
+          {% endif %}
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  {% endif %}
+
+{% endif %}
+
+
+<!-- heroSection  end -->
+
+
 
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
@@ -179,6 +218,9 @@ title: Wall of Dreams
     </div>
   </div>
 </section>
+
+
+
 <style>
 /* -------------------------------------------------
    GLOBAL

@@ -17,7 +17,10 @@ const res = await fetch(
 "&populate[sections][on][page-sections.home-gallery][populate][galleries][populate]=image" +
 "&populate[sections][on][page-sections.media-slider][populate][clientlogo][populate]=image" +
 "&populate[sections][on][page-sections.impact-image][populate][impactpoints]=*" +
-"&populate[sections][on][page-sections.cta-section][populate]=*" 
+"&populate[sections][on][page-sections.cta-section][populate]=*" +
+"&populate[sections][on][page-sections.testimonial-slider][populate][testimonials][populate]=images" +
+"&populate[sections][on][page-sections.wall-of-dreams-hero][populate]=image"
+
 );
   const json = await res.json();
   return json.data;

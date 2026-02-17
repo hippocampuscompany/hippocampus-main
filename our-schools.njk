@@ -14,6 +14,16 @@ title: Hippocampus Learning Centres
 
 {% if page %}
 
+{% set testimonialSection = null %}
+{% for s in page.sections %}
+  {% if s.__component == "page-sections.testimonial-slider" %}
+    {% set testimonialSection = s %}
+  {% endif %}
+{% endfor %}
+
+
+
+
   {% for section in page.sections %}
     {% if section.__component == "page-sections.hero" %}
 
@@ -127,10 +137,10 @@ padding: 60px 0;
   </ul>
 
   <!-- City Dropdown (ONLY ONE) -->
-  <select id="citySelect" class="form-select w-auto">
+ <select id="citySelect1" class="form-select w-auto">
     <option value="all">All Locations</option>
   </select>
-
+  
 </div>
 
 <p id="schoolCountText" class="text-start mb-4 fw-semibold">
@@ -666,207 +676,228 @@ padding: 60px 0;
 
 <!-- Contact Us Form starts -->
 <section id="contactus_form" class="appointment section-bg" style="background-color:#674ea7;">
-      <div class="container aos-init aos-animate" data-aos="fade-up">
+  <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2 class="text-white text-center">Admission Enquiry</h2>
-         
-        </div>
- <div class="row justify-content-center">
-            <div class="col-md-12 form-group">
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+    <div class="section-title">
+      <h2 class="text-white text-center">Admission Enquiry</h2>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-12 form-group">
+
+        <form action="forms/appointment.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+
           <div class="row">
             <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
             </div>
+
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
             </div>
+
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+              <input type="tel" name="phone" class="form-control" placeholder="Your Phone" required>
             </div>
           </div>
+
           <div class="row">
-           
+
+            <!-- Grade -->
             <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
+              <select name="grade" class="form-select" required>
                 <option value="">Select Grade</option>
                 <option value="Kindergarten (KG)">Kindergarten (KG)</option>
                 <option value="Grades 1-5">Grades 1-5</option>
                 <option value="Grades 6-8">Grades 6-8</option>
-				<option value="Grades 9-10">Grades 9-10</option>
+                <option value="Grades 9-10">Grades 9-10</option>
               </select>
             </div>
-			
-            <div class="col-md-4 form-group mt-3">
-            
- 
-  <select id="citySelect" class="form-select">
-    <option value="">-- Select City --</option>
-  </select>
-</div>
-			
-            <div class="col-md-4 form-group mt-3">
 
-<div class="mb-3">
-  <select id="schoolSelect" class="form-select" disabled>
-    <option value="">-- Select School --</option>
-  </select>
-</div>
-
+            <!-- City Dropdown (FIXED ID) -->
+            <div class="col-md-4 form-group mt-3">
+              <select id="formCitySelect" name="city" class="form-select" required>
+                <option value="">-- Select City --</option>
+              </select>
             </div>
-          </div>      
-         
-          <div class="text-center mt-4"><button class="btn btn-warning btn-hippo" type="submit">Submit</button></div>
+
+            <!-- School Dropdown -->
+            <div class="col-md-4 form-group mt-3">
+              <select id="formSchoolSelect" name="school" class="form-select" disabled required>
+                <option value="">-- Select School --</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="text-center mt-4">
+            <button class="btn btn-warning btn-hippo" type="submit">Submit</button>
+          </div>
+
         </form>
 
-      </div></div></div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
-const schoolData = {
-  "Bangalore": [
-    "Vidya Vaibhav Hippocampus Public School",
-    "Rayen Hippocampus Vidya Mandira School"
-  ],
-  "Hassan": [
-    "Malnad International Hippocampus School",
-    "Malenadu Future School"
-  ],
-  "Mandya": [
-    "DMS Jnana Kuteera Hippocampus School",
-    "Vidyakula Hippocampus School"
-  ],
-  "Belgaum": [
-    "Sri Basaveshwara Hippocampus English Medium School",
-    "DB Darure Hippocampus English Medium School"
-  ],
-  "Koppal": [
-    "Millennium Hippocampus School (CBSE)"
-  ],
-  "Guntur": [
-    "Natco School of Learning"
-  ],
-  "Ramanagara": [
-    "SSVM Hippocampus English Medium School"
-  ],
-  "Gulbarga": [
-    "Siddh Bharati Vidya Mandir CBSE Secondary School"
-  ],
-  "Bidar": [
-    "Sri Siddharoodh Public School"
-  ],
-  "Sagar": [
-    "Jnanasagara Public School"
-  ],
-  "Rabakavi-Banahatti": [
-    "Shri Prabhulingeshwar International School"
-  ],
-  "Gokak": [
-    "Netaji Hippocampus English Medium School"
-  ],
-  "Rangareddy": [
-    "Hippocampus School"
-  ]
-};
+document.addEventListener("DOMContentLoaded", function () {
 
-const citySelect = document.getElementById("citySelect");
-const schoolSelect = document.getElementById("schoolSelect");
+  const schoolData = {
+    "Bangalore": [
+      "Vidya Vaibhav Hippocampus Public School",
+      "Rayen Hippocampus Vidya Mandira School"
+    ],
+    "Hassan": [
+      "Malnad International Hippocampus School",
+      "Malenadu Future School"
+    ],
+    "Mandya": [
+      "DMS Jnana Kuteera Hippocampus School",
+      "Vidyakula Hippocampus School"
+    ],
+    "Belgaum": [
+      "Sri Basaveshwara Hippocampus English Medium School",
+      "DB Darure Hippocampus English Medium School"
+    ],
+    "Koppal": [
+      "Millennium Hippocampus School (CBSE)"
+    ],
+    "Guntur": [
+      "Natco School of Learning"
+    ],
+    "Ramanagara": [
+      "SSVM Hippocampus English Medium School"
+    ],
+    "Gulbarga": [
+      "Siddh Bharati Vidya Mandir CBSE Secondary School"
+    ],
+    "Bidar": [
+      "Sri Siddharoodh Public School"
+    ],
+    "Sagar": [
+      "Jnanasagara Public School"
+    ],
+    "Rabakavi-Banahatti": [
+      "Shri Prabhulingeshwar International School"
+    ],
+    "Gokak": [
+      "Netaji Hippocampus English Medium School"
+    ],
+    "Rangareddy": [
+      "Hippocampus School"
+    ]
+  };
 
-/* Populate City Dropdown */
-Object.keys(schoolData).sort().forEach(city => {
-  const option = document.createElement("option");
-  option.value = city;
-  option.textContent = city;
-  citySelect.appendChild(option);
-});
+  const citySelect = document.getElementById("formCitySelect");
+  const schoolSelect = document.getElementById("formSchoolSelect");
 
-/* On City Change */
-citySelect.addEventListener("change", function () {
-  const selectedCity = this.value;
-  schoolSelect.innerHTML = '<option value="">-- Select School --</option>';
-  schoolSelect.disabled = true;
-
-  if (!selectedCity) return;
-
-  const schools = schoolData[selectedCity];
-
-  schools.forEach(school => {
+  // Populate City Dropdown
+  Object.keys(schoolData).sort().forEach(city => {
     const option = document.createElement("option");
-    option.value = school;
-    option.textContent = school;
-    schoolSelect.appendChild(option);
+    option.value = city;
+    option.textContent = city;
+    citySelect.appendChild(option);
   });
 
-  schoolSelect.disabled = false;
+  // On City Change
+  citySelect.addEventListener("change", function () {
+    const selectedCity = this.value;
 
-  // Auto-select if only one school
-  if (schools.length === 1) {
-    schoolSelect.selectedIndex = 1;
-  }
+    schoolSelect.innerHTML = '<option value="">-- Select School --</option>';
+    schoolSelect.disabled = true;
+
+    if (!selectedCity) return;
+
+    const schools = schoolData[selectedCity];
+
+    schools.forEach(school => {
+      const option = document.createElement("option");
+      option.value = school;
+      option.textContent = school;
+      schoolSelect.appendChild(option);
+    });
+
+    schoolSelect.disabled = false;
+
+    // Auto-select if only one school
+    if (schools.length === 1) {
+      schoolSelect.selectedIndex = 1;
+    }
+  });
+
 });
 </script>
 
+
+
+ <!-- testimonialSection  start -->
+
+
+{% if testimonialSection %}
 <section class="testimonial-section">
-  <h2 class="text-white">What Parents Say</h2>
-<div class="container">
-<div class=" row align-items-center">
- <div class="col-12">
-  <div class="swiper testimonialSwiper">
-    <div class="swiper-wrapper">
+  <h2 class="text-white">{{ testimonialSection.title }}</h2>
 
-      <!-- Slide 1 -->
-      <div class="swiper-slide testimonial-card">
-        <h5>Excellent program!</h5>
-        <div class="stars">★★★★★</div>
-        <p>My daughter loves Early Steps Academy.</p>
-        <p>I see her confidence grow, not only in speaking and thinking, but also in everyday activities.</p>
-        <p>An excellent program! Highly recommend to all parents.</p>
-        <div class="reviewer">
-          <img src="https://i.imgur.com/v8aQK9m.png" alt="Kerly">
-          <div class="reviewer-info">
-            <strong>Kerly</strong><br>
-            <small>Mom, USA</small>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <div class="swiper testimonialSwiper">
+          <div class="swiper-wrapper">
+
+            {% for item in testimonialSection.testimonials %}
+            <div class="swiper-slide testimonial-card">
+
+              <h5>{{ item.reviewTitle }}</h5>
+
+              <div class="stars">
+                {% for i in range(1,6) %}
+                  {% if i <= item.rating %}
+                    <span class="star filled">★</span>
+                  {% else %}
+                    <span class="star">☆</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+              {% if item.description %}
+                <p>{{ item.description }}</p>
+              {% endif %}
+
+              {% if item.description2 %}
+                <p>{{ item.description2 }}</p>
+              {% endif %}
+
+              {% if item.description3 %}
+                <p>{{ item.description3 }}</p>
+              {% endif %}
+
+              <div class="reviewer">
+                {% if item.images %}
+                  <img src="http://localhost:1337{{ item.images.url }}" alt="{{ item.reviewerName }}">
+                {% endif %}
+
+                <div class="reviewer-info">
+                  <strong>{{ item.reviewerName }}</strong><br>
+                  <small>{{ item.reviewerRole }}</small>
+                </div>
+              </div>
+
+            </div>
+            {% endfor %}
+
           </div>
+
+          <div class="swiper-pagination"></div>
         </div>
       </div>
-
-      <!-- Slide 2 -->
-      <div class="swiper-slide testimonial-card">
-        <h5>Truly Transformative</h5>
-        <div class="stars">★★★★★</div>
-        <p>My son enjoys every class and has become more articulate and curious.</p>
-        <p>The learning experience is fun, engaging, and truly world-class.</p>
-        <div class="reviewer">
-          <img src="https://i.pravatar.cc/100?img=5" alt="Liam’s Dad">
-          <div class="reviewer-info">
-            <strong>Mark Evans</strong><br>
-            <small>Dad, UK</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="swiper-slide testimonial-card">
-        <h5>Great Support!</h5>
-        <div class="stars">★★★★★</div>
-        <p>The teachers are very supportive and responsive to our questions.</p>
-        <p>We’ve seen a big change in our child’s speaking confidence and curiosity.</p>
-        <div class="reviewer">
-          <img src="https://i.pravatar.cc/100?img=12" alt="Sophie’s Mom">
-          <div class="reviewer-info">
-            <strong>Priya Nair</strong><br>
-            <small>Mom, India</small>
-          </div>
-        </div>
-      </div>
-
     </div>
-
-    <!-- Pagination -->
-    <div class="swiper-pagination"></div>
-  </div></div></div></div>
+  </div>
 </section>
+{% endif %}
+ 
+ <!-- testimonialSection  start end -->
+
 
 <section class="nudge">
 <div class="container">
@@ -876,6 +907,10 @@ citySelect.addEventListener("change", function () {
 </div>
 </div>
 </section>
+
+
+
+
 <style>
 .nudge{
 padding: 3rem 1rem;
@@ -984,8 +1019,9 @@ padding: 3rem 1rem;
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
   const tabs = document.querySelectorAll('#filterTabs button');
-  const citySelect = document.getElementById('citySelect');
+  const citySelect = document.getElementById('citySelect1'); // ✅ FIXED ID
   const cards = document.querySelectorAll('.school-card');
   const displayText = document.getElementById('schoolCountText');
 
@@ -1005,8 +1041,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     citySelect.innerHTML = `<option value="all">All Locations</option>`;
+
     [...cities].sort().forEach(city => {
-      citySelect.innerHTML += `<option value="${city}">${city}</option>`;
+      const option = document.createElement("option");
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
     });
 
     activeCity = 'all';
@@ -1027,7 +1067,7 @@ document.addEventListener("DOMContentLoaded", function () {
         activeCity === 'all' || city === activeCity;
 
       if (matchGroup && matchCity) {
-        card.style.display = 'block';
+        card.style.display = '';
         visibleCount++;
       } else {
         card.style.display = 'none';
@@ -1062,6 +1102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   populateCities();
   applyFilters();
+
 });
 </script>
 
