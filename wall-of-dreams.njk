@@ -61,13 +61,35 @@ title: Wall of Dreams
 
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
+{% if page %}
+
+  {% set gallerySection = null %}
+
+  {% for s in page.sections %}
+    {% if s.__component == "page-sections.gallery-section" %}
+      {% set gallerySection = s %}
+    {% endif %}
+  {% endfor %}
+
+{% endif %}
+
+
 <!-- PROGRAM FILTER -->
 <div class="container mt-4">
   <ul class="nav nav-pills justify-content-center program-tabs" id="programTabs">
-    <li class="nav-item mx-2"><a class="nav-link active" data-program="all" href="#">All Programs</a></li>
-    <li class="nav-item mx-2"><a class="nav-link" data-program="stem-fest" href="#">STEM Fest</a></li>
-    <li class="nav-item mx-2"><a class="nav-link" data-program="teacher-training" href="#">Teacher Training</a></li>
-    <li class="nav-item mx-2"><a class="nav-link" data-program="sports-day" href="#">Sports Day</a></li>
+  {% if gallerySection and gallerySection.program %}
+
+  {% for prog in gallerySection.program %}
+    <li class="nav-item mx-2">
+      <a class="nav-link {% if prog.key == 'all' %}active{% endif %}"
+         data-program="{{ prog.key | lower }}"
+         href="#">
+         {{ prog.label }}
+      </a>
+    </li>
+  {% endfor %}
+
+{% endif %}
   </ul>
 </div>
 
@@ -108,11 +130,22 @@ title: Wall of Dreams
       <div class="col-md-3 mb-4">
         <div class="filter-tabs shadow-sm rounded p-3">
           <ul class="nav nav-pills flex-column" id="schoolTabs">
-            <li class="nav-item mb-2"><a class="nav-link active" data-school="all" href="#">All Schools</a></li>
-            <li class="nav-item mb-2"><a class="nav-link" data-school="hippocampus" href="#">Hippocampus School</a></li>
-            <li class="nav-item mb-2"><a class="nav-link" data-school="malnad" href="#">Malnad International School</a></li>
-            <li class="nav-item mb-2"><a class="nav-link" data-school="natco" href="#">Natco School</a></li>
-            <li class="nav-item"><a class="nav-link" data-school="vidya-vaibhav" href="#">Vidya Vaibhav Hippocampus Public School</a></li>
+          {% if gallerySection and gallerySection.school %}
+
+  {% for schools in gallerySection.school %}
+    <li class="nav-item mb-2">
+      <a class="nav-link {% if schools.key == 'all' %}active{% endif %}"
+
+         data-school="{{ schools.key | lower }}"
+
+         
+         href="#">
+         {{ schools.name }}
+      </a>
+    </li>
+  {% endfor %}
+
+{% endif %}
           </ul>
         </div>
       </div>
@@ -120,97 +153,32 @@ title: Wall of Dreams
       <!-- GALLERY -->
       <div class="col-md-9">
         <div class="masonry">
+          {% if gallerySection and gallerySection.galleryItem %}
 
-          <div class="masonry-item gallery-item" data-program="stem-fest" data-school="hippocampus">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-2-654a216351563.webp' | url }}">
-              <div class="caption">Dream Big ✨</div>
-            </div>
-          </div>
+  {% for item in gallerySection.galleryItem %}
 
-          <div class="masonry-item gallery-item" data-program="teacher-training" data-school="malnad">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-3-654a20751e2cc.webp' | url }}">
-              <div class="caption">Top Moment</div>
-            </div>
-          </div>
+    <div class="masonry-item gallery-item"
+         data-program="{{ item.program.key | lower }}"
+         data-school="{{ item.school.key | lower }}">
 
-          <div class="masonry-item gallery-item" data-program="stem-fest" data-school="hippocampus">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-2-654a216351563.webp' | url }}">
-              <div class="caption">Smiles & Memories 😊</div>
-            </div>
-          </div>
+      <div class="polaroid">
 
-          <div class="masonry-item gallery-item" data-program="sports-day" data-school="malnad">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-3-654a20751e2cc.webp' | url }}">
-              <div class="caption">Golden Hour Glow 🌅</div>
-            </div>
-          </div>
+        {% if item.image %}
+          <img src="http://localhost:1337{{ item.image.url }}" alt="{{ item.caption }}">
+        {% endif %}
 
-          <div class="masonry-item gallery-item" data-program="teacher-training" data-school="natco">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-4-654a2075c90e2.webp' | url }}">
-              <div class="caption">Unforgettable Journey ✈️</div>
-            </div>
-          </div>
+        <div class="caption">
+          {{ item.caption }}
+        </div>
 
-          <div class="masonry-item gallery-item" data-program="stem-fest" data-school="malnad">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-5-654a2078baaa7.webp' | url }}">
-              <div class="caption">Pure Joy 💖</div>
-            </div>
-          </div>
+      </div>
 
-          <div class="masonry-item gallery-item" data-program="sports-day" data-school="vidya-vaibhav">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-6-654a207b85620.webp' | url }}">
-              <div class="caption">Nature’s Beauty 🌿</div>
-            </div>
-          </div>
+    </div>
 
-          <div class="masonry-item gallery-item" data-program="teacher-training" data-school="natco">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-7-654a207ca23c8.webp' | url }}">
-              <div class="caption">Cherished Friendship 🤝</div>
-            </div>
-          </div>
+  {% endfor %}
 
-          <div class="masonry-item gallery-item" data-program="stem-fest" data-school="vidya-vaibhav">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-8-654a207eaff8b.webp' | url }}">
-              <div class="caption">Adventure Awaits 🚀</div>
-            </div>
-          </div>
-
-          <div class="masonry-item gallery-item" data-program="teacher-training" data-school="hippocampus">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/holistic-development.webp' | url }}">
-              <div class="caption">Learning & Growth 📚</div>
-            </div>
-          </div>
-
-          <div class="masonry-item gallery-item" data-program="sports-day" data-school="vidya-vaibhav">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/bblog-3.webp' | url }}">
-              <div class="caption">Inspiring Ideas 💡</div>
-            </div>
-          </div>
-
-          <div class="masonry-item gallery-item" data-program="stem-fest" data-school="natco">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/bblog-4.webp' | url }}">
-              <div class="caption">Precious Moments ⏳</div>
-            </div>
-          </div>
-
-          <div class="masonry-item gallery-item" data-program="teacher-training" data-school="hippocampus">
-            <div class="polaroid">
-              <img src="{{ '/assets/img/gallery-1-654a2072820f7.webp' | url }}">
-              <div class="caption">Timeless Memories 🖼️</div>
-            </div>
-          </div>
+{% endif %}
+         
 
         </div>
       </div>
