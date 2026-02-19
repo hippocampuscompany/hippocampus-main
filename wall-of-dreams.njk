@@ -102,21 +102,26 @@ title: Wall of Dreams
     <!-- Program Dropdown -->
     <div class="col-12">
       <select class="form-select" id="mobileProgramFilter">
-        <option value="all">All Programs</option>
-        <option value="stem-fest">STEM Fest</option>
-        <option value="teacher-training">Teacher Training</option>
-        <option value="sports-day">Sports Day</option>
+      {% if gallerySection and gallerySection.program %}
+
+  {% for prog in gallerySection.program %}
+  <option value="{{ prog.key | lower }}">{{ prog.label }}</option>
+  {% endfor %}
+
+{% endif %}
       </select>
     </div>
 
     <!-- School Dropdown -->
     <div class="col-12">
       <select class="form-select" id="mobileSchoolFilter">
-        <option value="all">All Schools</option>
-        <option value="hippocampus">Hippocampus School</option>
-        <option value="malnad">Malnad International School</option>
-        <option value="natco">Natco School</option>
-        <option value="vidya-vaibhav">Vidya Vaibhav Hippocampus Public School</option>
+      {% if gallerySection and gallerySection.school %}
+
+  {% for schools in gallerySection.school %}
+  <option value="{{ schools.key | lower }}">{{ schools.name }}</option>
+  {% endfor %}
+
+{% endif %}
       </select>
     </div>
 

@@ -22,7 +22,10 @@ const res = await fetch(
 "&populate[sections][on][page-sections.wall-of-dreams-hero][populate]=image" +
 "&populate[sections][on][page-sections.gallery-section][populate][galleryItem][populate]=image" +
 "&populate[sections][on][page-sections.gallery-section][populate][program]=*" +
-"&populate[sections][on][page-sections.gallery-section][populate][school]=*"
+"&populate[sections][on][page-sections.gallery-section][populate][school]=*" +
+"&populate[sections][on][page-sections.ourschools-section][populate][schoolItem][populate]=image" +
+"&populate[sections][on][page-sections.ourschools-section][populate][location]=*" +
+"&populate[sections][on][page-sections.ourschools-section][populate][schooltype]=*"
 
 );
   const json = await res.json();
@@ -31,7 +34,7 @@ const res = await fetch(
 );
   // Find hippocampus-main page
 const page = json.data.find(
-  p => p.slug === "wall-of-dreams"
+  p => p.slug === "our-school"
 );
 
 if (!page) {
@@ -39,11 +42,11 @@ if (!page) {
 } else {
   console.log("Found Page:", page.title);
 
-  const gallerySection = page.sections.find(
-    s => s.__component === "page-sections.gallery-section"
+  const ourschoolsSection = page.sections.find(
+    s => s.__component === "page-sections.ourschools-section"
   );
 
-  console.log("Gallery Section:", gallerySection);
+  console.log("Our Schools Section:", ourschoolsSection);
 }
   return json.data;
 };
