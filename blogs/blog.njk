@@ -1,7 +1,13 @@
 ---
 layout: layout.njk
-title: Blogs Details
+pagination:
+  data: blogs
+  size: 1
+  alias: blog
+permalink: "/blogs/{{ blog.slug }}/"
 ---
+
+
 
  <style>
     :root{
@@ -16,13 +22,6 @@ title: Blogs Details
     .article-hero{
       padding: 150px 0 28px;
       border-bottom: 1px solid #eef2f7;
-    }
-@media (max-width: 786px){
-       /* HERO / ARTICLE HEADER */
-    .article-hero{
-      padding: 80px 0 28px;
-      border-bottom: 1px solid #eef2f7;
-    }
     }
     .article-title{
       font-size: clamp(1.6rem, 2.6vw, 2.4rem);
@@ -109,17 +108,16 @@ background-color:#0f52ba;
     padding: 0 0.5rem;
   }
 
-  ul {
-    list-style-type: disc; 
-    padding-left: 20px; 
-    }
-
+ul {
+            list-style-type: disc; 
+            padding-left: 20px; 
+            }
   </style>
  <!-- floating share (desktop) -->
   <div class="floating-share d-none d-lg-block">
-    <a class="d-inline-block1" href="#" id="share-fb" title="Share on Facebook"><i class="bi bi-facebook"></i></a>
-    <a class="d-inline-block1" href="#" id="share-tw" title="Share on Twitter"><i class="bi bi-twitter"></i></a>
-    <a class="d-inline-block1" href="#" id="share-ln" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
+    <a class="d-inline-block" href="#" id="share-fb" title="Share on Facebook"><i class="bi bi-facebook"></i></a>
+    <a class="d-inline-block" href="#" id="share-tw" title="Share on Twitter"><i class="bi bi-twitter"></i></a>
+    <a class="d-inline-block" href="#" id="share-ln" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></a>
   </div>
 
 
@@ -132,13 +130,13 @@ background-color:#0f52ba;
 <nav aria-label="breadcrumb" class="my-3">
   <ol class="breadcrumb bg-transparent p-0 mb-0 d-flex align-items-center" style="--bs-breadcrumb-divider: '>'; font-size: 0.9rem;">
     <li class="breadcrumb-item">
-      <a href="{{ '/' | url }}" class="text-decoration-none text-muted hover-effect">Home</a>
+      <a href="/" class="text-decoration-none text-muted hover-effect">Home</a>
     </li>
     <li class="breadcrumb-item">
-      <a href="{{ '/blogs/' | url }}" class="text-decoration-none text-muted hover-effect">Blogs</a>
+      <a href="/blogs" class="text-decoration-none text-muted hover-effect">Blogs</a>
     </li>
     <li class="breadcrumb-item active text-dark" aria-current="page">
-      Unleashing Young Voices
+      {{ blog.slug }}
     </li>
   </ol>
 </nav>
@@ -146,25 +144,28 @@ background-color:#0f52ba;
 
 
 
-          <h1 class="article-title">Unleashing Young Voices: Inside the Digital Journalism Club at Hippocampus Schools</h1>
+          <h1 class="article-title">{{ blog.title }}</h1>
 		<!-- Article Meta with Icons -->
 <div class="d-flex flex-wrap align-items-center gap-3 my-3">
   <!-- Category Badge -->
-
-  <span class="badge rounded-pill" style="background:var(--accent); color:#fff; font-weight:700; padding:.45rem .7rem;">
-    School Activities
-  </span>
+  {% for category in blog.categories %}
+  <a href="/blogs/category/{{ category.slug }}/"
+     class="badge rounded-pill text-decoration-none"
+     style="background:var(--accent); color:#fff; font-weight:700; padding:.45rem .7rem;">
+     {{ category.name }}
+  </a>
+{% endfor %}
 
   <!-- Published Date -->
   <div class="text-muted small d-flex align-items-center gap-1">
     <i class="bi bi-calendar-event"></i>
-    March 8, 2024
+    {{ blog.blogPublishedAt }}
   </div>
 
   <!-- Read Time -->
   <div class="text-muted small d-flex align-items-center gap-1">
     <i class="bi bi-clock"></i>
-    6 min read
+    {{ blog.readTime }}
   </div>
 
   <!-- Summarize in ChatGPT -->
@@ -174,11 +175,11 @@ background-color:#0f52ba;
   </div>
 </div>
  <div class="d-flex align-items-center justify-content-start gap-3 my-3">
-  <img src="{{ '/assets/img/blogs/user-image.jpg' | url }}" alt="Author" class="author-avatar">
+  <img src="http://localhost:1337{{ blog.author.profileImage.url }}" alt="Author" class="author-avatar">
 
   <div>
     <div class="d-flex align-items-center" style="font-weight:700; color:var(--dark)">
-      Admin <small class="text-muted"> — Hippocampus</small>
+      {{ blog.author.name }} <small class="text-muted"> — {{ blog.author.designation }}</small>
 
       <!-- Accordion toggle icon -->
       <i class="bi bi-caret-down-fill ms-2 accordion-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#authorInfo" aria-expanded="false" aria-controls="authorInfo" style="cursor:pointer; transition: transform 0.3s;"></i>
@@ -188,18 +189,16 @@ background-color:#0f52ba;
     <!-- Collapsible author content -->
     <div class="collapse mt-2" id="authorInfo">
       <div class="meta-row py-2">
-        This blog is written by the Hippocampus administrator, referencing insights and sources from within Hippocampus.
+        {{ blog.author.bio }}
       </div>
     </div>
   </div>
 
   <!-- inline share -->
   <div class="ms-auto share-inline d-none d-sm-flex align-items-center">
-  <!--
     <a href="#" id="share-fb-inline" class="me-2 text-decoration-none"><i class="bi bi-facebook"></i></a>
     <a href="#" id="share-tw-inline" class="me-2 text-decoration-none"><i class="bi bi-twitter"></i></a>
     <a href="#" id="share-ln-inline" class="me-2 text-decoration-none"><i class="bi bi-linkedin"></i></a>
-    -->
   </div>
 </div>
 
@@ -207,103 +206,119 @@ background-color:#0f52ba;
 
 		    <!-- feature image -->
         <figure>
-          <img src="{{ '/assets/img/blogs/digital-journalism.png' | url }}" alt="Feature" class="feature-img mb-2">
-          <figcaption class="img-caption">Inside the Digital Journalism Club at Hippocampus Schools</figcaption>
+          <img src="http://localhost:1337{{ blog.featuredImage.url }}" alt="Feature" class="feature-img mb-2">
+          <figcaption class="img-caption">{{ blog.featuredCaption }}</figcaption>
         </figure>
         <article class="mt-4">
-          <p class="lead">The <strong>Digital Journalism Club at Hippocampus Schools</strong> is redefining how students engage with the media world. 
-          Designed to nurture creativity, digital literacy, and storytelling, the club empowers young learners to explore journalism through research, writing, multimedia production, and collaboration. 
-          In an era of rapid digital transformation, this initiative ensures that students are not just consumers of information—but confident creators, critical thinkers, and ethical digital citizens.</p>
+       {% set sectionIndex = 1 %}
+          {% for block in blog.content %}
 
-          <h2 id="section1">Introduction: A New Era of Student Storytelling</h2>
-          <p>In the vibrant classrooms and creative corridors of <strong>Hippocampus Schools</strong>, a new kind of newsroom is buzzing with energy. 
-          Here, words meet technology, and stories come alive through screens, lenses, and microphones. 
-          The <strong>Digital Journalism Club</strong> is more than an extracurricular activity—it’s a bridge between creativity and communication, giving students the tools to amplify their voices in a digital world.</p>
+          {# ---------- HEADINGS ---------- #}
+  {% if block.type == "heading" %}
 
-          <p>At a time when media shapes every aspect of society, Hippocampus recognizes the necessity of teaching students <strong>how to analyze, create, and share information responsibly</strong>. 
-          This platform transforms traditional learning into experiential education, enabling students to grow as storytellers, innovators, and changemakers.</p>
+    {% set headingText = "" %}
+    {% for child in block.children %}
+      {% if child.text %}
+        {% set headingText = headingText + child.text %}
+      {% endif %}
+    {% endfor %}
 
-          <h2 id="section2">Why Digital Journalism Matters Today</h2>
-          <p>The modern world runs on digital communication. From social media to news outlets, the ability to <strong>tell stories effectively online</strong> is an essential 21st-century skill. 
-          Through the Digital Journalism Club, students gain exposure to real-world media practices—understanding the power of words, visuals, and ethics in shaping narratives.</p>
-          <p>By merging <strong>technology with creativity</strong>, the initiative prepares students to navigate a complex media landscape while developing confidence, curiosity, and authenticity.</p>
-          
+    {% if block.level == 2 %}
+      <h2 id="section{{ sectionIndex }}">{{ headingText }}</h2>
+      {% set sectionIndex = sectionIndex + 1 %}
+    {% elif block.level == 3 %}
+      <h3>{{ headingText }}</h3>
+    {% endif %}
+  {# -------- PARAGRAPH -------- #}
+  {% if block.type == "paragraph" %}
+    <p>
+      {% for child in block.children %}
 
-          <h2 id="section3">Skills Students Develop</h2>
-          <h3 style="font-size: 1.15em; font-weight: bold; margin-top: 15px;">1. Research and Analysis</h3>
+        {% if child.bold %}<strong>{% endif %}
+        {% if child.italic %}<em>{% endif %}
+        {% if child.underline %}<u>{% endif %}
 
-          <p>Students learn how to <strong>dig deeper</strong>—gathering credible information, interpreting data, and identifying reliable sources. 
-          They explore investigative thinking, discovering how solid research fuels powerful stories.</p>
+        {{ child.text | safe }}
 
-          <h3 style="font-size: 1.15em; font-weight: bold; margin-top: 15px;">2. Writing and Editing</h3>
+        {% if child.underline %}</u>{% endif %}
+        {% if child.italic %}</em>{% endif %}
+        {% if child.bold %}</strong>{% endif %}
 
-          <p>Through journalist-style exercises, students refine their <strong>writing, editing, and communication skills</strong>. 
-          From crafting headlines to structuring articles, they learn to express ideas with clarity, precision, and impact across digital platforms.</p>
+      {% endfor %}
+    </p>
+  {% endif %}
 
-          <h3 style="font-size: 1.15em; font-weight: bold; margin-top: 15px;">3. Multimedia Storytelling</h3>
+  {# -------- LIST -------- #}
+  {% if block.type == "list" %}
+    {% if block.format == "ordered" %}
+      <ol>
+    {% else %}
+      <ul>
+    {% endif %}
 
-          <p>Stories today extend beyond the written word. Using <strong>multimedia tools</strong>—audio, video, photography, and graphics—students create immersive content that engages diverse audiences. 
-          This skill promotes both creativity and technical proficiency.</p>
+    {% for item in block.children %}
+      <li>
+        {% for child in item.children %}
+          {{ child.text | safe }}
+        {% endfor %}
+      </li>
+    {% endfor %}
 
-          <h3 style="font-size: 1.15em; font-weight: bold; margin-top: 15px;">4. Digital Literacy</h3>
+    {% if block.format == "ordered" %}
+      </ol>
+    {% else %}
+      </ul>
+    {% endif %}
+  {% endif %}
 
-          <p>In an age of misinformation, <strong>critical evaluation</strong> of content is crucial. 
-          The club equips students to discern credible information, analyze media trends, and uphold the values of integrity and responsibility online.</p>
+  {# -------- QUOTE -------- #}
+  {% if block.type == "quote" %}
+    <blockquote>
+      {% for child in block.children %}
+        {{ child.text | safe }}
+      {% endfor %}
+    </blockquote>
+  {% endif %}
 
-          <h3 style="font-size: 1.15em; font-weight: bold; margin-top: 15px;">5. Collaboration and Communication</h3>
+  {% if block.type == "image" %}
+  <figure class="my-4 text-center">
+    <img
+      src="{{ strapiBaseUrl }}{{ block.image.url }}"
+      alt="{{ block.image.alternativeText or '' }}"
+      class="img-fluid rounded"
+      style="max-height:500px; object-fit:cover;"
+      loading="lazy"
+    >
+    {% if block.image.caption %}
+      <figcaption class="img-caption">{{ block.image.caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
 
-          <p>Journalism is a team effort. Students learn to collaborate effectively, share constructive feedback, and manage projects together. 
-          This teamwork nurtures empathy, leadership, and confidence in public expression.</p>
+{% endfor %}
 
-          <h2 id="section4">Why Hippocampus? A Platform for Future Storytellers</h2>
-
-          <p>At <strong>Hippocampus Schools</strong>, education goes beyond textbooks—it’s about nurturing thinkers who can influence the future. 
-          The Digital Journalism Club embodies this philosophy, creating a <strong>holistic space for creativity, critical thought, and social awareness</strong>.</p>
-
-          <blockquote>“We’re not just telling stories—we’re shaping narratives that reflect truth, diversity, and imagination,” says the Club Coordinator.</blockquote>
-
-          <p>Through this platform, students are encouraged to see journalism as a force for good—a means to connect, empower, and inspire their communities.</p>
-
-          <h2 id="section5">Impact: Building Communicators for the Digital Future</h2>
-          <p>The Digital Journalism Club has already transformed the way students approach communication. Members have showcased projects that celebrate community stories, highlight environmental awareness, and explore student life, all while mastering essential digital skills.</p>
-
-          <p>The experience also contributes to cultivating career-ready competencies such as:</p>
-          <ul>
-          <li>Critical and creative thinking</li>
-          <li>Ethical decision-making</li>
-          <li>Public speaking and presentation</li>
-          <li>Media production and design innovation</li>
-          </ul>
-
-          <p>By combining media creation with mentorship, Hippocampus is preparing students not just for the evolving journalism landscape but for leadership in any field where communication matters.</p>
-
-          
-          <h2 id="section6">Conclusion: Empowering Tomorrow’s Digital Voices</h2>
-          <p>The <strong>Digital Journalism Club at Hippocampus Schools</strong> is more than an after-school initiative—it’s a movement towards <strong>empowering youth through storytelling, technology, and truth</strong>. 
-          By fostering curiosity and communication, Hippocampus ensures that every student has the ability to express their voice boldly and responsibly.</p>
-          
-          <p>In this digital age, where stories shape change, Hippocampus stands committed to nurturing the next generation of <strong>responsible journalists, content creators, and conscious global citizens.</strong></p>
-          
-
-          <p><strong>SEO keywords:</strong> Digital Journalism Club, Hippocampus Schools, student journalism, digital literacy, media education, storytelling skills, multimedia learning, student empowerment, creative writing for students, digital education initiatives.</p>
+          <p><strong>SEO keywords:</strong> space-efficient elevators India, machine-room-less elevators, compact home elevators, pneumatic vacuum lifts, smart elevator controls, vertical mobility solutions India, luxury residential elevators, small footprint elevators, elevator design India 2025, energy-efficient elevator technology.</p>
          
 
           <!-- tags & navigation -->
           <div class="d-flex flex-wrap gap-2 mt-4">
-            <a class="badge  text-white px-3 py-2 rounded-pill">School Activities</a>
+          {% for tag in blog.tags %}
+  <a href="/blogs/tag/{{ tag.slug }}/"
+     class="badge text-white px-3 py-2 rounded-pill">
+     {{ tag.name }}
+  </a>
+{% endfor %}
           </div>
 
           <!-- author bio -->
           <div class="d-flex gap-3 align-items-start mt-5 p-3" style="border-radius:12px; background:#fff; box-shadow:var(--card-shadow);">
-            <img src="{{ '/assets/img/blogs/user-image.jpg' | url }}" class="author-avatar" alt="">
+            <img src="http://localhost:1337{{ blog.author.profileImage.url }}" class="author-avatar" alt="">
             <div>
-              <h6 class="mb-1" style="font-weight:700">Admin</h6>
-              <div class="text-muted small">This blog is written by the Hippocampus administrator, referencing insights and sources from within Hippocampus.</div>
+              <h6 class="mb-1" style="font-weight:700">{{ blog.author.name }}</h6>
+              <div class="text-muted small">{{ blog.author.bio }}</div>
               <div class="mt-2">
-              <!--
                 <a class="text-decoration-none me-2" href="#"><i class="bi bi-twitter"></i></a>
                 <a class="text-decoration-none me-2" href="#"><i class="bi bi-linkedin"></i></a>
-                -->
               </div>
             </div>
           </div>
@@ -312,6 +327,28 @@ background-color:#0f52ba;
 
         </article>
       </div>
+{% set related = [] %}
+
+{% for other in blogs %}
+  {% if other.slug != blog.slug %}
+
+    {% set matchFound = false %}
+
+    {# compare each tag manually #}
+    {% for tagA in blog.tags %}
+      {% for tagB in other.tags %}
+        {% if tagA.id == tagB.id %}
+          {% set matchFound = true %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    {% if matchFound %}
+      {% set related = related.concat([other]) %}
+    {% endif %}
+
+  {% endif %}
+{% endfor %}
 
       <!-- SIDEBAR -->
       <aside class="col-lg-4">
@@ -327,14 +364,36 @@ background-color:#0f52ba;
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#tocAccordion">
         <div class="accordion-body p-2">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="#section1">Section 1: Introduction</a></li>
-            <li class="list-group-item"><a href="#section2">Section 2: Why Digital Journalism Matters Today</a></li>
-            <li class="list-group-item"><a href="#section3">Section 3: Skills Students Develop</a></li>
-            <li class="list-group-item"><a href="#section4">Section 4: Why Hippocampus? A Platform for Future Storytellers</a></li>
-            <li class="list-group-item"><a href="#section5">Section 5: Impact: Building Communicators for the Digital Future</a></li>
-            <li class="list-group-item"><a href="#section6">Section 6: Conclusion: Empowering Tomorrow’s Digital Voices</a></li>
-          </ul>
+         <ul class="list-group list-group-flush">
+
+{% set tocIndex = 1 %}
+
+{% for block in blog.content %}
+
+  {% if block.type == "heading" %}
+
+    {# Extract ONLY text — no HTML #}
+    {% set headingText = "" %}
+
+    {% for child in block.children %}
+      {% if child.text %}
+        {% set headingText = headingText + child.text %}
+      {% endif %}
+    {% endfor %}
+
+    <li class="list-group-item">
+      <a href="#section{{ tocIndex }}" class="toc-link">
+        {{ headingText }}
+      </a>
+    </li>
+
+    {% set tocIndex = tocIndex + 1 %}
+
+  {% endif %}
+
+{% endfor %}
+
+</ul>
         </div>
       </div>
     </div>
@@ -355,38 +414,35 @@ h2[id]{
           <div class="mb-4">
             <h6 class="mb-3" style="font-weight:700">Related posts</h6>
 
-            <a href="{{ '/kahoot-meets-chess/' | url }}" class="text-decoration-none mb-2 d-block">
-              <div class="related-card mb-2">
-                <img src="{{ '/assets/img/blogs/kahoot-meets-chess.png' | url }}" alt="">
-                <div>
-                  <div style="font-weight:700; color:var(--dark);">Cultivating a Culture of Innovation</div>
-                  <div class="text-muted small">5 min read</div>
-                </div>
-              </div>
-            </a>
-
-            <a href="{{ '/mythological-wisdom-meets-modern-learning/' | url }}" class="text-decoration-none mb-2 d-block">
-              <div class="related-card mb-2">
-                <img src="{{ '/assets/img/blogs/indian-mythology-quiz-1.jpeg' | url }}" alt="">
-                <div>
-                  <div style="font-weight:700; color:var(--dark);">Mythological Wisdom Meets Modern Learning</div>
-                  <div class="text-muted small">6 min read</div>
-                </div>
-              </div>
-            </a>
-
-            <a href="{{ '/hlc-young-authors/' | url }}" class="text-decoration-none d-block">
-              <div class="related-card">
-                <img src="{{ '/assets/img/blogs/hlc-young-authors.png' | url }}" alt="">
-                <div>
-                  <div style="font-weight:700; color:var(--dark);">HLC Young Authors</div>
-                  <div class="text-muted small">6 min read</div>
-                </div>
-              </div>
-            </a>
+            {% for post in related | slice(0,3) %}
+<a href="/blogs/{{ post.slug }}/" class="text-decoration-none mb-2 d-block">
+  <div class="related-card">
+    <img src="{{ strapiBaseUrl }}{{ post.featuredImage.url }}" alt="">
+    <div>
+      <div style="font-weight:700; color:var(--dark);">
+        {{ post.title }}
+      </div>
+      <div class="text-muted small">{{ post.readTime }}</div>
+    </div>
+  </div>
+</a>
+{% endfor %}
 
           </div>
 
+          <!-- newsletter CTA -->
+          <div class="mb-4">
+            <div class="newsletter-card">
+              <h6 style="font-weight:700; margin-bottom:.25rem;">Don’t miss our weekly emails</h6>
+              <p class="text-muted small mb-3">Join 200,000+ professionals for curated elevator & mobility insights.</p>
+              <form id="subscribe-form">
+                <div class="input-group">
+                  <input type="email" class="form-control" placeholder="Enter your work email">
+                  <button class="btn" style="background:var(--accent); color:#fff;">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
 
         
 

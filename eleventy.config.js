@@ -24,3 +24,12 @@ module.exports = function(eleventyConfig) {
   };
 };
 
+module.exports = function(eleventyConfig) {
+eleventyConfig.addFilter("slugifyHeading", function(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+});
+};
+

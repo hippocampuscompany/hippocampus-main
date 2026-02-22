@@ -29,24 +29,5 @@ const res = await fetch(
 
 );
   const json = await res.json();
-  console.log(
-  json.data.map(p => p.slug)
-);
-  // Find hippocampus-main page
-const page = json.data.find(
-  p => p.slug === "our-school"
-);
-
-if (!page) {
-  console.log("Page not found");
-} else {
-  console.log("Found Page:", page.title);
-
-  const ourschoolsSection = page.sections.find(
-    s => s.__component === "page-sections.ourschools-section"
-  );
-
-  console.log("Our Schools Section:", ourschoolsSection);
-}
   return json.data;
 };
