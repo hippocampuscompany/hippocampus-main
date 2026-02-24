@@ -399,11 +399,14 @@ h2[id]{
           <!-- related posts -->
           <div class="mb-4">
             <h6 class="mb-3" style="font-weight:700">Related posts</h6>
-
-            {% for post in related %}
-  {% if shown.indexOf(post.slug) == -1 %}
+{% set shown = [] %}
+{% set count = 0 %}
+            {% for post in related  %}
+            {# Stop once we already rendered 3 #}
+  {% if count < 3 %}
+  {% if shown.indexOf(post.slug) == -1 and post.slug != blog.slug %}
     {% set shown = shown.concat([post.slug]) %}
-
+    {% set count = count + 1 %}
     <a href="/blogs/{{ post.slug }}/" class="text-decoration-none mb-2 d-block">
       <div class="related-card mb-2">
         <img src="http://localhost:1337{{ post.featuredImage.url }}" alt="">
@@ -415,7 +418,7 @@ h2[id]{
         </div>
       </div>
     </a>
-
+{% endif %}
   {% endif %}
 {% endfor %}
 
