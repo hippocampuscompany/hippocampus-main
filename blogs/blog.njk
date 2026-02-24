@@ -218,17 +218,16 @@ ul {
 
     {% set headingText = "" %}
     {% for child in block.children %}
-      {% if child.text %}
-        {% set headingText = headingText + child.text %}
-      {% endif %}
+      {% set headingText = headingText + child.text %}
     {% endfor %}
 
-    {% if block.level == 2 %}
-      <h2 id="section{{ sectionIndex }}">{{ headingText }}</h2>
-      {% set sectionIndex = sectionIndex + 1 %}
-    {% elif block.level == 3 %}
-      <h3>{{ headingText }}</h3>
-    {% endif %}
+    <h2 id="section{{ sectionIndex }}">
+      {{ headingText | safe }}
+    </h2>
+
+    {% set sectionIndex = sectionIndex + 1 %}
+
+  {% endif %}
   {# -------- PARAGRAPH -------- #}
   {% if block.type == "paragraph" %}
     <p>
@@ -332,20 +331,15 @@ ul {
 {% for other in blogs %}
   {% if other.slug != blog.slug %}
 
-    {% set matchFound = false %}
+    {% for tag in other.tags %}
+      {% for currentTag in blog.tags %}
 
-    {# compare each tag manually #}
-    {% for tagA in blog.tags %}
-      {% for tagB in other.tags %}
-        {% if tagA.id == tagB.id %}
-          {% set matchFound = true %}
+        {% if tag.name == currentTag.name %}
+          {% set related = related.concat([other]) %}
         {% endif %}
+
       {% endfor %}
     {% endfor %}
-
-    {% if matchFound %}
-      {% set related = related.concat([other]) %}
-    {% endif %}
 
   {% endif %}
 {% endfor %}
@@ -364,35 +358,27 @@ ul {
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#tocAccordion">
         <div class="accordion-body p-2">
-         <ul class="list-group list-group-flush">
-
-{% set tocIndex = 1 %}
+<ul class="list-group list-group-flush">
+{% set sectionIndex = 1 %}
 
 {% for block in blog.content %}
-
   {% if block.type == "heading" %}
 
-    {# Extract ONLY text — no HTML #}
+    {# ---- Extract plain text from children ---- #}
     {% set headingText = "" %}
-
     {% for child in block.children %}
-      {% if child.text %}
-        {% set headingText = headingText + child.text %}
-      {% endif %}
+      {% set headingText = headingText + child.text %}
     {% endfor %}
 
     <li class="list-group-item">
-      <a href="#section{{ tocIndex }}" class="toc-link">
-        {{ headingText }}
+      <a href="#section{{ sectionIndex }}">
+        Section {{ sectionIndex }}: {{ headingText | striptags | trim }}
       </a>
     </li>
 
-    {% set tocIndex = tocIndex + 1 %}
-
+    {% set sectionIndex = sectionIndex + 1 %}
   {% endif %}
-
 {% endfor %}
-
 </ul>
         </div>
       </div>
@@ -414,19 +400,48 @@ h2[id]{
           <div class="mb-4">
             <h6 class="mb-3" style="font-weight:700">Related posts</h6>
 
-            {% for post in related | slice(0,3) %}
-<a href="/blogs/{{ post.slug }}/" class="text-decoration-none mb-2 d-block">
-  <div class="related-card">
-    <img src="{{ strapiBaseUrl }}{{ post.featuredImage.url }}" alt="">
-    <div>
-      <div style="font-weight:700; color:var(--dark);">
-        {{ post.title }}
+            {% for post in related %}
+  {% if shown.indexOf(post.slug) == -1 %}
+    {% set shown = shown.concat([post.slug]) %}
+
+    <a href="/blogs/{{ post.slug }}/" class="text-decoration-none mb-2 d-block">
+      <div class="related-card mb-2">
+        <img src="http://localhost:1337{{ post.featuredImage.url }}" alt="">
+        <div>
+          <div style="font-weight:700; color:var(--dark);">
+            {{ post.title }}
+          </div>
+          <div class="text-muted small">{{ post.readTime }}</div>
+        </div>
       </div>
-      <div class="text-muted small">{{ post.readTime }}</div>
-    </div>
-  </div>
-</a>
+    </a>
+
+  {% endif %}
 {% endfor %}
+
+{% if related.length == 0 %}
+
+  {% for post in blogs | reverse %}
+    {% if post.slug != blog.slug %}
+      {% if loop.index <= 3 %}
+
+        <a href="/blogs/{{ post.slug }}/" class="text-decoration-none mb-2 d-block">
+          <div class="related-card mb-2">
+            <img src="http://localhost:1337{{ post.featuredImage.url }}" alt="">
+            <div>
+              <div style="font-weight:700; color:var(--dark);">
+                {{ post.title }}
+              </div>
+              <div class="text-muted small">{{ post.readTime }}</div>
+            </div>
+          </div>
+        </a>
+
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+{% endif %}
 
           </div>
 

@@ -7,7 +7,6 @@ module.exports = async function () {
     );
 
     const json = await res.json();
-    console.log(json.data)
   // Return only actual entries
   return json.data;
 
