@@ -3,75 +3,18 @@ layout: layout.njk
 title: Hippocampus Learning Centres
 ---
 
-
 {% set page = null %}
 
 {% for p in pages %}
-  {% if p.slug == "our-school" %}
-    {% set page = p %}
-  {% endif %}
-{% endfor %}
-
-{% if page %}
-
-{% set testimonialSection = null %}
-{% for s in page.sections %}
-  {% if s.__component == "page-sections.testimonial-slider" %}
-    {% set testimonialSection = s %}
-  {% endif %}
-{% endfor %}
-
-
-
-
-  {% for section in page.sections %}
-    {% if section.__component == "page-sections.hero" %}
-
-      <section class="academy-container position-relative">
-        <div class="container">
-          <div class="row g-4 pt-3">
-
-            <div class="col-md-7 my-auto">
-              <h3 class="fw-bold text-white mb-3 heading-responsive">
-                {{ section.heading }}
-              </h3>
-            </div>
-
-            <div class="col-md-5 my-auto">
-              {% if section.videoUrl %}
-                <div class="video-wrapper">
-                  <iframe
-                    width="100%"
-                    height="315"
-                    src="{{ section.videoUrl }}"
-                    allowfullscreen>
-                  </iframe>
-                </div>
-              {% endif %}
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-    {% endif %}
-  {% endfor %}
-
+{% if p.slug == "our-school" %}
+{% set page = p %}
 {% endif %}
-
-
-
-
-
-
+{% endfor %}
 
 <style>
 .academy-container{
-      padding: 150px 0 60px 0 !important;
+padding: 150px 0 60px 0 !important;
 }
-</style>
-
-<style>
 .video-wrapper {
 position: relative; 
 }
@@ -108,17 +51,167 @@ line-height: 1.2;
 background: linear-gradient(135deg, #5a2ca0, #7b42f6); /* optional bg */
 padding: 60px 0;
 }
+.nudge{
+padding: 3rem 1rem;
+background-color: var(--color-primary);
+}
+/* Tabs Styling */
+#filterTabs .nav-link {
+border-radius: 50px;
+border: 2px solid #ffc107;
+color: #333;
+transition: all .3s ease;
+background: #fff;
+}
+#filterTabs .nav-link.active {
+background: #ffc107;
+color: #000;
+box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+#filterTabs .nav-link:hover {
+background: #ffe08a;
+color: #000;
+}
+
+/* Polaroid card */
+.polaroid-card {
+background: #fff;
+border-radius: 10px;
+position: relative;
+transition: transform .3s ease, box-shadow .3s ease;
+transform: rotate(-1deg);
+}
+.polaroid-card:hover {
+transform: rotate(0deg) scale(1.03);
+box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+.img-wrapper {
+position: relative;
+}
+.school-label {
+position: absolute;
+top: 10px;
+left: 10px;
+background: #ffc107;
+color: #000;
+font-size: 12px;
+padding: 4px 10px;
+font-weight: 700;
+border-radius: 4px;
+}
+.school-label.cbse {
+background: #007bff;
+color: #fff;
+}
+.school-label.state {
+background: #28a745;
+color: #fff;
+}
+
+/* Pin Logo */
+.pin-logo {
+position: absolute;
+top: -25px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 5;
+animation: swing 4s ease-in-out infinite;
+transform-origin: top center; /* Pivot from the top */
+}
+
+.pin-logo img {
+width: 40px;
+height: auto;
+filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4));
+transition: transform 0.3s;
+}
+
+/* Swing Animation */
+@keyframes swing {
+0% { transform: translateX(-50%) rotate(0deg); }
+25% { transform: translateX(-50%) rotate(10deg); }
+50% { transform: translateX(-50%) rotate(-10deg); }
+75% { transform: translateX(-50%) rotate(10deg); }
+100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* Optional Hover Effect */
+.pin-logo:hover img {
+transform: scale(1.2);
+}
+
+
+/* Card Body */
+.polaroid-card .card-body {
+padding: 20px;
+font-size: 14px;
+line-height: 1.5;
+}
+.polaroid-card h5 {
+font-size: 16px;
+color: #222;
+}
+.polaroid-card p {
+margin-bottom: 6px;
+}
 </style>
 
 {% if page %}
 
-  {% set ourschoolsSection = null %}
+{% set testimonialSection = null %}
+{% for s in page.sections %}
+{% if s.__component == "page-sections.testimonial-slider" %}
+{% set testimonialSection = s %}
+{% endif %}
+{% endfor %}
 
-  {% for s in page.sections %}
-    {% if s.__component == "page-sections.ourschools-section" %}
-      {% set ourschoolsSection = s %}
-    {% endif %}
-  {% endfor %}
+
+{% for section in page.sections %}
+{% if section.__component == "page-sections.hero" %}
+
+<section class="academy-container position-relative">
+<div class="container">
+<div class="row g-4 pt-3">
+
+<div class="col-md-7 my-auto">
+<h3 class="fw-bold text-white mb-3 heading-responsive">
+{{ section.heading }}
+</h3>
+</div>
+
+<div class="col-md-5 my-auto">
+{% if section.videoUrl %}
+<div class="video-wrapper">
+<iframe
+width="100%"
+height="315"
+src="{{ section.videoUrl }}"
+allowfullscreen>
+</iframe>
+</div>
+{% endif %}
+</div>
+
+</div>
+</div>
+</section>
+
+{% endif %}
+{% endfor %}
+
+{% endif %}
+
+
+
+{% if page %}
+
+{% set ourschoolsSection = null %}
+
+{% for s in page.sections %}
+{% if s.__component == "page-sections.ourschools-section" %}
+{% set ourschoolsSection = s %}
+{% endif %}
+{% endfor %}
 
 {% endif %}
 
@@ -127,309 +220,216 @@ padding: 60px 0;
 <!-- My Schools Section -->
 
 <section class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-5 fw-bold">Our Schools</h2>
+<div class="container">
+<h2 class="text-center mb-5 fw-bold">Our Schools</h2>
 
-  <!-- Filters -->
+<!-- Filters -->
 <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-4">
 
-  <!-- Board Tabs -->
-  <ul class="nav nav-pills" id="filterTabs">
-    {% if ourschoolsSection and ourschoolsSection.schooltype %}
-  {% for sType in ourschoolsSection.schooltype %}
-    <li class="nav-item mx-2">
-      <button class="nav-link {% if sType.key == 'all' %}active{% endif %}"
-         data-group="{{ sType.key | lower }}">
-         {{ sType.name }}
-      </button>
-    </li>
-  {% endfor %}
+<!-- Board Tabs -->
+<ul class="nav nav-pills" id="filterTabs">
+{% if ourschoolsSection and ourschoolsSection.schooltype %}
+{% for sType in ourschoolsSection.schooltype %}
+<li class="nav-item mx-2">
+<button class="nav-link {% if sType.key == 'all' %}active{% endif %}"
+data-group="{{ sType.key | lower }}">
+{{ sType.name }}
+</button>
+</li>
+{% endfor %}
 {% endif %}
-  </ul>
+</ul>
 
-  <!-- City Dropdown (ONLY ONE) -->
- <select id="citySelect1" class="form-select w-auto">
-    {% for loc in ourschoolsSection.location %}
+<!-- City Dropdown (ONLY ONE) -->
+<select id="citySelect1" class="form-select w-auto">
+{% for loc in ourschoolsSection.location %}
 <option value="{{ loc.key }}">{{ loc.place }}</option>
 {% endfor %}
-  </select>
-  
+</select>
+
 </div>
 
 <p id="schoolCountText" class="text-start mb-4 fw-semibold">
-  Showing all schools
+Showing all schools
 </p>
 
 
-    <!-- Schools Grid -->
-    <div class="row g-4 my-shuffle" id="schoolsGrid">
+<!-- Schools Grid -->
+<div class="row g-4 my-shuffle" id="schoolsGrid">
 {% for school in ourschoolsSection.schoolItem %}
 <div class="col-md-4 col-12 mb-4 school-card"
-     data-groups='["{{ school.schoolTypeKey }}"]'
-     data-city="{{ school.locationKey }}">
+data-groups='["{{ school.schoolTypeKey }}"]'
+data-city="{{ school.locationKey }}">
 
-  <div class="polaroid-card shadow random-tilt">
+<div class="polaroid-card shadow random-tilt">
 
-    <div class="pin-logo">
-      <img src="{{ '/assets/img/hippo-logo.png' | url }}">
-    </div>
+<div class="pin-logo">
+<img src="{{ '/assets/img/hippo-logo.png' | url }}">
+</div>
 
-    <div class="img-wrapper">
-      {% if school.image %}
-        <img src="http://localhost:1337{{ school.image.url }}" class="img-fluid">
-      {% endif %}
-      <span class="school-label {{ school.schoolTypeKey }}">
-        {{ school.schoolTypeKey | upper }}
-      </span>
-    </div>
+<div class="img-wrapper">
+{% if school.image %}
+<img src="http://localhost:1337{{ school.image.url }}" class="img-fluid">
+{% endif %}
+<span class="school-label {{ school.schoolTypeKey }}">
+{{ school.schoolTypeKey | upper }}
+</span>
+</div>
 
-    <div class="card-body text-center">
-      <h5 class="fw-bold text-uppercase mb-2">{{ school.heading }}</h5>
-      <p class="small text-muted"><strong>Address:</strong> {{ school.address }}</p>
-      <p class="small text-muted"><strong>Phone:</strong> {{ school.phone }}</p>
-      <p class="small text-muted"><strong>Email:</strong> {{ school.email }}</p>
-      <p class="small text-muted"><strong>Website:</strong> {{ school.website }}</p>
-    </div>
+<div class="card-body text-center">
+<h5 class="fw-bold text-uppercase mb-2">{{ school.heading }}</h5>
+<p class="small text-muted"><strong>Address:</strong> {{ school.address }}</p>
+<p class="small text-muted"><strong>Phone:</strong> {{ school.phone }}</p>
+<p class="small text-muted"><strong>Email:</strong> {{ school.email }}</p>
+<p class="small text-muted"><strong>Website:</strong> {{ school.website }}</p>
+</div>
 
-    <div class="card-footer bg-white border-0 text-center">
-      <a href="{{ school.viewMoreLink }}" class="btn btn-warning px-4" target="_blank">
-        {{school.viewMoreText}}
-      </a>
-    </div>
+<div class="card-footer bg-white border-0 text-center">
+<a href="{{ school.viewMoreLink }}" class="btn btn-warning px-4" target="_blank">
+{{school.viewMoreText}}
+</a>
+</div>
 
-  </div>
+</div>
 </div>
 {% endfor %}
 
 
-    </div>
-  </div>
+</div>
+</div>
 </section>
 
 
 <!-- Contact Us Form starts -->
 <section id="contactus_form" class="appointment section-bg" style="background-color:#674ea7;">
-  <div class="container" data-aos="fade-up">
+<div class="container" data-aos="fade-up">
 
-    <div class="section-title">
-      <h2 class="text-white text-center">Admission Enquiry</h2>
-    </div>
+<div class="section-title">
+<h2 class="text-white text-center">Admission Enquiry</h2>
+</div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-12 form-group">
+<div class="row justify-content-center">
+<div class="col-md-12 form-group">
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+<form action="forms/appointment.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            </div>
+<div class="row">
+<div class="col-md-4 form-group">
+<input type="text" name="name" class="form-control" placeholder="Your Name" required>
+</div>
 
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-            </div>
+<div class="col-md-4 form-group mt-3 mt-md-0">
+<input type="email" name="email" class="form-control" placeholder="Your Email" required>
+</div>
 
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" name="phone" class="form-control" placeholder="Your Phone" required>
-            </div>
-          </div>
+<div class="col-md-4 form-group mt-3 mt-md-0">
+<input type="tel" name="phone" class="form-control" placeholder="Your Phone" required>
+</div>
+</div>
 
-          <div class="row">
+<div class="row">
 
-            <!-- Grade -->
-            <div class="col-md-4 form-group mt-3">
-              <select name="grade" class="form-select" required>
-                <option value="">Select Grade</option>
-                <option value="Kindergarten (KG)">Kindergarten (KG)</option>
-                <option value="Grades 1-5">Grades 1-5</option>
-                <option value="Grades 6-8">Grades 6-8</option>
-                <option value="Grades 9-10">Grades 9-10</option>
-              </select>
-            </div>
+<!-- Grade -->
+<div class="col-md-4 form-group mt-3">
+<select name="grade" class="form-select" required>
+<option value="">Select Grade</option>
+<option value="Kindergarten (KG)">Kindergarten (KG)</option>
+<option value="Grades 1-5">Grades 1-5</option>
+<option value="Grades 6-8">Grades 6-8</option>
+<option value="Grades 9-10">Grades 9-10</option>
+</select>
+</div>
 
-            <!-- City Dropdown (FIXED ID) -->
-            <div class="col-md-4 form-group mt-3">
-              <select id="formCitySelect" name="city" class="form-select" required>
-                <option value="">-- Select City --</option>
-              </select>
-            </div>
+<!-- City Dropdown (FIXED ID) -->
+<div class="col-md-4 form-group mt-3">
+<select id="formCitySelect" name="city" class="form-select" required>
+<option value="">-- Select City --</option>
+</select>
+</div>
 
-            <!-- School Dropdown -->
-            <div class="col-md-4 form-group mt-3">
-              <select id="formSchoolSelect" name="school" class="form-select" disabled required>
-                <option value="">-- Select School --</option>
-              </select>
-            </div>
+<!-- School Dropdown -->
+<div class="col-md-4 form-group mt-3">
+<select id="formSchoolSelect" name="school" class="form-select" disabled required>
+<option value="">-- Select School --</option>
+</select>
+</div>
 
-          </div>
+</div>
 
-          <div class="text-center mt-4">
-            <button class="btn btn-warning btn-hippo" type="submit">Submit</button>
-          </div>
+<div class="text-center mt-4">
+<button class="btn btn-warning btn-hippo" type="submit">Submit</button>
+</div>
 
-        </form>
+</form>
 
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const schoolData = {
-    "Bangalore": [
-      "Vidya Vaibhav Hippocampus Public School",
-      "Rayen Hippocampus Vidya Mandira School"
-    ],
-    "Hassan": [
-      "Malnad International Hippocampus School",
-      "Malenadu Future School"
-    ],
-    "Mandya": [
-      "DMS Jnana Kuteera Hippocampus School",
-      "Vidyakula Hippocampus School"
-    ],
-    "Belgaum": [
-      "Sri Basaveshwara Hippocampus English Medium School",
-      "DB Darure Hippocampus English Medium School"
-    ],
-    "Koppal": [
-      "Millennium Hippocampus School (CBSE)"
-    ],
-    "Guntur": [
-      "Natco School of Learning"
-    ],
-    "Ramanagara": [
-      "SSVM Hippocampus English Medium School"
-    ],
-    "Gulbarga": [
-      "Siddh Bharati Vidya Mandir CBSE Secondary School"
-    ],
-    "Bidar": [
-      "Sri Siddharoodh Public School"
-    ],
-    "Sagar": [
-      "Jnanasagara Public School"
-    ],
-    "Rabakavi-Banahatti": [
-      "Shri Prabhulingeshwar International School"
-    ],
-    "Gokak": [
-      "Netaji Hippocampus English Medium School"
-    ],
-    "Rangareddy": [
-      "Hippocampus School"
-    ]
-  };
-
-  const citySelect = document.getElementById("formCitySelect");
-  const schoolSelect = document.getElementById("formSchoolSelect");
-
-  // Populate City Dropdown
-  Object.keys(schoolData).sort().forEach(city => {
-    const option = document.createElement("option");
-    option.value = city;
-    option.textContent = city;
-    citySelect.appendChild(option);
-  });
-
-  // On City Change
-  citySelect.addEventListener("change", function () {
-    const selectedCity = this.value;
-
-    schoolSelect.innerHTML = '<option value="">-- Select School --</option>';
-    schoolSelect.disabled = true;
-
-    if (!selectedCity) return;
-
-    const schools = schoolData[selectedCity];
-
-    schools.forEach(school => {
-      const option = document.createElement("option");
-      option.value = school;
-      option.textContent = school;
-      schoolSelect.appendChild(option);
-    });
-
-    schoolSelect.disabled = false;
-
-    // Auto-select if only one school
-    if (schools.length === 1) {
-      schoolSelect.selectedIndex = 1;
-    }
-  });
-
-});
-</script>
-
-
-
- <!-- testimonialSection  start -->
-
-
+<!-- testimonialSection  start -->
 {% if testimonialSection %}
 <section class="testimonial-section">
-  <h2 class="text-white">{{ testimonialSection.title }}</h2>
+<h2 class="text-white">{{ testimonialSection.title }}</h2>
 
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-12">
-        <div class="swiper testimonialSwiper">
-          <div class="swiper-wrapper">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-12">
+<div class="swiper testimonialSwiper">
+<div class="swiper-wrapper">
 
-            {% for item in testimonialSection.testimonials %}
-            <div class="swiper-slide testimonial-card">
+{% for item in testimonialSection.testimonials %}
+<div class="swiper-slide testimonial-card">
 
-              <h5>{{ item.reviewTitle }}</h5>
+<h5>{{ item.reviewTitle }}</h5>
 
-              <div class="stars">
-                {% for i in range(1,6) %}
-                  {% if i <= item.rating %}
-                    <span class="star filled">★</span>
-                  {% else %}
-                    <span class="star">☆</span>
-                  {% endif %}
-                {% endfor %}
-              </div>
+<div class="stars">
+{% for i in range(1,6) %}
+{% if i <= item.rating %}
+<span class="star filled">★</span>
+{% else %}
+<span class="star">☆</span>
+{% endif %}
+{% endfor %}
+</div>
 
-              {% if item.description %}
-                <p>{{ item.description }}</p>
-              {% endif %}
+{% if item.description %}
+<p>{{ item.description }}</p>
+{% endif %}
 
-              {% if item.description2 %}
-                <p>{{ item.description2 }}</p>
-              {% endif %}
+{% if item.description2 %}
+<p>{{ item.description2 }}</p>
+{% endif %}
 
-              {% if item.description3 %}
-                <p>{{ item.description3 }}</p>
-              {% endif %}
+{% if item.description3 %}
+<p>{{ item.description3 }}</p>
+{% endif %}
 
-              <div class="reviewer">
-                {% if item.images %}
-                  <img src="http://localhost:1337{{ item.images.url }}" alt="{{ item.reviewerName }}">
-                {% endif %}
+<div class="reviewer">
+{% if item.images %}
+<img src="http://localhost:1337{{ item.images.url }}" alt="{{ item.reviewerName }}">
+{% endif %}
 
-                <div class="reviewer-info">
-                  <strong>{{ item.reviewerName }}</strong><br>
-                  <small>{{ item.reviewerRole }}</small>
-                </div>
-              </div>
+<div class="reviewer-info">
+<strong>{{ item.reviewerName }}</strong><br>
+<small>{{ item.reviewerRole }}</small>
+</div>
+</div>
 
-            </div>
-            {% endfor %}
+</div>
+{% endfor %}
 
-          </div>
+</div>
 
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="swiper-pagination"></div>
+</div>
+</div>
+</div>
+</div>
 </section>
 {% endif %}
- 
- <!-- testimonialSection  start end -->
+
+<!-- testimonialSection  start end -->
 
 
 <section class="nudge">
@@ -440,202 +440,179 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 </div>
 </section>
-
-
-
-
-<style>
-.nudge{
-padding: 3rem 1rem;
-    background-color: var(--color-primary);
-}
-/* Tabs Styling */
-#filterTabs .nav-link {
-  border-radius: 50px;
-  border: 2px solid #ffc107;
-  color: #333;
-  transition: all .3s ease;
-  background: #fff;
-}
-#filterTabs .nav-link.active {
-  background: #ffc107;
-  color: #000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-#filterTabs .nav-link:hover {
-  background: #ffe08a;
-  color: #000;
-}
-
-/* Polaroid card */
-.polaroid-card {
-  background: #fff;
-  border-radius: 10px;
-  position: relative;
-  transition: transform .3s ease, box-shadow .3s ease;
-  transform: rotate(-1deg);
-}
-.polaroid-card:hover {
-  transform: rotate(0deg) scale(1.03);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-}
-.img-wrapper {
-  position: relative;
-}
-.school-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #ffc107;
-  color: #000;
-  font-size: 12px;
-  padding: 4px 10px;
-  font-weight: 700;
-  border-radius: 4px;
-}
-.school-label.cbse {
-  background: #007bff;
-  color: #fff;
-}
-.school-label.state {
-  background: #28a745;
-  color: #fff;
-}
-
-/* Pin Logo */
-.pin-logo {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  animation: swing 4s ease-in-out infinite;
-  transform-origin: top center; /* Pivot from the top */
-}
-
-.pin-logo img {
-  width: 40px;
-  height: auto;
-  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4));
-  transition: transform 0.3s;
-}
-
-/* Swing Animation */
-@keyframes swing {
-  0% { transform: translateX(-50%) rotate(0deg); }
-  25% { transform: translateX(-50%) rotate(10deg); }
-  50% { transform: translateX(-50%) rotate(-10deg); }
-  75% { transform: translateX(-50%) rotate(10deg); }
-  100% { transform: translateX(-50%) rotate(0deg); }
-}
-
-/* Optional Hover Effect */
-.pin-logo:hover img {
-  transform: scale(1.2);
-}
-
-
-/* Card Body */
-.polaroid-card .card-body {
-  padding: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.polaroid-card h5 {
-  font-size: 16px;
-  color: #222;
-}
-.polaroid-card p {
-  margin-bottom: 6px;
-}
-</style>
-
+{% include "global-scripts.njk" %}
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+const schoolData = {
+"Bangalore": [
+"Vidya Vaibhav Hippocampus Public School",
+"Rayen Hippocampus Vidya Mandira School"
+],
+"Hassan": [
+"Malnad International Hippocampus School",
+"Malenadu Future School"
+],
+"Mandya": [
+"DMS Jnana Kuteera Hippocampus School",
+"Vidyakula Hippocampus School"
+],
+"Belgaum": [
+"Sri Basaveshwara Hippocampus English Medium School",
+"DB Darure Hippocampus English Medium School"
+],
+"Koppal": [
+"Millennium Hippocampus School (CBSE)"
+],
+"Guntur": [
+"Natco School of Learning"
+],
+"Ramanagara": [
+"SSVM Hippocampus English Medium School"
+],
+"Gulbarga": [
+"Siddh Bharati Vidya Mandir CBSE Secondary School"
+],
+"Bidar": [
+"Sri Siddharoodh Public School"
+],
+"Sagar": [
+"Jnanasagara Public School"
+],
+"Rabakavi-Banahatti": [
+"Shri Prabhulingeshwar International School"
+],
+"Gokak": [
+"Netaji Hippocampus English Medium School"
+],
+"Rangareddy": [
+"Hippocampus School"
+]
+};
 
-  const tabs = document.querySelectorAll('#filterTabs button');
-  const citySelect = document.getElementById('citySelect1'); // ✅ FIXED ID
-  const cards = document.querySelectorAll('.school-card');
-  const displayText = document.getElementById('schoolCountText');
+const citySelect = document.getElementById("formCitySelect");
+const schoolSelect = document.getElementById("formSchoolSelect");
 
-  let activeGroup = 'all';
-  let activeCity = 'all';
+// Populate City Dropdown
+Object.keys(schoolData).sort().forEach(city => {
+const option = document.createElement("option");
+option.value = city;
+option.textContent = city;
+citySelect.appendChild(option);
+});
 
-  function populateCities() {
-    const cities = new Set();
+// On City Change
+citySelect.addEventListener("change", function () {
+const selectedCity = this.value;
 
-    cards.forEach(card => {
-      const groups = JSON.parse(card.dataset.groups);
-      const city = card.dataset.city;
+schoolSelect.innerHTML = '<option value="">-- Select School --</option>';
+schoolSelect.disabled = true;
 
-      if (activeGroup === 'all' || groups.includes(activeGroup)) {
-        cities.add(city);
-      }
-    });
+if (!selectedCity) return;
 
-    citySelect.innerHTML = `<option value="all">All Locations</option>`;
+const schools = schoolData[selectedCity];
 
-    [...cities].sort().forEach(city => {
-      const option = document.createElement("option");
-      option.value = city;
-      option.textContent = city;
-      citySelect.appendChild(option);
-    });
+schools.forEach(school => {
+const option = document.createElement("option");
+option.value = school;
+option.textContent = school;
+schoolSelect.appendChild(option);
+});
 
-    activeCity = 'all';
-    citySelect.value = 'all';
-  }
+schoolSelect.disabled = false;
 
-  function applyFilters() {
-    let visibleCount = 0;
-
-    cards.forEach(card => {
-      const groups = JSON.parse(card.dataset.groups);
-      const city = card.dataset.city;
-
-      const matchGroup =
-        activeGroup === 'all' || groups.includes(activeGroup);
-
-      const matchCity =
-        activeCity === 'all' || city === activeCity;
-
-      if (matchGroup && matchCity) {
-        card.style.display = '';
-        visibleCount++;
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    if (activeGroup === 'all' && activeCity === 'all') {
-      displayText.textContent = `Showing all schools`;
-    } else if (activeCity !== 'all' && activeGroup === 'all') {
-      displayText.textContent = `Showing ${visibleCount} schools in ${activeCity}`;
-    } else if (activeCity === 'all') {
-      displayText.textContent = `Showing ${visibleCount} ${activeGroup.toUpperCase()} schools`;
-    } else {
-      displayText.textContent = `Showing ${visibleCount} ${activeGroup.toUpperCase()} schools in ${activeCity}`;
-    }
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-      tabs.forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
-      activeGroup = this.dataset.group;
-      //populateCities();
-      applyFilters();
-    });
-  });
-
-  citySelect.addEventListener('change', function () {
-    activeCity = this.value;
-    applyFilters();
-  });
-
-  //populateCities();
-  applyFilters();
+// Auto-select if only one school
+if (schools.length === 1) {
+schoolSelect.selectedIndex = 1;
+}
+});
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+const tabs = document.querySelectorAll('#filterTabs button');
+const citySelect = document.getElementById('citySelect1'); // ✅ FIXED ID
+const cards = document.querySelectorAll('.school-card');
+const displayText = document.getElementById('schoolCountText');
+
+let activeGroup = 'all';
+let activeCity = 'all';
+
+function populateCities() {
+const cities = new Set();
+
+cards.forEach(card => {
+const groups = JSON.parse(card.dataset.groups);
+const city = card.dataset.city;
+
+if (activeGroup === 'all' || groups.includes(activeGroup)) {
+cities.add(city);
+}
+});
+
+citySelect.innerHTML = `<option value="all">All Locations</option>`;
+
+[...cities].sort().forEach(city => {
+const option = document.createElement("option");
+option.value = city;
+option.textContent = city;
+citySelect.appendChild(option);
+});
+
+activeCity = 'all';
+citySelect.value = 'all';
+}
+
+function applyFilters() {
+let visibleCount = 0;
+
+cards.forEach(card => {
+const groups = JSON.parse(card.dataset.groups);
+const city = card.dataset.city;
+
+const matchGroup =
+activeGroup === 'all' || groups.includes(activeGroup);
+
+const matchCity =
+activeCity === 'all' || city === activeCity;
+
+if (matchGroup && matchCity) {
+card.style.display = '';
+visibleCount++;
+} else {
+card.style.display = 'none';
+}
+});
+
+if (activeGroup === 'all' && activeCity === 'all') {
+displayText.textContent = `Showing all schools`;
+} else if (activeCity !== 'all' && activeGroup === 'all') {
+displayText.textContent = `Showing ${visibleCount} schools in ${activeCity}`;
+} else if (activeCity === 'all') {
+displayText.textContent = `Showing ${visibleCount} ${activeGroup.toUpperCase()} schools`;
+} else {
+displayText.textContent = `Showing ${visibleCount} ${activeGroup.toUpperCase()} schools in ${activeCity}`;
+}
+}
+
+tabs.forEach(tab => {
+tab.addEventListener('click', function () {
+tabs.forEach(t => t.classList.remove('active'));
+this.classList.add('active');
+activeGroup = this.dataset.group;
+//populateCities();
+applyFilters();
+});
+});
+
+citySelect.addEventListener('change', function () {
+activeCity = this.value;
+applyFilters();
+});
+
+//populateCities();
+applyFilters();
+
+});
+</script>

@@ -4,9 +4,281 @@ title: Hippocampus Learning Centres
 ---
 <style>
 .academy-container{
-      padding: 150px 0 60px 0 !important;
+padding: 150px 0 60px 0 !important;
 }
+.video-wrapper {
+position: relative; 
+}
+.video-wrapper::before,
+.video-wrapper::after {
+content: "";
+position: absolute;
+width: 40px;   /* length of lines */
+height: 40px;
+border: 2px solid #fff; /* line color */
+}
+.video-wrapper::before {
+top: -10px;
+left: -10px;
+border-right: none;
+border-bottom: none;
+}
+.video-wrapper::after {
+bottom: -10px;
+right: -10px;
+border-left: none;
+border-top: none;
+}
+/* Responsive heading */
+.heading-responsive {
+font-size: clamp(2rem, 6vw, 4.5rem); 
+line-height: 1.2;
+}
+.academy-container {
+background: linear-gradient(135deg, #5a2ca0, #7b42f6); /* optional bg */
+padding: 60px 0;
+}
+.challenge-card .teacherdevefficiencyicon{
+cursor:pointer;
+}
+.card-box{
+border-radius:25px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+padding:30px;
+}
+.card-box ul {
+list-style: none;
+padding-left: 0;
+}
+.card-box li {
+padding-left: 10px;
+font-size: 14px;
+}
+.card-box-kbc li{
+font-size: 16px;
+}
+.card-box li::marker  {
+content: '✓';
+color: var(--color-primary);
+padding-right: 0.5em;
+}
+.feature-box {
+border: 1px solid #ddd;
+border-radius: 15px;
+padding: 10px 10px 10px 10px;
+background-color: #f8f9fa;
+margin: 10px 0px 0px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.box2{
+background-color:var(--color-primary);
+}
+.box2 li{
+color: #fff;
+padding-left: 10px;
+font-size: 14px;
+}
+.box2 li::marker  {
+content: '✓';
+color: #fff;
+padding-right: 0.5em;
+}
+.card-box hr {
+margin: 0.5rem 0;
+color: inherit;
+border: 0;
+border-top: 3px solid var(--color-primary);;
+opacity: 1;
+}
+.box2 hr {
+margin: 0.5rem 0;
+color: inherit;
+border: 0;
+border-top: 3px solid #fff;
+opacity: 1;
+}
+.ripple {
+height:25px;
+width:25px;
+position: relative;
+text-decoration: none;
+color: #000;   
+background-color: #e6e5e5;
+margin: 0 auto;  
+-webkit-animation: ripple 1s linear infinite;
+animation: ripple 1s linear infinite;
+border-radius: 50%
+}
+.ripple svg { 
+padding-top:5px;
+vertical-align: baseline;}
 
+.theme-blue{
+color:var(--color-primary);
+}
+@-webkit-keyframes ripple {
+0% {
+-webkit-box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+};
+100% {
+-webkit-box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+}
+}
+@keyframes ripple {
+0% {
+-webkit-box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
+}
+100% {
+-webkit-box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
+}
+}
+.check-icon {
+color: green;
+font-size: 22px;            
+border-radius: 50%;           
+
+}
+.icon-check{
+margin-top: -25px;
+}
+p.feature-text {
+font-size: 14px;  
+margin: 0;
+}
+.listss	li::marker {
+content: '✓';
+color: #fff;
+padding-right: 0.5em;
+}
+.listss li {
+padding-left: 5px;
+}
+.comparison-section {
+background: #f5f7fb;
+padding: 40px 0;
+}
+.comparison-card {
+border: none;
+border-radius: 18px;
+box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+overflow: hidden;
+}
+.comparison-header {
+background: #e1e1e1;
+color: #ffffff;
+padding: 24px 28px;
+}
+.comparison-header h3 {
+margin: 0;
+font-weight: 700;
+letter-spacing: 0.03em;
+}
+.comparison-header p {
+margin: 6px 0 0;
+opacity: 0.8;
+}
+.comparison-table {
+margin: 0;
+}
+.comparison-table thead th {
+border-bottom-width: 0;
+font-size: 0.9rem;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: #6b7280;
+background-color: #f9fafb;
+}
+.comparison-table th,
+.comparison-table td {
+padding: 14px 16px;
+vertical-align: middle;
+font-size: 0.95rem;
+}
+.feature-name {
+font-weight: 600;
+color: #111827;
+}
+.brand-badge {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 6px 12px;
+border-radius: 999px;
+font-size: 0.8rem;
+font-weight: 600;
+}
+.brand-had {
+background: rgba(37, 99, 235, 0.08);
+color: #1d4ed8;
+}
+.brand-hlc {
+background: rgba(16, 185, 129, 0.08);
+color: #059669;
+}
+.status-icon {
+font-size: 1.3rem;
+}
+.status-yes .status-icon {
+color: #16a34a; /* green */
+}
+.status-no .status-icon {
+color: #ef4444; /* red */
+}
+@media (max-width: 576px) {
+.comparison-header {
+text-align: center;
+}
+.comparison-table thead {
+font-size: 0.8rem;
+}
+}
+/* Modern button styles */
+.problem-btn {
+border-radius: 50px;
+padding: 0.9rem 1.8rem;
+/*font-weight:600;*/
+font-size:1rem;
+background: #f7f7f7;
+color:#6f42c1;
+border:1px solid #6f42c1;
+transition:0.3s;
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+.problem-btn:hover {
+transform: translateY(-3px) scale(1.03);
+box-shadow:0 6px 16px rgba(0,0,0,0.25);
+cursor:pointer;
+}
+/* Section highlights */
+.statement { color: #6f42c1; font-weight:600; }
+.reason { color: #000; font-weight:600; }
+.solution { color: #000; font-weight:600; }
+.timeline { color: #000; font-weight:600; }
+/* Text container over image */
+#challenge-text {
+opacity:0;
+transform: translateY(20px);
+transition: all 0.5s ease;
+background: rgba(255,255,255,0.7); /* glass effect */
+backdrop-filter: blur(8px);
+border-radius:12px;
+height:calc(100% - 1rem);
+overflow-y:auto;
+}
+/* Background image blur & opacity */
+.blur-bg {
+object-fit:cover;
+opacity:1; /* fully visible initially */
+transition: all 0.5s ease;
+}
+.nudge{
+padding: 3rem 1rem;
+background-color: var(--color-primary);
+}
 </style>
 <section class="academy-container position-relative">
 <div class="container">  
@@ -21,15 +293,15 @@ Is Improving Your School's Academic Performance Truning Into A Nightmare?
 </div>
 <div class="col-md-5 col-lg-5 my-auto">
 <div class="video-wrapper"><iframe
-  width="100%"
-  height="315"
-  src="https://www.youtube.com/embed/d6IVMS1ojB8&autoplay=1"
-  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/d6IVMS1ojB8?autoplay=1><img src=https://img.youtube.com/vi/d6IVMS1ojB8/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
+width="100%"
+height="315"
+src="https://www.youtube.com/embed/d6IVMS1ojB8&autoplay=1"
+srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/d6IVMS1ojB8?autoplay=1><img src=https://img.youtube.com/vi/d6IVMS1ojB8/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
 '><span>▶</span></a>"
-  frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
+frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen
+title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
 ></iframe></div>
 
 <h5 class="text-white text-center pt-3"><i>{{home.AcademySection.description}}</i></h5>
@@ -37,384 +309,123 @@ Is Improving Your School's Academic Performance Truning Into A Nightmare?
 </div>
 </div>
 </section>
-<style>
-.video-wrapper {
-position: relative; 
-}
-
-.video-wrapper::before,
-.video-wrapper::after {
-content: "";
-position: absolute;
-width: 40px;   /* length of lines */
-height: 40px;
-border: 2px solid #fff; /* line color */
-}
-
-.video-wrapper::before {
-top: -10px;
-left: -10px;
-border-right: none;
-border-bottom: none;
-}
-
-.video-wrapper::after {
-bottom: -10px;
-right: -10px;
-border-left: none;
-border-top: none;
-}
-
-/* Responsive heading */
-.heading-responsive {
-font-size: clamp(2rem, 6vw, 4.5rem); 
-line-height: 1.2;
-}
-.academy-container {
-background: linear-gradient(135deg, #5a2ca0, #7b42f6); /* optional bg */
-padding: 60px 0;
-}
-</style>
-<style>
-  .challenge-card .teacherdevefficiencyicon{
-		cursor:pointer;
-  }
-.card-box{
-	border-radius:25px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	padding:30px;
-}
-.card-box ul {
-  list-style: none;
-  padding-left: 0;
-}
-.card-box li {
-      padding-left: 10px;
-	  font-size: 14px;
-}
-.card-box-kbc li{
-	font-size: 16px;
-}
-.card-box li::marker  {
- content: '✓';
- color: var(--color-primary);
- padding-right: 0.5em;
-}
-.feature-box {
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    padding: 10px 10px 10px 10px;
-    background-color: #f8f9fa;
-    margin: 10px 0px 0px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.box2{
-	background-color:var(--color-primary);
-}
-.box2 li{
-	color: #fff;
-	    padding-left: 10px;
-		font-size: 14px;
-}
-.box2 li::marker  {
- content: '✓';
- color: #fff;
- padding-right: 0.5em;
-}
-.card-box hr {
-    margin: 0.5rem 0;
-    color: inherit;
-    border: 0;
-    border-top: 3px solid var(--color-primary);;
-    opacity: 1;
-}
-.box2 hr {
-    margin: 0.5rem 0;
-    color: inherit;
-    border: 0;
-    border-top: 3px solid #fff;
-    opacity: 1;
-}
-.ripple {
-	height:25px;
-	width:25px;
-    position: relative;
-    text-decoration: none;
-    color: #000;   
-    background-color: #e6e5e5;
-    margin: 0 auto;  
-    -webkit-animation: ripple 1s linear infinite;
-    animation: ripple 1s linear infinite;
-	border-radius: 50%
-}
-.ripple svg { 
-padding-top:5px;
-	vertical-align: baseline;}
-
-.theme-blue{
-	color:var(--color-primary);
-}
-
-@-webkit-keyframes ripple {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
-            box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
-  };
-  100% {
-    -webkit-box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
-            box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
-  }
-}
-@keyframes ripple {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
-            box-shadow: 0 0 0 0 rgb(60 212 47 / 28%), 0 0 0 10px rgb(142 210 161 / 30%);
-  }
-  100% {
-    -webkit-box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
-            box-shadow: 0 0 0 10px rgb(60 212 47 / 43%), 0 0 0 10px rgb(142 210 161 / 60%);
-  }
-}
- .check-icon {
-            color: green;
-            font-size: 22px;            
-            border-radius: 50%;           
-          
-        }
-		.icon-check{
-			margin-top: -25px;
-		}
-        p.feature-text {
-			font-size: 14px;  
-            margin: 0;
-        }
-	.listss	li::marker {
-    content: '✓';
-    color: #fff;
-    padding-right: 0.5em;
-}
-.listss li {
-    padding-left: 5px;
-}
-
-</style>
-
 <section>
 <div class="container">
 <!-- Survey Section -->
 <div class="row align-items-center justify-content-center mb-5">
-  <div class="col-12 col-lg-10 text-center">
-    <div class="survey-container position-relative">
-      <button class="survey-button d-none d-md-inline-block" onclick="takeSurveyFun()">Take Survey</button>
-    </div>
-    <!-- Mobile Button (outside background) -->
-    <button class="survey-button mt-3 d-inline-block d-md-none" onclick="takeSurveyFun()">Take Survey</button>
-  </div>
+<div class="col-12 col-lg-10 text-center">
+<div class="survey-container position-relative">
+<button class="survey-button d-none d-md-inline-block" onclick="takeSurveyFun()">Take Survey</button>
+</div>
+<!-- Mobile Button (outside background) -->
+<button class="survey-button mt-3 d-inline-block d-md-none" onclick="takeSurveyFun()">Take Survey</button>
+</div>
 </div>
 </div>
 </section>
-<style>
-  .comparison-section {
-    background: #f5f7fb;
-    padding: 40px 0;
-  }
-
-  .comparison-card {
-    border: none;
-    border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
-    overflow: hidden;
-  }
-
-  .comparison-header {
-    background: #e1e1e1;
-    color: #ffffff;
-    padding: 24px 28px;
-  }
-
-  .comparison-header h3 {
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-  }
-
-  .comparison-header p {
-    margin: 6px 0 0;
-    opacity: 0.8;
-  }
-
-  .comparison-table {
-    margin: 0;
-  }
-
-  .comparison-table thead th {
-    border-bottom-width: 0;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #6b7280;
-    background-color: #f9fafb;
-  }
-
-  .comparison-table th,
-  .comparison-table td {
-    padding: 14px 16px;
-    vertical-align: middle;
-    font-size: 0.95rem;
-  }
-
-  .feature-name {
-    font-weight: 600;
-    color: #111827;
-  }
-
-  .brand-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-
-  .brand-had {
-    background: rgba(37, 99, 235, 0.08);
-    color: #1d4ed8;
-  }
-
-  .brand-hlc {
-    background: rgba(16, 185, 129, 0.08);
-    color: #059669;
-  }
-
-  .status-icon {
-    font-size: 1.3rem;
-  }
-
-  .status-yes .status-icon {
-    color: #16a34a; /* green */
-  }
-
-  .status-no .status-icon {
-    color: #ef4444; /* red */
-  }
-
-  @media (max-width: 576px) {
-    .comparison-header {
-      text-align: center;
-    }
-
-    .comparison-table thead {
-      font-size: 0.8rem;
-    }
-  }
-</style>
-
 <section class="comparison-section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="card comparison-card">
-          
-          <!-- HEADER -->
-          <div class="comparison-header d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-            <div>
-              <h3>HAD vs HLC – Scope of Engagement</h3>
-              <p class="text-dark">Quick overview across key operational and academic dimensions.</p>
-            </div>
-            <div class="mt-3 mt-md-0 d-flex gap-2">
-              <span class="brand-badge brand-had">
-                <i class="bi bi-mortarboard"></i> HAD
-              </span>
-              <span class="brand-badge brand-hlc">
-                <i class="bi bi-building-check"></i> HLC
-              </span>
-            </div>
-          </div>
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-10">
+<div class="card comparison-card">
+<!-- HEADER -->
+<div class="comparison-header d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+<div>
+<h3>HAD vs HLC – Scope of Engagement</h3>
+<p class="text-dark">Quick overview across key operational and academic dimensions.</p>
+</div>
+<div class="mt-3 mt-md-0 d-flex gap-2">
+<span class="brand-badge brand-had">
+<i class="bi bi-mortarboard"></i> HAD
+</span>
+<span class="brand-badge brand-hlc">
+<i class="bi bi-building-check"></i> HLC
+</span>
+</div>
+</div>
 
-          <!-- TABLE -->
-          <div class="table-responsive">
-            <table class="table comparison-table align-middle mb-0">
-              <thead>
-                <tr>
-                  <th scope="col">Scope</th>
-                  <th scope="col" class="text-center">HLC</th>
-                  <th scope="col" class="text-center">HAD</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="feature-name">Academic Excellence</td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="feature-name">Operations &amp; Administration</td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                  <td class="text-center status-no">
-                    <i class="bi bi-x-circle-fill status-icon"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="feature-name">Admissions &amp; Marketing</td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="feature-name">Finance &amp; Compliance</td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                  <td class="text-center status-no">
-                    <i class="bi bi-x-circle-fill status-icon"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="feature-name">Teacher &amp; Staff Management</td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="feature-name">Technology &amp; Innovation</td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                  <td class="text-center status-no">
-                    <i class="bi bi-x-circle-fill status-icon"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="feature-name">Parent &amp; Community Engagement</td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                  <td class="text-center status-yes">
-                    <i class="bi bi-check-circle-fill status-icon"></i>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+<!-- TABLE -->
+<div class="table-responsive">
+<table class="table comparison-table align-middle mb-0">
+<thead>
+<tr>
+<th scope="col">Scope</th>
+<th scope="col" class="text-center">HLC</th>
+<th scope="col" class="text-center">HAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="feature-name">Academic Excellence</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+</tr>
+<tr>
+<td class="feature-name">Operations &amp; Administration</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+<td class="text-center status-no">
+<i class="bi bi-x-circle-fill status-icon"></i>
+</td>
+</tr>
+<tr>
+<td class="feature-name">Admissions &amp; Marketing</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+</tr>
+<tr>
+<td class="feature-name">Finance &amp; Compliance</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+<td class="text-center status-no">
+<i class="bi bi-x-circle-fill status-icon"></i>
+</td>
+</tr>
+<tr>
+<td class="feature-name">Teacher &amp; Staff Management</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+</tr>
+<tr>
+<td class="feature-name">Technology &amp; Innovation</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+<td class="text-center status-no">
+<i class="bi bi-x-circle-fill status-icon"></i>
+</td>
+</tr>
+<tr>
+<td class="feature-name">Parent &amp; Community Engagement</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+<td class="text-center status-yes">
+<i class="bi bi-check-circle-fill status-icon"></i>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section class="testimonial-section">
 <h2 class="text-white">Our Academic Excellence Endorsed By Parents</h2>
@@ -478,428 +489,256 @@ padding-top:5px;
 </section>
 <!-- ====== /School Stats Section ====== -->
 <section data-bs-version="5.1" class="cid-tNWLdXl271" id="dahomygallery-2m">
-
-
 <h2 class="fw-normal text-center my-5"><span class="fw-bold">Explore Our <strong>Latest Blogs</strong></span></h2>
-    <div class="container">
-      
-      <div class="row media-container-row">
-        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-          <div class="left-image pl-4">
-            <img src="{{ '/assets/img/whatsapp-image-2024-09-27-at-2.30.59-pm-1.jpeg' | url }}" alt="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp">
-            <div class="info">
-              <div class="inner-content">
-                <ul class="styleul mbr-fonts-style display-4">
-                  <li class="animate__animated animate__delay-1s animate__fadeInUp"><span class="mbr-iconfont mobi-mbri-calendar mobi-mbri" style="color: rgb(53, 28, 117); fill: rgb(53, 28, 117);"></span> <span><strong>28 Nov 2024</strong></span></li>
-                  
-                  
-                </ul>
-                <a href="#" class="animate__animated animate__delay-1s animate__fadeInUp"></a>
-   <p class="mbr-texti mbr-fonts-style display-7 animate__animated animate__delay-1s animate__fadeInUp">Mythological Wisdom Meets Modern Learning: Celebrating Krishna Janmashtami with an Exciting Quiz at Hippocampus<br></p>
-                <div class="main-blue-button">
-                 <div class="mbr-section-btn"><a class="btn btn-hippo animate__animated animate__delay-1s animate__fadeInUp" href="{{ '/mythological-wisdom-meets-modern-learning/' | url }}" target="_blank">Read More</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
-      <div class="swiper dright mb-5">
-  <div class="swiper-wrapper">
-    
-    <div class="swiper-slide">
-      <div class="row">
-       
-          <div class="col-md-6">
-            <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri"></span>
-            <span class="mbr-fonts-style display-7">19 Sep 2024</span>
-            <h4 class="mbr-fonts-style display-7">
-              Kahoot Meets Chess: A Thrilling Experience of Learning, Fun, and Technology
-              <br>
-              <a href="{{ '/kahoot-meets-chess/' | url }}" class="text-warning" target="_blank">Read More&gt;&gt;</a>
-            </h4>
-          </div>
-          <div class=" col-md-6">
-            <img src="{{ '/assets/img/grey-black-and-white-abstract-chess-tournament-instagram-post-1.png' | url }}" alt="" class="img-fluid">
-          </div>
-       
-      </div>
-    </div>
-    
-  <div class="swiper-slide">
-      <div class="row">
-       
-          <div class="col-md-6">
-            <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri"></span>
-            <span>16 Sep 2024</span>
-            <h4 class="mbr-fonts-style display-7">
-              AI and Imagination Unleashed: Hippocampus Students Lead the Way in Nature Conservation
-              <br>
-              <a href="{{ '/ai-and-imagination-unleashed/' | url }}" class="text-warning" target="_blank">Read More&gt;&gt;</a>
-            </h4>
-          </div>
-          <div class="col-md-6">
-            <img src="{{ '/assets/img/meta-ai-story-writing-story-post-1-copy-1.png' | url }}" alt="" class="img-fluid">
-          </div>
-       
-    </div> </div>
- <div class="swiper-slide">
-    <div class="row">
-       
-          <div class="col-md-6">
-            <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri"></span>
-            <span>16 Sep 2024</span>
-            <h4 class="mbr-fonts-style display-7">
-              HLC Young Authors: Transforming Classroom Readers into Published Writers
-              <br>
-              <a href="{{ '/hlc-young-authors/' | url }}" class="text-warning " target="_blank">Read More&gt;&gt;</a>
-            </h4>
-          </div>
-          <div class="col-md-6">
-            <img src="{{ '/assets/img/blogs/hlc-young-authors.png' | url }}" alt="" class="img-fluid">
-          </div>
-      
-    </div>
-        </div>
-      </div>
- <div class="swiper-pagination"></div>
-  <div class="swiper-button-next1"></div>
-  <div class="swiper-button-prev1"></div>
-    </div>
-  
-             </div>
-    </div>
-  
-             </div>
-   
-            
-        
+<div class="container">
 
+<div class="row media-container-row">
+<div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+<div class="left-image pl-4">
+<img src="{{ '/assets/img/whatsapp-image-2024-09-27-at-2.30.59-pm-1.jpeg' | url }}" alt="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp">
+<div class="info">
+<div class="inner-content">
+<ul class="styleul mbr-fonts-style display-4">
+<li class="animate__animated animate__delay-1s animate__fadeInUp"><span class="mbr-iconfont mobi-mbri-calendar mobi-mbri" style="color: rgb(53, 28, 117); fill: rgb(53, 28, 117);"></span> <span><strong>28 Nov 2024</strong></span></li>
+
+
+</ul>
+<a href="#" class="animate__animated animate__delay-1s animate__fadeInUp"></a>
+<p class="mbr-texti mbr-fonts-style display-7 animate__animated animate__delay-1s animate__fadeInUp">Mythological Wisdom Meets Modern Learning: Celebrating Krishna Janmashtami with an Exciting Quiz at Hippocampus<br></p>
+<div class="main-blue-button">
+<div class="mbr-section-btn"><a class="btn btn-hippo animate__animated animate__delay-1s animate__fadeInUp" href="{{ '/mythological-wisdom-meets-modern-learning/' | url }}" target="_blank">Read More</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+<div class="swiper dright mb-5">
+<div class="swiper-wrapper">
+
+<div class="swiper-slide">
+<div class="row">
+
+<div class="col-md-6">
+<span class="mbr-iconfont mobi-mbri-calendar mobi-mbri"></span>
+<span class="mbr-fonts-style display-7">19 Sep 2024</span>
+<h4 class="mbr-fonts-style display-7">
+Kahoot Meets Chess: A Thrilling Experience of Learning, Fun, and Technology
+<br>
+<a href="{{ '/kahoot-meets-chess/' | url }}" class="text-warning" target="_blank">Read More&gt;&gt;</a>
+</h4>
+</div>
+<div class=" col-md-6">
+<img src="{{ '/assets/img/grey-black-and-white-abstract-chess-tournament-instagram-post-1.png' | url }}" alt="" class="img-fluid">
+</div>
+
+</div>
+</div>
+
+<div class="swiper-slide">
+<div class="row">
+
+<div class="col-md-6">
+<span class="mbr-iconfont mobi-mbri-calendar mobi-mbri"></span>
+<span>16 Sep 2024</span>
+<h4 class="mbr-fonts-style display-7">
+AI and Imagination Unleashed: Hippocampus Students Lead the Way in Nature Conservation
+<br>
+<a href="{{ '/ai-and-imagination-unleashed/' | url }}" class="text-warning" target="_blank">Read More&gt;&gt;</a>
+</h4>
+</div>
+<div class="col-md-6">
+<img src="{{ '/assets/img/meta-ai-story-writing-story-post-1-copy-1.png' | url }}" alt="" class="img-fluid">
+</div>
+
+</div> </div>
+<div class="swiper-slide">
+<div class="row">
+
+<div class="col-md-6">
+<span class="mbr-iconfont mobi-mbri-calendar mobi-mbri"></span>
+<span>16 Sep 2024</span>
+<h4 class="mbr-fonts-style display-7">
+HLC Young Authors: Transforming Classroom Readers into Published Writers
+<br>
+<a href="{{ '/hlc-young-authors/' | url }}" class="text-warning " target="_blank">Read More&gt;&gt;</a>
+</h4>
+</div>
+<div class="col-md-6">
+<img src="{{ '/assets/img/blogs/hlc-young-authors.png' | url }}" alt="" class="img-fluid">
+</div>
+
+</div>
+</div>
+</div>
+<div class="swiper-pagination"></div>
+<div class="swiper-button-next1"></div>
+<div class="swiper-button-prev1"></div>
+</div>
+
+</div>
+</div>
+
+</div>
 </section>
 <!-- Contact Us Form ends -->
 <section id="about" class="about d-none" style="scroll-margin-top: 100em;">
-         <div class="container" data-aos="fade-up">
-         <div class="row gy-4">
-         <div class="col-lg-5"> 
+<div class="container" data-aos="fade-up">
+<div class="row gy-4">
+<div class="col-lg-5"> 
 <div class="video-wrapper"><iframe
-  width="100%"
-  height="315"
-  src="https://www.youtube.com/embed/A9KcdEBLhJ8&autoplay=1"
-  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/A9KcdEBLhJ8?autoplay=1><img src=https://img.youtube.com/vi/A9KcdEBLhJ8/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
+width="100%"
+height="315"
+src="https://www.youtube.com/embed/A9KcdEBLhJ8&autoplay=1"
+srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:red;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/A9KcdEBLhJ8?autoplay=1><img src=https://img.youtube.com/vi/A9KcdEBLhJ8/hqdefault.jpg alt='Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra
 '><span>▶</span></a>"
-  frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
+frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen
+title="Reimagining Education: Inside Hippocampus's Vision with Founder Umesh Malhotra"
 ></iframe></div>
 
-        
-         </div>
-         <div class="col-lg-7 my-auto">
-         <div class="content ps-0 ps-lg-5 pt-3">         
-         <h2 class="pb-2" style="color:var(--color-primary);">We transform the lives of children through
+
+</div>
+<div class="col-lg-7 my-auto">
+<div class="content ps-0 ps-lg-5 pt-3">         
+<h2 class="pb-2" style="color:var(--color-primary);">We transform the lives of children through
 high quality education.</h2>
-         <ol class="fst-italic" style="font-size:1.3rem">
-		 <li>Foundational Literacy and Numeracy (FLN)</li>
-         <li>Experiential &amp; Activity Based Learning</li>
+<ol class="fst-italic" style="font-size:1.3rem">
+<li>Foundational Literacy and Numeracy (FLN)</li>
+<li>Experiential &amp; Activity Based Learning</li>
 <li>Personality Development Through Clubs</li>
 <li>Fostering Creativity and Curiosity with STEAM</li>
 <li>Competitive skills for career excellence via SANKALP90</li>
 
-         </ol> 
-         
-		<p class="pb-2" style="color:#000;font-size:1.3rem"> 
-		 Children in Hippocampus schools get ready
+</ol> 
+
+<p class="pb-2" style="color:#000;font-size:1.3rem"> 
+Children in Hippocampus schools get ready
 for the 21st century by building their
 <span style="color:#ed4b41;">Knowledge, Behaviours, Competencies</span> and through our unique
 KBC Pedagogy
 </p>
 
 
-        <h3 class="pb-2" style="color:#000;font-weight: bold;font-size:1.3rem"> <i>Our mission is to transform the lives of 1 Lakh students by 2030 by way of improving their Knowledge, Behavior and Competencies.</i></h3>
+<h3 class="pb-2" style="color:#000;font-weight: bold;font-size:1.3rem"> <i>Our mission is to transform the lives of 1 Lakh students by 2030 by way of improving their Knowledge, Behavior and Competencies.</i></h3>
 
-         </div>   
-         </div>
-         </div>
-         </div>
-         </section>
+</div>   
+</div>
+</div>
+</div>
+</section>
 
 <section id="our-packages" class="pt-3 ">	
-
-   <div class="about d-none" style="scroll-margin-top: 0px;background-color:#fff">  
-
-
-
-	
-			 <div class="container" data-aos="fade-up">
-
-
+<div class="about d-none" style="scroll-margin-top: 0px;background-color:#fff">  
+<div class="container" data-aos="fade-up">
 <div class="card-box my-4" style="">
- <h4 class="mbr-text mbr-section-text mbr-fonts-style display-6 text-center text-md-start animate__animated animate__delay-1s animate__fadeInUp">
-                           <strong>Striving for excellence in education, character, and behaviour
-                        </strong></h4>
-		  <div class="row px-0 py-0 justify-content-center">
+<h4 class="mbr-text mbr-section-text mbr-fonts-style display-6 text-center text-md-start animate__animated animate__delay-1s animate__fadeInUp">
+<strong>Striving for excellence in education, character, and behaviour
+</strong></h4>
+<div class="row px-0 py-0 justify-content-center">
 <div class="col-lg-6 my-3">
-          <div data-bs-version="5.1" class="features12 cid-tUgB1x98rR" id="features12-60">
-    
-
-    
-
-   
-                
-                       
-                
-
-            <div class="mbr-figure m-auto animate__animated animate__delay-1s animate__fadeInUp">
-                <img src="{{ '/assets/img/untitled-1-644x442.png' | url }}" alt="" title="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp">
-            </div> 
-            <div class="block-content align-left">
-                <div class="pl-3 pr-3">
-                                  
-
-                   
-                        <p class="mbr-text mbr-section-text mbr-fonts-style display-7 animate__animated animate__delay-1s animate__fadeInUp">
-                            Our school is unique because we offer a well-rounded education that goes beyond academics. Our focus on character development, community service, and extracurricular activities helps students develop into well-rounded individuals who are prepared for success in all areas of life. We call this the KBC approach. It focuses on the <strong>knowledge, behaviours,</strong> and <strong>competencies</strong> required to shine in the <strong>21st century.</strong></p>
-                    </div>
-               
-
-                
-            </div>
-        </div> 
+<div data-bs-version="5.1" class="features12 cid-tUgB1x98rR" id="features12-60">
+<div class="mbr-figure m-auto animate__animated animate__delay-1s animate__fadeInUp">
+<img src="{{ '/assets/img/untitled-1-644x442.png' | url }}" alt="" title="" class="img-fluid animate__animated animate__delay-1s animate__fadeInUp">
+</div> 
+<div class="block-content align-left">
+<div class="pl-3 pr-3">
+<p class="mbr-text mbr-section-text mbr-fonts-style display-7 animate__animated animate__delay-1s animate__fadeInUp">
+Our school is unique because we offer a well-rounded education that goes beyond academics. Our focus on character development, community service, and extracurricular activities helps students develop into well-rounded individuals who are prepared for success in all areas of life. We call this the KBC approach. It focuses on the <strong>knowledge, behaviours,</strong> and <strong>competencies</strong> required to shine in the <strong>21st century.</strong></p>
+</div>
+</div>
+</div> 
 </div>
 
 <div class="col-lg-6 my-md-auto my-3">
-
 <p class="mb-0" style="color:var(--color-primary);font-size: 16px;;font-weight:bold">KBC Model of Transformation:</p>
 <ul class="card-box-kbc px-3"><li>Knowledge</li>
 <li>Behavior</li>
 <li>Competencies</li></ul>
 <div class="row pt-3">
-        <div class="col-md-6 mb-3">
-            <div class="feature-box h-100">
-               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
-			   </div>
-                <p class="feature-text">CURRICULUM ENHANCEMENTS</p>
-            </div>
-        </div>    
-        <div class="col-md-6 mb-3">
-            <div class="feature-box  h-100">
-               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
-			   </div>
-                <p class="feature-text">REGULAR PERFORMANCE REPORTING</p>
-            </div>
-        </div>
 <div class="col-md-6 mb-3">
-            <div class="feature-box  h-100">
-               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
-			   </div>
-                <p class="feature-text">END TO END AUTOMATION </p>
-            </div>
-        </div>
+<div class="feature-box h-100">
+<div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+</div>
+<p class="feature-text">CURRICULUM ENHANCEMENTS</p>
+</div>
+</div>    
 <div class="col-md-6 mb-3">
-            <div class="feature-box  h-100">
-               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
-			   </div>
-                <p class="feature-text">PROFITABILITY OF SCHOOL
+<div class="feature-box  h-100">
+<div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+</div>
+<p class="feature-text">REGULAR PERFORMANCE REPORTING</p>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="feature-box  h-100">
+<div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+</div>
+<p class="feature-text">END TO END AUTOMATION </p>
+</div>
+</div>
+<div class="col-md-6 mb-3">
+<div class="feature-box  h-100">
+<div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+</div>
+<p class="feature-text">PROFITABILITY OF SCHOOL
 </p>
-            </div>
-        </div>
+</div>
+</div>
 <div class="col-md-6 mb-3">
-            <div class="feature-box  h-100">
-               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
-			   </div>
-                <p class="feature-text">TRANSPORTATION OPTIMIZATION</p>
-            </div>
-        </div>
+<div class="feature-box  h-100">
+<div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+</div>
+<p class="feature-text">TRANSPORTATION OPTIMIZATION</p>
+</div>
+</div>
 <div class="col-md-6 mb-3">
-            <div class="feature-box  h-100">
-               <div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
-			   </div>
-                <p class="feature-text">PRINCIPAL HIRING &amp; TRAINING</p>
-            </div>
-        </div>		
-    </div>
-	</div>
-  </div>	
+<div class="feature-box  h-100">
+<div class="icon-check"> <i class="bi bi-check-circle-fill check-icon"></i>
+</div>
+<p class="feature-text">PRINCIPAL HIRING &amp; TRAINING</p>
+</div>
+</div>		
+</div>
+</div>
+</div>	
 </div>
 
 </div>
 </div>	
-	</section>
+</section>
 <!-- School Challenges Section -->
 <section class="py-5 scllanges" style="background-color: #E1E1E1;">
-  <div class="container">
-    <h2 class="text-center mb-5 fw-bold">Read about our innovative approach to solve some of your common problems</h2>
-    <div class="row align-items-center">
-      <!-- Left Column: Buttons (col-5) -->
-      <div class="col-lg-5 mb-4 mb-lg-0">
-        <div class="d-grid gap-3">
-          <button class="problem-btn" data-id="1"><i class="bi bi-hand-index blink"></i>School is unable to compete with bigger schools academically</button>
-          <button class="problem-btn" data-id="2"><i class="bi bi-hand-index blink"></i>Parents move children to other schools frequently</button>
-          <button class="problem-btn" data-id="3"><i class="bi bi-hand-index blink"></i>Teachers frequently leave, creating instability</button>
-          <button class="problem-btn" data-id="4"><i class="bi bi-hand-index blink"></i>School is seen as “low profile” compared to established competitors</button>
-          <button class="problem-btn" data-id="5"><i class="bi bi-hand-index blink"></i>Costs are high, revenue streams unstable</button>
-          <button class="problem-btn" data-id="6"><i class="bi bi-hand-index blink"></i>Parents feel disconnected and uninformed</button>
-        </div>
-      </div>
+<div class="container">
+<h2 class="text-center mb-5 fw-bold">Read about our innovative approach to solve some of your common problems</h2>
+<div class="row align-items-center">
+<!-- Left Column: Buttons (col-5) -->
+<div class="col-lg-5 mb-4 mb-lg-0">
+<div class="d-grid gap-3">
+<button class="problem-btn" data-id="1"><i class="bi bi-hand-index blink"></i>School is unable to compete with bigger schools academically</button>
+<button class="problem-btn" data-id="2"><i class="bi bi-hand-index blink"></i>Parents move children to other schools frequently</button>
+<button class="problem-btn" data-id="3"><i class="bi bi-hand-index blink"></i>Teachers frequently leave, creating instability</button>
+<button class="problem-btn" data-id="4"><i class="bi bi-hand-index blink"></i>School is seen as “low profile” compared to established competitors</button>
+<button class="problem-btn" data-id="5"><i class="bi bi-hand-index blink"></i>Costs are high, revenue streams unstable</button>
+<button class="problem-btn" data-id="6"><i class="bi bi-hand-index blink"></i>Parents feel disconnected and uninformed</button>
+</div>
+</div>
 
-      <!-- Right Column: Card (col-7) -->
-      <div class="col-lg-7">
-        <div class="challenge-card position-relative rounded shadow" style="height:400px; overflow:hidden; background:rgba(255,255,255,0.1);">
-          <img id="challenge-image" src="{{ '/assets/img/HOO-Thinking.png' | url }}" class="w-100 h-100 position-absolute top-0 start-0 blur-bg" alt="School Challenge">
-          <div id="challenge-text" class="p-4 text-start text-dark" style="height:100%; overflow-y:auto; white-space:pre-wrap;"></div>
-        </div>
+<!-- Right Column: Card (col-7) -->
+<div class="col-lg-7">
+<div class="challenge-card position-relative rounded shadow" style="height:400px; overflow:hidden; background:rgba(255,255,255,0.1);">
+<img id="challenge-image" src="{{ '/assets/img/HOO-Thinking.png' | url }}" class="w-100 h-100 position-absolute top-0 start-0 blur-bg" alt="School Challenge">
+<div id="challenge-text" class="p-4 text-start text-dark" style="height:100%; overflow-y:auto; white-space:pre-wrap;"></div>
+</div>
 
-      </div>
+</div>
 <div class="justify-content-center text-center">
 <a href="#hipposchools" class="btn-hippo animate__animated animate__delay-1s animate__fadeInUp mt-md-5 mt-3 px-5">Connect with us</a>
 </div>
-    </div>
-  </div>
+</div>
+</div>
 </section>
-
-<style>
-/* Modern button styles */
-.problem-btn {
-  border-radius: 50px;
-  padding: 0.9rem 1.8rem;
-  /*font-weight:600;*/
-  font-size:1rem;
-  background: #f7f7f7;
-  color:#6f42c1;
-  border:1px solid #6f42c1;
-  transition:0.3s;
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-.problem-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow:0 6px 16px rgba(0,0,0,0.25);
-  cursor:pointer;
-}
-
-/* Section highlights */
-.statement { color: #6f42c1; font-weight:600; }
-.reason { color: #000; font-weight:600; }
-.solution { color: #000; font-weight:600; }
-.timeline { color: #000; font-weight:600; }
-
-/* Text container over image */
-#challenge-text {
-  opacity:0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-  background: rgba(255,255,255,0.7); /* glass effect */
-  backdrop-filter: blur(8px);
-  border-radius:12px;
-  height:calc(100% - 1rem);
-  overflow-y:auto;
-}
-
-/* Background image blur & opacity */
-.blur-bg {
-  object-fit:cover;
-  opacity:1; /* fully visible initially */
-  transition: all 0.5s ease;
-}
-</style>
-
-<script>
-const challenges = {
-  1: {
-	statement: "School is unable to compete with bigger schools academically",
-    reason: "Weak teaching methodology, outdated pedagogy, and lack of structured academic monitoring.",
-    solution: "Implement Hippocampus 4D Academic Excellence Method (diagnosis, design, delivery, and demonstration of results). Train teachers to adopt structured teaching-learning cycles.",
-    timeline: "Academic results visibly improve within 12 months."
-  },
-  2: {
-	statement: "Parents move children to other schools frequently",
-    reason: "Dissatisfaction with learning quality, lack of extracurricular opportunities, and peer pressure to shift to 'brand schools.'",
-    solution: "Launch a “Parent Engagement Program” + consistent co-curricular activities that build student pride. Create visible “student progress dashboards” for parents.",
-    timeline: "Retention rates improve in 1–2 admission cycles (9–18 months)."
-  },
-  3: {
-	statement: "Teachers frequently leave, creating instability",
-    reason: "Lack of professional development, poor support systems, and limited recognition.",
-    solution: "Introduce continuous teacher training (C-TIES model), performance-linked recognition, and peer learning communities.",
-    timeline: "Reduced attrition and higher teacher satisfaction within 6–9 months."
-  },
-  4: {
-	statement: "School is seen as “low profile” compared to established competitors",
-    reason: "Poor marketing, weak storytelling of success, and lack of community presence.",
-    solution: "Build brand campaigns highlighting student success, social impact, and unique pedagogy. Conduct local events to raise visibility.",
-    timeline: "Brand visibility improves within 6 months; strong reputation building takes 18–24 months."
-  },
-  5: {
-	statement: "Costs are high, revenue streams unstable",
-    reason: "Poor resource planning, underutilized assets, and lack of fee discipline.",
-    solution: "Implement school ERP for fee tracking, optimize resources, and explore alternate revenue (after-school programs, summer camps, skill-based add-ons).",
-    timeline: "Operational stability achievable within 6–12 months."
-  },
-  6: {
-	statement: "Parents feel disconnected and uninformed",
-    reason: "No structured communication channel; feedback is ignored or ad-hoc.",
-    solution: "Create a structured communication calendar (newsletters, WhatsApp flows, PTMs, parent workshops). Deploy transparent feedback mechanisms.",
-    timeline: "Communication quality improves within 3 months, measurable parent satisfaction within 6–9 months."
-  }
-};
-
-let typingInterval; // keep track of interval
-
-function typeText(element, data, speed = 15) {
-  clearInterval(typingInterval); // clear any previous typing
-  const fullText = `Problem Statement:\n${data.statement}\n\nProbable Reason:\n${data.reason}\n\nSolution:\n${data.solution}\n\nTimeline:\n${data.timeline}`;
-  let i = 0;
-  element.innerHTML = "";
-  element.style.opacity = 1;
-  element.style.transform = "translateY(0)";
-  
-  // Fade the image during typing
-  document.getElementById('challenge-image').style.opacity = 0.9;
-
-  typingInterval = setInterval(() => {
-    const text = fullText.substring(0, i+1)
-	  .replace("Problem Statement:", `<span class="statement">Problem Statement:</span>`)
-      .replace("Probable Reason:", `<span class="reason">Probable Reason:</span>`)
-      .replace("Solution:", `<span class="solution">Hippocampus Solution:</span>`)
-      .replace("Timeline:", `<span class="timeline">Hippocampus Timeline:</span>`);
-    element.innerHTML = text;
-    i++;
-    if (i >= fullText.length) clearInterval(typingInterval);
-  }, speed);
-}
-
-// Button click
-document.querySelectorAll('.problem-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const id = btn.getAttribute('data-id');
-    const data = challenges[id];
-    const textContainer = document.getElementById('challenge-text');
-    const card = document.querySelector('.challenge-card');
-
-    // Reset typing and image
-    clearInterval(typingInterval);
-    textContainer.style.opacity = 0;
-    textContainer.style.transform = "translateY(20px)";
-    document.getElementById('challenge-image').style.opacity = 1; // reset image
-
-    // Scroll into view with offset to prevent hiding behind header
-    if (window.innerWidth <= 768) {
-      const headerOffset = 100; // adjust based on your header height
-      const elementPosition = card.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-
-    setTimeout(() => typeText(textContainer, data), 100);
-  });
-});
-
-
-</script>
 
 <!-- ====== School Challenges Section ====== -->
 <section class="school-challenges py-5 bg-light">
@@ -914,9 +753,9 @@ document.querySelectorAll('.problem-btn').forEach(btn => {
 <div class="col-md-4">
 <div class="challenge-card h-100 shadow-lg border-0 rounded-3 p-3 text-center">
 
-	<div class="icon-box mb-3 icon-purple ">
-			<i class="bi bi-trophy" style="font-size: 2rem;"></i>
-	</div>
+<div class="icon-box mb-3 icon-purple ">
+<i class="bi bi-trophy" style="font-size: 2rem;"></i>
+</div>
 
 <h5 class="card-title fw-bold pb-3">Academic Excellence</h5>
 
@@ -1061,42 +900,31 @@ document.querySelectorAll('.problem-btn').forEach(btn => {
 </section>
 <!-- Contact Us Form starts -->
 <section class="ptb-100 school-challenges py-5 "  style="background-color:#674ea7;position: relative;overflow: visible !important;" >
-
 <div class="container">			
-
-
 <div class="text-center mb-5">
 <h4 class="fw-semibold text-white">Connect With Us</h4>
 </div>
-
-
 <div class="row">
 <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
-
-
 <form  method="post" role="form" class="php-email-form" id="contactus_form"  autocomplete="off">
 <div class="row justify-content-center text-align-center">
 <div class="col-lg-4 col-12 mb-4">
 <div class="form-group mb-3" id="requirement_div">  
-  <input type="hidden" name="requirement" id="requirement">
-   <select name="department" id="department" class="form-select">
-               <option value="">-Your Requirement*-</option>
-	<option value="Teacher Development & Efficiency">Teacher Development & Efficiency</option>
-	<option value="Student Learning Outcomes">Student Learning Outcomes</option>
-	<option value="Academic Excellence & Results">Academic Excellence & Results</option>
-	<option value="Digital & Innovative Pedagogy">Digital & Innovative Pedagogy</option>
-	<option value="Whole-School Improvement">Whole-School Improvement</option>
-	<option value="Segment-Specific Focus (KG–5)">Segment-Specific Focus (KG–5)</option>
-	<option value="Segment-Specific Focus (6–10)">Segment-Specific Focus (6–10)</option>
-              </select>
-  
+<input type="hidden" name="requirement" id="requirement">
+<select name="department" id="department" class="form-select">
+<option value="">-Your Requirement*-</option>
+<option value="Teacher Development & Efficiency">Teacher Development & Efficiency</option>
+<option value="Student Learning Outcomes">Student Learning Outcomes</option>
+<option value="Academic Excellence & Results">Academic Excellence & Results</option>
+<option value="Digital & Innovative Pedagogy">Digital & Innovative Pedagogy</option>
+<option value="Whole-School Improvement">Whole-School Improvement</option>
+<option value="Segment-Specific Focus (KG–5)">Segment-Specific Focus (KG–5)</option>
+<option value="Segment-Specific Focus (6–10)">Segment-Specific Focus (6–10)</option>
+</select>
 </div>
 </div>
 </div>
 <div class="row justify-content-center text-align-center">
-
-
-
 <div class="col-lg-6 col-12">
 <div class="form-group mb-3" style="background-color: transparent;border-radius: 15px;color:#fff;">
 <input name="name"  type="text" class="form-control" placeholder="Full Name*" value="" />
@@ -1117,8 +945,6 @@ document.querySelectorAll('.problem-btn').forEach(btn => {
 <textarea name="comments" id="contact_comments" class="form-control" placeholder="Comments"></textarea>
 </div>
 </div>
-
-
 <div class="col-lg-4 col-12">
 <button class="w-100 btn-hippo" type="submit"  id="contact_form_btn">Submit</button>
 </div>
@@ -1130,37 +956,32 @@ document.querySelectorAll('.problem-btn').forEach(btn => {
 
 <!-- Contact Us Form ends -->
 <section data-bs-version="5.1" class="features4 cid-tR9sQWBXaU d-none" id="hipposchools">
-    
-    
-    <div class="container">
-        <div class="mbr-section-head mt-4">
-            <h4 class="mbr-section-title mbr-fonts-style text-center mb-0 display-6 animate__animated animate__delay-1s animate__fadeInUp">Start here:<strong> Choose your schools board</strong></h4>            
-        </div>
-        <div class="row mt-4 justify-content-center">
-            <div class="item features-image сol-12 col-md-6 col-lg-4">
-                <div class="item-wrapper text-center">                  
-                    <div class="item-content">
-                        <h5 class="item-title mbr-fonts-style display-5 animate__animated animate__delay-1s animate__fadeInUp"><strong>CBSE Board</strong></h5>
-                        
-                    </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="https://hippocampus.in/hlcgrowth/cbse-schools.php" target="_blank" class="btn-hippo display-7 animate__animated animate__delay-1s animate__fadeInUp">My School is CBSE Board</a></div>
-                </div>
-            </div>
-            <div class="item features-image сol-12 col-md-6 col-lg-4">
-                <div class="item-wrapper text-center">                  
-                    <div class="item-content">
-                        <h5 class="item-title mbr-fonts-style display-5 animate__animated animate__delay-1s animate__fadeInUp"><strong>State Board</strong></h5>
-                        
-                    </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="https://hippocampus.in/hlcgrowth/state-schools.php" target="_blank" class="btn-hippo animate__animated animate__delay-1s animate__fadeInUp">My School is State Board</a></div>
-                </div>
-            </div>
-          
-        </div>
-    </div>
+<div class="container">
+<div class="mbr-section-head mt-4">
+<h4 class="mbr-section-title mbr-fonts-style text-center mb-0 display-6 animate__animated animate__delay-1s animate__fadeInUp">Start here:<strong> Choose your schools board</strong></h4>            
+</div>
+<div class="row mt-4 justify-content-center">
+<div class="item features-image сol-12 col-md-6 col-lg-4">
+<div class="item-wrapper text-center">                  
+<div class="item-content">
+<h5 class="item-title mbr-fonts-style display-5 animate__animated animate__delay-1s animate__fadeInUp"><strong>CBSE Board</strong></h5>
+
+</div>
+<div class="mbr-section-btn item-footer mt-2"><a href="https://hippocampus.in/hlcgrowth/cbse-schools.php" target="_blank" class="btn-hippo display-7 animate__animated animate__delay-1s animate__fadeInUp">My School is CBSE Board</a></div>
+</div>
+</div>
+<div class="item features-image сol-12 col-md-6 col-lg-4">
+<div class="item-wrapper text-center">                  
+<div class="item-content">
+<h5 class="item-title mbr-fonts-style display-5 animate__animated animate__delay-1s animate__fadeInUp"><strong>State Board</strong></h5>
+
+</div>
+<div class="mbr-section-btn item-footer mt-2"><a href="https://hippocampus.in/hlcgrowth/state-schools.php" target="_blank" class="btn-hippo animate__animated animate__delay-1s animate__fadeInUp">My School is State Board</a></div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-
 <!--<div class="container d-none">  
 <div class="row g-4 justify-content-end">
 <div class="col-md-8 text-end position-relative">
@@ -1264,9 +1085,6 @@ document.querySelectorAll('.problem-btn').forEach(btn => {
 </div>
 </div>
 </div>
-
-
-
 </div>
 </div>
 </section>
@@ -1441,12 +1259,6 @@ score 90% marks in Science and Math in their board examination. </li>
 </div>
 </div>
 </section>
-<style>
-.nudge{
-padding: 3rem 1rem;
-    background-color: var(--color-primary);
-}
-</style>
 <section class="cta-section d-none py-0">
 <div class="container-fluid">
 <div class=" row align-items-center">    <!-- Left Image -->
@@ -1465,534 +1277,510 @@ padding: 3rem 1rem;
 </div>
 </div>
 </section>
-
-
-
 <div class="modal fade" id="modalSurvey" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-lg for bigger width -->
-    <div class="modal-content rounded-4 shadow p-4 position-relative border-0" style="background-color:#e1e1e1">
-	
-	
-	<div class="offer-badge"><img src="{{ '/assets/img/hippo-logo.png' | url }}" width="80px" alt="Special Offer"></div>
-
-
-
-
-      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-      <div class="modal-body p-0">
-        
-		
-		
-		
-        
-		
-	
-
+<div class="modal-dialog modal-dialog-centered modal-lg"> <!-- modal-lg for bigger width -->
+<div class="modal-content rounded-4 shadow p-4 position-relative border-0" style="background-color:#e1e1e1">
+<div class="offer-badge"><img src="{{ '/assets/img/hippo-logo.png' | url }}" width="80px" alt="Special Offer"></div>
+<button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal-body p-0">
 <form id="surveyForm" data-survey-id="1" novalidate="novalidate" class="bv-form"><button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
-  
-    
-    <fieldset class="question-step" data-step="0" style="display: block;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Teacher Skills &amp; Certification</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">1 of 10</small>
-	  </div>
+<fieldset class="question-step" data-step="0" style="display: block;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Teacher Skills &amp; Certification</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">1 of 10</small>
+</div>
 
 
-	  <p class="mt-4">1. How would you rate your teachers’ subject knowledge, pedagogy, and classroom management skills?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[1]" value="How would you rate your teachers’ subject knowledge, pedagogy, and classroom management skills?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_1" value="Excellent" onclick="$('#nextSurveyBtn').click();"> Excellent
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_2" value="Good" onclick="$('#nextSurveyBtn').click();"> Good
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_3" value="Satisfactory" onclick="$('#nextSurveyBtn').click();"> Satisfactory
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_4" value="Needs Improvement" onclick="$('#nextSurveyBtn').click();"> Needs Improvement
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_5" value="Poor" onclick="$('#nextSurveyBtn').click();"> Poor
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
+<p class="mt-4">1. How would you rate your teachers’ subject knowledge, pedagogy, and classroom management skills?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
 
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="1" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Continuous Professional Development (CPD)</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">2 of 10</small>
-	  </div>
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[1]" value="How would you rate your teachers’ subject knowledge, pedagogy, and classroom management skills?">
 
 
-	  <p class="mt-4">2. Does your school have a structured, ongoing teacher training plan that adapts to teacher and student performance?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[2]" value="Does your school have a structured, ongoing teacher training plan that adapts to teacher and student performance?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[2]" id="q2_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[2]" id="q2_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
 
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="2" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">English Proficiency in Teaching</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">3 of 10</small>
-	  </div>
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_1" value="Excellent" onclick="$('#nextSurveyBtn').click();"> Excellent
+</label>
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_2" value="Good" onclick="$('#nextSurveyBtn').click();"> Good
+</label>
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_3" value="Satisfactory" onclick="$('#nextSurveyBtn').click();"> Satisfactory
+</label>
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_4" value="Needs Improvement" onclick="$('#nextSurveyBtn').click();"> Needs Improvement
+</label>
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[1]" id="q1_5" value="Poor" onclick="$('#nextSurveyBtn').click();"> Poor
+</label>
+
+</div>
+</div>
+
+</fieldset>
 
 
-	  <p class="mt-4">3. Are your teachers fully equipped to deliver English instruction confidently and effectively in the classroom?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[3]" value="Are your teachers fully equipped to deliver English instruction confidently and effectively in the classroom?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[3]" id="q3_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[3]" id="q3_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
-
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="3" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Remedial Student Support</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">4 of 10</small>
-	  </div>
+<fieldset class="question-step" data-step="1" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Continuous Professional Development (CPD)</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">2 of 10</small>
+</div>
 
 
-	  <p class="mt-4">4. Do you have effective systems in place to identify and support struggling students with remedial classes?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[4]" value="Do you have effective systems in place to identify and support struggling students with remedial classes?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[4]" id="q4_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[4]" id="q4_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
+<p class="mt-4">2. Does your school have a structured, ongoing teacher training plan that adapts to teacher and student performance?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
 
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="4" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Advanced Student Support</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">5 of 10</small>
-	  </div>
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[2]" value="Does your school have a structured, ongoing teacher training plan that adapts to teacher and student performance?">
 
 
-	  <p class="mt-4">5. Does your school provide structured programs for high-performing students aiming for excellence in board exams?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[5]" value="Does your school provide structured programs for high-performing students aiming for excellence in board exams?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[5]" id="q5_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[5]" id="q5_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
 
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="5" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Result Monitoring &amp; Analysis</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">6 of 10</small>
-	  </div>
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[2]" id="q2_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[2]" id="q2_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+
+</div>
+</div>
+</fieldset>
+<fieldset class="question-step" data-step="2" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">English Proficiency in Teaching</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">3 of 10</small>
+</div>
+<p class="mt-4">3. Are your teachers fully equipped to deliver English instruction confidently and effectively in the classroom?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
+
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[3]" value="Are your teachers fully equipped to deliver English instruction confidently and effectively in the classroom?">
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[3]" id="q3_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[3]" id="q3_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+
+</div>
+</div>
+</fieldset>
 
 
-	  <p class="mt-4">6. Do you currently have tools to analyze student performance with standardized testing and application-level assessments?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[6]" value="Do you currently have tools to analyze student performance with standardized testing and application-level assessments?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[6]" id="q6_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[6]" id="q6_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
+<fieldset class="question-step" data-step="3" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Remedial Student Support</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">4 of 10</small>
+</div>
+<p class="mt-4">4. Do you have effective systems in place to identify and support struggling students with remedial classes?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[4]" value="Do you have effective systems in place to identify and support struggling students with remedial classes?">
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[4]" id="q4_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
 
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="6" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Application-Oriented Learning</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">7 of 10</small>
-	  </div>
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[4]" id="q4_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+</div>
+</div>
+</fieldset>
 
 
-	  <p class="mt-4">7. Are your teachers focused on building student problem-solving and application skills rather than rote memorization?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[7]" value="Are your teachers focused on building student problem-solving and application skills rather than rote memorization?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[7]" id="q7_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[7]" id="q7_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
-
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="7" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Future-Readiness Programs</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">8 of 10</small>
-	  </div>
+<fieldset class="question-step" data-step="4" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Advanced Student Support</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">5 of 10</small>
+</div>
 
 
-	  <p class="mt-4">8. Does your school currently integrate 21st-century skills (STEM, Data Science, Robotics, Creativity, Digital Literacy) into the curriculum?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[8]" value="Does your school currently integrate 21st-century skills (STEM, Data Science, Robotics, Creativity, Digital Literacy) into the curriculum?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[8]" id="q8_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[8]" id="q8_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
+<p class="mt-4">5. Does your school provide structured programs for high-performing students aiming for excellence in board exams?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
 
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="8" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">Teacher Observation &amp; Mentoring</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">9 of 10</small>
-	  </div>
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[5]" value="Does your school provide structured programs for high-performing students aiming for excellence in board exams?">
 
 
-	  <p class="mt-4">9. Do teachers receive regular classroom observation, feedback, and mentoring to improve their practices?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[9]" value="Do teachers receive regular classroom observation, feedback, and mentoring to improve their practices?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[9]" id="q9_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[9]" id="q9_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
 
-	   
-	   
-    </fieldset>
-  
-    
-    <fieldset class="question-step" data-step="9" style="display:none;">
-	  <div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
-		<h5 class="fw-bold mb-0">School Reputation &amp; Outcomes</h5>
-		<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">10 of 10</small>
-	  </div>
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[5]" id="q5_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
 
 
-	  <p class="mt-4">10. How confident are you that your school’s current systems will consistently deliver strong academic outcomes and enhance reputation in your community?</p>
-	 <div class="form-group d-flex flex-row flex-wrap gap-3">
-	  
-	  <div class="d-flex flex-wrap gap-3">
-	  <input type="hidden" name="q_question[10]" value="How confident are you that your school’s current systems will consistently deliver strong academic outcomes and enhance reputation in your community?">
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_1" value="Very confident" onclick="$('#nextSurveyBtn').click();"> Very confident
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_2" value="Confident" onclick="$('#nextSurveyBtn').click();"> Confident
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_3" value="Somewhat confident" onclick="$('#nextSurveyBtn').click();"> Somewhat confident
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_4" value="Not very confident" onclick="$('#nextSurveyBtn').click();"> Not very confident
-                </label>
-                
-              
-			  
-			  
-	  
-		
-                <label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
-				  
-                  <input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_5" value="Not at all confident" onclick="$('#nextSurveyBtn').click();"> Not at all confident
-                </label>
-                
-              
-			  
-			  
-	  
-	  </div>
-	</div>
 
-	   
-	   
-    </fieldset>
-  
 
-  <!-- Final simple form step -->
-  <fieldset class="question-step" data-step="10" style="display:none;">
-    <legend class="ms-5">Your Contact Details</legend>
-    
-	
-	
-	<div class="row g-3">
-	  <div class="col-md-6"><input type="text" class="form-control" name="name" placeholder="Full Name" required="" data-bv-field="name"><i class="form-control-feedback bv-no-label" data-bv-icon-for="name" style="display: none;"></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="name" data-bv-result="NOT_VALIDATED" style="display: none;">Name is required and cannot be empty</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="name" data-bv-result="NOT_VALIDATED" style="display: none;">Name must be more than 3 and less than 30 characters long</small></div>
-	  <div class="col-md-6"><input type="email" class="form-control" name="email" placeholder="Email" required="" data-bv-field="email"><i class="form-control-feedback bv-no-label" data-bv-icon-for="email" style="display: none;"></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Email is required and cannot be empty</small><small class="help-block" data-bv-validator="regexp" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid email address</small><small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid email address</small></div>
-	  <div class="col-md-6"><input type="tel" class="form-control" name="mobile" placeholder="Mobile" required="" data-bv-field="mobile"><i class="form-control-feedback bv-no-label" data-bv-icon-for="mobile" style="display: none;"></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="mobile" data-bv-result="NOT_VALIDATED" style="display: none;">Mobile number is required and cannot be empty </small><small class="help-block" data-bv-validator="stringLength" data-bv-for="mobile" data-bv-result="NOT_VALIDATED" style="display: none;">Mobile number must be 10 characters long </small><small class="help-block" data-bv-validator="regexp" data-bv-for="mobile" data-bv-result="NOT_VALIDATED" style="display: none;">Mobile number can only consist of numbers </small></div>
-	  <div class="col-12"><textarea class="form-control" name="comments" rows="3" placeholder="Comments (optional)"></textarea></div>
-	</div>
-	
-	
-  </fieldset>
 
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[5]" id="q5_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+
+
+
+
+
+</div>
+</div>
+
+
+
+</fieldset>
+
+
+<fieldset class="question-step" data-step="5" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Result Monitoring &amp; Analysis</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">6 of 10</small>
+</div>
+
+
+<p class="mt-4">6. Do you currently have tools to analyze student performance with standardized testing and application-level assessments?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
+
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[6]" value="Do you currently have tools to analyze student performance with standardized testing and application-level assessments?">
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[6]" id="q6_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
+
+
+
+
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[6]" id="q6_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+
+</div>
+</div>
+
+
+
+</fieldset>
+
+
+<fieldset class="question-step" data-step="6" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Application-Oriented Learning</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">7 of 10</small>
+</div>
+
+
+<p class="mt-4">7. Are your teachers focused on building student problem-solving and application skills rather than rote memorization?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
+
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[7]" value="Are your teachers focused on building student problem-solving and application skills rather than rote memorization?">
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[7]" id="q7_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[7]" id="q7_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+
+</div>
+</div>
+</fieldset>
+
+
+<fieldset class="question-step" data-step="7" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Future-Readiness Programs</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">8 of 10</small>
+</div>
+
+
+<p class="mt-4">8. Does your school currently integrate 21st-century skills (STEM, Data Science, Robotics, Creativity, Digital Literacy) into the curriculum?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
+
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[8]" value="Does your school currently integrate 21st-century skills (STEM, Data Science, Robotics, Creativity, Digital Literacy) into the curriculum?">
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[8]" id="q8_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
+
+
+
+
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[8]" id="q8_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+
+
+
+
+
+</div>
+</div>
+
+
+
+</fieldset>
+
+
+<fieldset class="question-step" data-step="8" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">Teacher Observation &amp; Mentoring</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">9 of 10</small>
+</div>
+
+
+<p class="mt-4">9. Do teachers receive regular classroom observation, feedback, and mentoring to improve their practices?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
+
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[9]" value="Do teachers receive regular classroom observation, feedback, and mentoring to improve their practices?">
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[9]" id="q9_1" value="Yes" onclick="$('#nextSurveyBtn').click();"> Yes
+</label>
+
+
+
+
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[9]" id="q9_2" value="No" onclick="$('#nextSurveyBtn').click();"> No
+</label>
+
+
+
+
+
+</div>
+</div>
+
+
+
+</fieldset>
+
+
+<fieldset class="question-step" data-step="9" style="display:none;">
+<div class="d-flex align-items-center mb-2 mt-3 pb-2 ms-4">
+<h5 class="fw-bold mb-0">School Reputation &amp; Outcomes</h5>
+<small class="ms-auto me-md-5 me-1 text-muted" style="width: 65px;">10 of 10</small>
+</div>
+
+
+<p class="mt-4">10. How confident are you that your school’s current systems will consistently deliver strong academic outcomes and enhance reputation in your community?</p>
+<div class="form-group d-flex flex-row flex-wrap gap-3">
+
+<div class="d-flex flex-wrap gap-3">
+<input type="hidden" name="q_question[10]" value="How confident are you that your school’s current systems will consistently deliver strong academic outcomes and enhance reputation in your community?">
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_1" value="Very confident" onclick="$('#nextSurveyBtn').click();"> Very confident
+</label>
+
+
+
+
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_2" value="Confident" onclick="$('#nextSurveyBtn').click();"> Confident
+</label>
+
+
+
+
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_3" value="Somewhat confident" onclick="$('#nextSurveyBtn').click();"> Somewhat confident
+</label>
+
+
+
+
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_4" value="Not very confident" onclick="$('#nextSurveyBtn').click();"> Not very confident
+</label>
+
+
+
+
+
+
+<label class="btn btn-outline-primary rounded-pill px-4 py-2 text-black survey-radio-btn">
+
+<input class="form-check-input visually-hidden" type="radio" name="q_answer[10]" id="q10_5" value="Not at all confident" onclick="$('#nextSurveyBtn').click();"> Not at all confident
+</label>
+
+
+
+
+
+</div>
+</div>
+
+
+
+</fieldset>
+
+
+<!-- Final simple form step -->
+<fieldset class="question-step" data-step="10" style="display:none;">
+<legend class="ms-5">Your Contact Details</legend>
+
+
+
+<div class="row g-3">
+<div class="col-md-6"><input type="text" class="form-control" name="name" placeholder="Full Name" required="" data-bv-field="name"><i class="form-control-feedback bv-no-label" data-bv-icon-for="name" style="display: none;"></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="name" data-bv-result="NOT_VALIDATED" style="display: none;">Name is required and cannot be empty</small><small class="help-block" data-bv-validator="stringLength" data-bv-for="name" data-bv-result="NOT_VALIDATED" style="display: none;">Name must be more than 3 and less than 30 characters long</small></div>
+<div class="col-md-6"><input type="email" class="form-control" name="email" placeholder="Email" required="" data-bv-field="email"><i class="form-control-feedback bv-no-label" data-bv-icon-for="email" style="display: none;"></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Email is required and cannot be empty</small><small class="help-block" data-bv-validator="regexp" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid email address</small><small class="help-block" data-bv-validator="emailAddress" data-bv-for="email" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter a valid email address</small></div>
+<div class="col-md-6"><input type="tel" class="form-control" name="mobile" placeholder="Mobile" required="" data-bv-field="mobile"><i class="form-control-feedback bv-no-label" data-bv-icon-for="mobile" style="display: none;"></i><small class="help-block" data-bv-validator="notEmpty" data-bv-for="mobile" data-bv-result="NOT_VALIDATED" style="display: none;">Mobile number is required and cannot be empty </small><small class="help-block" data-bv-validator="stringLength" data-bv-for="mobile" data-bv-result="NOT_VALIDATED" style="display: none;">Mobile number must be 10 characters long </small><small class="help-block" data-bv-validator="regexp" data-bv-for="mobile" data-bv-result="NOT_VALIDATED" style="display: none;">Mobile number can only consist of numbers </small></div>
+<div class="col-12"><textarea class="form-control" name="comments" rows="3" placeholder="Comments (optional)"></textarea></div>
+</div>
+</fieldset>
 <div id="navigationButtons" class="mt-5 d-flex justify-content-between">
-  <!-- Use visibility:hidden instead of display:none -->
-  <button type="button" id="prevSurveyBtn" class="survey-previous-button" style="visibility:hidden;">Previous</button>
-  <div>
-    <button type="button" id="nextSurveyBtn" class="survey-next-button d-none" disabled="" style="display: inline-block;">Next</button>
-    <button type="submit" id="submitSurveyBtn" class="btn-hippo" style="display:none;" disabled="">Submit</button>
-  </div>
+<!-- Use visibility:hidden instead of display:none -->
+<button type="button" id="prevSurveyBtn" class="survey-previous-button" style="visibility:hidden;">Previous</button>
+<div>
+<button type="button" id="nextSurveyBtn" class="survey-next-button d-none" disabled="" style="display: inline-block;">Next</button>
+<button type="submit" id="submitSurveyBtn" class="btn-hippo" style="display:none;" disabled="">Submit</button>
 </div>
-
-
+</div>
 </form>
-
-
-
-
 </div>
 </div>
 </div>
 </div>
+{% include "global-scripts.njk" %}
+<script>
+const challenges = {
+1: {
+statement: "School is unable to compete with bigger schools academically",
+reason: "Weak teaching methodology, outdated pedagogy, and lack of structured academic monitoring.",
+solution: "Implement Hippocampus 4D Academic Excellence Method (diagnosis, design, delivery, and demonstration of results). Train teachers to adopt structured teaching-learning cycles.",
+timeline: "Academic results visibly improve within 12 months."
+},
+2: {
+statement: "Parents move children to other schools frequently",
+reason: "Dissatisfaction with learning quality, lack of extracurricular opportunities, and peer pressure to shift to 'brand schools.'",
+solution: "Launch a “Parent Engagement Program” + consistent co-curricular activities that build student pride. Create visible “student progress dashboards” for parents.",
+timeline: "Retention rates improve in 1–2 admission cycles (9–18 months)."
+},
+3: {
+statement: "Teachers frequently leave, creating instability",
+reason: "Lack of professional development, poor support systems, and limited recognition.",
+solution: "Introduce continuous teacher training (C-TIES model), performance-linked recognition, and peer learning communities.",
+timeline: "Reduced attrition and higher teacher satisfaction within 6–9 months."
+},
+4: {
+statement: "School is seen as “low profile” compared to established competitors",
+reason: "Poor marketing, weak storytelling of success, and lack of community presence.",
+solution: "Build brand campaigns highlighting student success, social impact, and unique pedagogy. Conduct local events to raise visibility.",
+timeline: "Brand visibility improves within 6 months; strong reputation building takes 18–24 months."
+},
+5: {
+statement: "Costs are high, revenue streams unstable",
+reason: "Poor resource planning, underutilized assets, and lack of fee discipline.",
+solution: "Implement school ERP for fee tracking, optimize resources, and explore alternate revenue (after-school programs, summer camps, skill-based add-ons).",
+timeline: "Operational stability achievable within 6–12 months."
+},
+6: {
+statement: "Parents feel disconnected and uninformed",
+reason: "No structured communication channel; feedback is ignored or ad-hoc.",
+solution: "Create a structured communication calendar (newsletters, WhatsApp flows, PTMs, parent workshops). Deploy transparent feedback mechanisms.",
+timeline: "Communication quality improves within 3 months, measurable parent satisfaction within 6–9 months."
+}
+};
+
+let typingInterval; // keep track of interval
+
+function typeText(element, data, speed = 15) {
+clearInterval(typingInterval); // clear any previous typing
+const fullText = `Problem Statement:\n${data.statement}\n\nProbable Reason:\n${data.reason}\n\nSolution:\n${data.solution}\n\nTimeline:\n${data.timeline}`;
+let i = 0;
+element.innerHTML = "";
+element.style.opacity = 1;
+element.style.transform = "translateY(0)";
+
+// Fade the image during typing
+document.getElementById('challenge-image').style.opacity = 0.9;
+
+typingInterval = setInterval(() => {
+const text = fullText.substring(0, i+1)
+.replace("Problem Statement:", `<span class="statement">Problem Statement:</span>`)
+.replace("Probable Reason:", `<span class="reason">Probable Reason:</span>`)
+.replace("Solution:", `<span class="solution">Hippocampus Solution:</span>`)
+.replace("Timeline:", `<span class="timeline">Hippocampus Timeline:</span>`);
+element.innerHTML = text;
+i++;
+if (i >= fullText.length) clearInterval(typingInterval);
+}, speed);
+}
+
+// Button click
+document.querySelectorAll('.problem-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+const id = btn.getAttribute('data-id');
+const data = challenges[id];
+const textContainer = document.getElementById('challenge-text');
+const card = document.querySelector('.challenge-card');
+
+// Reset typing and image
+clearInterval(typingInterval);
+textContainer.style.opacity = 0;
+textContainer.style.transform = "translateY(20px)";
+document.getElementById('challenge-image').style.opacity = 1; // reset image
+
+// Scroll into view with offset to prevent hiding behind header
+if (window.innerWidth <= 768) {
+const headerOffset = 100; // adjust based on your header height
+const elementPosition = card.getBoundingClientRect().top + window.scrollY;
+const offsetPosition = elementPosition - headerOffset;
+
+window.scrollTo({
+top: offsetPosition,
+behavior: "smooth"
+});
+}
+
+setTimeout(() => typeText(textContainer, data), 100);
+});
+});
+</script>

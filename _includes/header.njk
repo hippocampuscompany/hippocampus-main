@@ -1,256 +1,172 @@
 <header id="header" class="header">
-  <div class="container d-flex align-items-center justify-content-between">
-<style>
-/* Buttons */
-.enquiry-btn {
-  display: inline-block;
-  padding: 10px 24px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  margin: 6px;
-  transition: all 0.3s ease;
-}
-
-.enquiry-primary {
-  background: linear-gradient(90deg, #f04e43, #fcd84e);
-  color: #fff;
-}
-
-.enquiry-outline {
-  border: 2px solid #f04e43;
-  color: #f04e43;
-}
-
-.enquiry-btn:hover {
-  background: linear-gradient(90deg, #f04e43, #fcd84e);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(240, 78, 67, 0.35);
-}
-
-/* Modal */
-.admission-modal {
-  border-radius: 20px;
-  overflow: hidden;
-  border: none;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
-}
-
-/* Header */
-.admission-header {
-  background: linear-gradient(90deg, #f04e43, #fcd84e);
-  padding: 18px 22px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Body */
-.admission-body {
-  background: #ffffff;
-  padding: 24px;
-}
-
-/* Inputs */
-.form-control,
-.form-select {
-  border-radius: 12px;
-}
-
-.form-control:focus,
-.form-select:focus {
-  border-color: #f04e43;
-  box-shadow: 0 0 0 3px rgba(240, 78, 67, 0.15);
-}
-
-/* Submit */
-.submit-btn {
-  background: linear-gradient(90deg, #f04e43, #fcd84e);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 50px;
-  padding: 12px;
-  border: none;
-}
-
-.submit-btn:hover {
-  box-shadow: 0 10px 25px rgba(240, 78, 67, 0.4);
-}
-
-</style>
-
-
-
-    <!-- Logo -->
+<div class="container d-flex align-items-center justify-content-between">
+<!-- Logo -->
 <a href="/" class="logo d-flex align-items-center">
 
-  {% if page.url == '/' %}
-    <img src="{{ '/assets/img/hippocampus.png' | url }}" alt="Home Logo" class="img-fluid">
+{% if page.url == '/' %}
+<img src="{{ '/assets/img/hippocampus.png' | url }}" alt="Home Logo" class="img-fluid">
 
-  {% elif page.url.indexOf('/our-schools') === 0 %}
-    <img src="{{ '/assets/img/logo-sc.png' | url }}" alt="School Logo" class="img-fluid">
+{% elif page.url.indexOf('/our-schools') === 0 %}
+<img src="{{ '/assets/img/logo-sc.png' | url }}" alt="School Logo" class="img-fluid">
 
-  {% elif page.url.indexOf('/end-to-end-school-management') === 0 %}
-    <img src="{{ '/assets/img/logo-ac.png' | url }}" alt="Academics Logo" class="img-fluid">
+{% elif page.url.indexOf('/end-to-end-school-management') === 0 %}
+<img src="{{ '/assets/img/logo-ac.png' | url }}" alt="Academics Logo" class="img-fluid">
 
-  {% else %}
-    <img src="{{ '/assets/img/hippocampus.png' | url }}" alt="Default Logo" class="img-fluid">
-  {% endif %}
+{% else %}
+<img src="{{ '/assets/img/hippocampus.png' | url }}" alt="Default Logo" class="img-fluid">
+{% endif %}
 
 </a>
 
 
-    <!-- Nav -->
-    <nav id="navbar" class="navbar order-last order-lg-0">
-      <ul>
-	    <li class="d-none"><a href="{{ '/' | url }}">Home</a></li>
-		<li><a href="{{ '/about/' | url }}">About Us</a></li>	
- <li><a href="{{ '/our-schools/' | url }}">Our Schools</a></li>	
-        <li class="dropdown d-none">
-          <a href="{{ '/our-schools/' | url}}">
-            <span> Our Schools</span>  <i class="bi bi-chevron-down dropdown-indicator"></i>
-          </a>
-          <ul>
-            <li><a href="#">CBSE Board</a></li>
-            <li><a href="#">State Board</a></li>
-          </ul>
-        </li>      
-        <li class="dropdown"><a href="#"><span>School Management Solution</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-            <li><a href="{{ '/end-to-end-school-management/' | url }}" target="_blank">End-to-End School Management</a></li>
-            <li><a href="https://hippocampus.in/hippocampus-academy/" target="_blank">Hippocampus Academy</a></li>
-              <li class="dropdown d-none"><a href="#"><span>Hippocampus End-to-End School Management</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Improve Profitability</a></li>
-                  <li><a href="#">Ousourced School Management</a></li>
-                  <li><a href="#">Hippocampus Managed Franchise</a></li>                 
-                </ul>
-              </li>
-			<li class="dropdown d-none"><a href="#"><span>Hippocampus Academy</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Teacher Training</a></li>
-                  <li><a href="#">Sankalp 90 Student Program</a></li>
-                  <li><a href="#">Improve Academic Excellence</a></li>
-                  <li><a href="#">Workbooks</a></li>
-                  <li><a href="#">KG Franchise</a></li>
-                </ul>
-              </li>
-            
-            </ul>
-          </li>
-		 <li class="d-none"><a href="{{ '/' | url }}#contactus_form">Admission Enquiry</a></li>
-		<li class=""><a href="#">Library</a></li>
-		 <li class="dropdown d-none d-md-block">
-          <a href="#">
-            <span>More</span>  <i class="bi bi-chevron-down dropdown-indicator"></i>
-          </a>
-          <ul>
-			<li><a href="{{ '/blogs/' | url }}" target="_blank">Blogs</a></li>           
-            <li><a href="{{ '/wall-of-dreams/' | url }}" target="_blank">Wall Of Dreams</a></li>
-			 <li class="d-none"><a href="#">Library</a></li>
-          </ul>
-        </li>  
-		<li class="d-block d-md-none"><a href="{{ '/blogs/' | url }}" target="_blank">Blogs</a></li>        
-        <li class="d-block d-md-none"><a href="{{ '/wall-of-dreams/' | url }}" target="_blank">Wall Of Dreams</a></li>
-		
+<!-- Nav -->
+<nav id="navbar" class="navbar order-last order-lg-0">
+<ul>
+<li class="d-none"><a href="{{ '/' | url }}">Home</a></li>
+<li><a href="{{ '/about/' | url }}">About Us</a></li>	
+<li><a href="{{ '/our-schools/' | url }}">Our Schools</a></li>	
+<li class="dropdown d-none">
+<a href="{{ '/our-schools/' | url}}">
+<span> Our Schools</span>  <i class="bi bi-chevron-down dropdown-indicator"></i>
+</a>
+<ul>
+<li><a href="#">CBSE Board</a></li>
+<li><a href="#">State Board</a></li>
+</ul>
+</li>      
+<li class="dropdown"><a href="#"><span>School Management Solution</span> <i class="bi bi-chevron-down"></i></a>
+<ul>
+<li><a href="{{ '/end-to-end-school-management/' | url }}" target="_blank">End-to-End School Management</a></li>
+<li><a href="https://hippocampus.in/hippocampus-academy/" target="_blank">Hippocampus Academy</a></li>
+<li class="dropdown d-none"><a href="#"><span>Hippocampus End-to-End School Management</span> <i class="bi bi-chevron-right"></i></a>
+<ul>
+<li><a href="#">Improve Profitability</a></li>
+<li><a href="#">Ousourced School Management</a></li>
+<li><a href="#">Hippocampus Managed Franchise</a></li>                 
+</ul>
+</li>
+<li class="dropdown d-none"><a href="#"><span>Hippocampus Academy</span> <i class="bi bi-chevron-right"></i></a>
+<ul>
+<li><a href="#">Teacher Training</a></li>
+<li><a href="#">Sankalp 90 Student Program</a></li>
+<li><a href="#">Improve Academic Excellence</a></li>
+<li><a href="#">Workbooks</a></li>
+<li><a href="#">KG Franchise</a></li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li class="d-none"><a href="{{ '/' | url }}#contactus_form">Admission Enquiry</a></li>
+<li class=""><a href="#">Library</a></li>
+<li class="dropdown d-none d-md-block">
+<a href="#">
+<span>More</span>  <i class="bi bi-chevron-down dropdown-indicator"></i>
+</a>
+<ul>
+<li><a href="{{ '/blogs/' | url }}" target="_blank">Blogs</a></li>           
+<li><a href="{{ '/wall-of-dreams/' | url }}" target="_blank">Wall Of Dreams</a></li>
+<li class="d-none"><a href="#">Library</a></li>
+</ul>
+</li>  
+<li class="d-block d-md-none"><a href="{{ '/blogs/' | url }}" target="_blank">Blogs</a></li>        
+<li class="d-block d-md-none"><a href="{{ '/wall-of-dreams/' | url }}" target="_blank">Wall Of Dreams</a></li>
+
 <a href="javascript:void(0)"
-   class="enquiry-btn enquiry-primary d-block d-md-none"
-   data-bs-toggle="modal"
-   data-bs-target="#admissionModal">
-   Admission Enquiry
+class="enquiry-btn enquiry-primary d-block d-md-none"
+data-bs-toggle="modal"
+data-bs-target="#admissionModal">
+Admission Enquiry
 </a>
-      </ul>
-	  
-	    <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
+</ul>
+
+<i class="bi bi-list mobile-nav-toggle"></i>
+</nav><!-- .navbar -->
 
 <!-- DESKTOP BUTTON -->
 <a href="javascript:void(0)"
-   class="enquiry-btn enquiry-outline d-none d-md-inline-block"
-   data-bs-toggle="modal"
-   data-bs-target="#admissionModal">
-   Apply Now
+class="enquiry-btn enquiry-outline d-none d-md-inline-block"
+data-bs-toggle="modal"
+data-bs-target="#admissionModal">
+Apply Now
 </a>  
 
-  </div>
+</div>
 </header>
 
 <div class="modal fade" id="admissionModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content admission-modal">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content admission-modal">
 
-      <!-- Header -->
-      <div class="admission-header">
-        <div>
-          <h5 class="mb-1 fw-bold text-white">Admission Enquiry</h5>
-          <p class="mb-0 small text-white opacity-75">
-            Fill the form and we’ll contact you
-          </p>
-        </div>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Body -->
-      <div class="modal-body admission-body">
-
-        <form action="forms/appointment.php" method="post" class="php-email-form">
-
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label">Name</label>
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Email</label>
-              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-            </div>
-          </div>
-
-          <div class="row g-3 mt-1">
-            <div class="col-md-6">
-              <label class="form-label">Phone</label>
-              <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">Grade</label>
-              <select name="department" class="form-select" required>
-                <option value="">Select Grade</option>
-                <option>Kindergarten (KG)</option>
-                <option>Grades 1–5</option>
-                <option>Grades 6–8</option>
-                <option>Grades 9–10</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row g-3 mt-1">
-            <div class="col-md-6">
-              <label class="form-label">City</label>
-              <select id="citySelect" class="form-select" required>
-                <option value="">Select City</option>
-              </select>
-            </div>
-
-            <div class="col-md-6">
-              <label class="form-label">School</label>
-              <select id="schoolSelect" class="form-select" disabled required>
-                <option value="">Select School</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="submit" class="btn submit-btn w-100 mt-4">
-            Submit Enquiry
-          </button>
-
-        </form>
-
-      </div>
-    </div>
-  </div>
+<!-- Header -->
+<div class="admission-header">
+<div>
+<h5 class="mb-1 fw-bold text-white">Admission Enquiry</h5>
+<p class="mb-0 small text-white opacity-75">
+Fill the form and we’ll contact you
+</p>
+</div>
+<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
 </div>
 
+<!-- Body -->
+<div class="modal-body admission-body">
 
+<form action="forms/appointment.php" method="post" class="php-email-form">
+
+<div class="row g-3">
+<div class="col-md-6">
+<label class="form-label">Name</label>
+<input type="text" name="name" class="form-control" placeholder="Your Name" required>
+</div>
+
+<div class="col-md-6">
+<label class="form-label">Email</label>
+<input type="email" name="email" class="form-control" placeholder="Your Email" required>
+</div>
+</div>
+
+<div class="row g-3 mt-1">
+<div class="col-md-6">
+<label class="form-label">Phone</label>
+<input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+</div>
+
+<div class="col-md-6">
+<label class="form-label">Grade</label>
+<select name="department" class="form-select" required>
+<option value="">Select Grade</option>
+<option>Kindergarten (KG)</option>
+<option>Grades 1–5</option>
+<option>Grades 6–8</option>
+<option>Grades 9–10</option>
+</select>
+</div>
+</div>
+
+<div class="row g-3 mt-1">
+<div class="col-md-6">
+<label class="form-label">City</label>
+<select id="citySelect" class="form-select" required>
+<option value="">Select City</option>
+</select>
+</div>
+
+<div class="col-md-6">
+<label class="form-label">School</label>
+<select id="schoolSelect" class="form-select" disabled required>
+<option value="">Select School</option>
+</select>
+</div>
+</div>
+
+<button type="submit" class="btn submit-btn w-100 mt-4">
+Submit Enquiry
+</button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>

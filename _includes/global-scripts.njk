@@ -1,0 +1,416 @@
+<!-- Vendor JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | url }}"></script>
+<script src="{{ '/assets/vendor/aos/aos.js' | url }}"></script>
+<script src="{{ '/assets/vendor/glightbox/js/glightbox.min.js' | url }}"></script>
+<script src="{{ '/assets/vendor/swiper/swiper-bundle.min.js' | url }}"></script>
+<script src="{{ '/assets/vendor/isotope-layout/isotope.pkgd.min.js' | url }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="{{ '/assets/js/main.js' | url }}"></script>
+<script src="{{ '/assets/js/survey-stepper.js' | url }}"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<script>
+// For client-swiper (autoplay scrolling logos etc.)
+var clientSwiper = new Swiper('.client-swiper', {
+spaceBetween: 20,
+loop: true,
+freeMode: true,
+speed: 4000,
+autoplay: {
+delay: 0,
+disableOnInteraction: false,
+},
+breakpoints: {
+0: {
+slidesPerView: 2,
+},
+576: {
+slidesPerView: 3,
+},
+768: {
+slidesPerView: 4,
+},
+992: {
+slidesPerView: 5,
+},
+1200: {
+slidesPerView: 6,
+},
+},
+freeModeMomentum: false,
+grabCursor: true,
+});
+</script>
+<script>
+var swiperss = new Swiper(".testimonialSwiper", {
+effect: "coverflow",
+grabCursor: true,
+centeredSlides: true,
+loop: true,
+autoplay: true,
+slidesPerView: "auto",
+coverflowEffect: {
+rotate: 20,
+stretch: 0,
+depth: 150,
+modifier: 2,
+slideShadows: false,
+},
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+});
+</script>
+<script>
+var drightSwiper = new Swiper(".dright", {
+direction: "vertical",
+slidesPerView: 3,
+spaceBetween: 20,
+loop: true,
+autoplay: {
+delay: 2500,
+disableOnInteraction: false,
+},
+pagination: {
+el: ".dright .swiper-pagination",
+clickable: true,
+type: "bullets",
+},
+navigation: {
+nextEl: ".dright .swiper-button-next",
+prevEl: ".dright .swiper-button-prev",
+},
+breakpoints: {
+0: { slidesPerView: 1, height: 400 },
+768: { slidesPerView: 3, height: 700 }
+}
+});
+</script>
+
+<script>
+var swiperslide = new Swiper(".featureSwiper", {
+effect: "cube",
+grabCursor: true,
+loop: true,
+cubeEffect: {
+shadow: true,
+slideShadows: true,
+shadowOffset: 20,
+shadowScale: 0.94,
+},
+autoplay: {
+delay: 3000,              // 3s delay
+disableOnInteraction: false, // keep autoplay after manual nav
+},
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+navigation: {
+nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev",
+},
+});
+document.addEventListener("DOMContentLoaded", () => {
+const swiperEl = document.querySelector(".featureSwiper");
+if (swiperEl && typeof swiperslide !== "undefined" && swiperslide.autoplay) {
+swiperEl.addEventListener("mouseenter", () => swiperslide.autoplay.stop());
+swiperEl.addEventListener("mouseleave", () => swiperslide.autoplay.start());
+}
+});
+
+
+</script>
+<script>
+var swiper = new Swiper(".cardStackSwiper", {
+direction: "vertical",
+slidesPerView: 1,
+centeredSlides: true,
+loop: true,
+grabCursor: true,
+autoHeight: true,   // 🔑 adjust height per content
+
+autoplay: {
+delay: 2500,
+disableOnInteraction: false,
+pauseOnMouseEnter: true
+},
+
+effect: "creative",
+creativeEffect: {
+limitProgress: 2,
+prev: {
+translate: [0, -60, -80],
+scale: 0.95,
+opacity: 0.8
+},
+next: {
+translate: [0, 60, -80],
+scale: 0.95,
+opacity: 0.8
+}
+},
+
+pagination: {
+el: ".swiper-pagination",
+clickable: true
+},
+navigation: {
+nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev"
+}
+});
+</script>
+<!-- Swiper JS -->
+<script>
+var swiperslidev = new Swiper(".featureSwiper11", {
+direction: "vertical",   // vertical mode
+effect: "flip",
+grabCursor: true,
+loop: true,
+flipEffect: {
+slideShadows: false,   // remove shadow
+},
+autoplay: {
+delay: 3000,
+disableOnInteraction: false,
+},
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+navigation: {
+nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev",
+},
+});
+
+</script>
+<script>
+// Show selected button visually
+const buttons = document.querySelectorAll('.survey-radio-btn');
+buttons.forEach(btn => {
+btn.addEventListener('click', () => {
+buttons.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+});
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+const typeOfProject = document.getElementById('typeOfProject');
+const statusWrapper = document.getElementById('statusOfProjectWrapper');
+
+if (typeOfProject && statusWrapper) {
+typeOfProject.addEventListener('change', function () {
+const selectedValue = this.value;
+const showStatus =
+selectedValue === "Home Lift for NEW Building" ||
+selectedValue === "Commercial Lift for NEW Building";
+
+statusWrapper.style.display = showStatus ? 'block' : 'none';
+});
+}
+});
+</script>
+<script>
+
+window.addEventListener('scroll', function () {
+const header = document.querySelector('header');
+if (window.scrollY > 50) {
+header.classList.add('scrolled');
+document.querySelector('.navbar-brand').classList.remove('text-light');
+document.querySelector('.navbar-brand').classList.add('text-dark');
+} else {
+header.classList.remove('scrolled');
+document.querySelector('.navbar-brand').classList.remove('text-dark');
+document.querySelector('.navbar-brand').classList.add('text-light');
+}
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+// 🎲 Random tilt + pin/tape + random swing offset
+document.querySelectorAll('.polaroid').forEach(el => {
+let angle = (Math.random() * 16 - 8).toFixed(1);
+el.style.setProperty('--tilt', angle + 'deg');
+el.style.transform = `rotate(${angle}deg)`;
+
+let delay = (Math.random() * 3).toFixed(2);
+el.style.setProperty('--rand', delay);
+
+if (Math.random() > 0.5) {
+let pin = document.createElement("span");
+pin.classList.add("pin");
+el.appendChild(pin);
+} else {
+let tape = document.createElement("span");
+tape.classList.add("tape");
+el.appendChild(tape);
+}
+});
+
+// Shuffle helper
+function shuffle(array) {
+for (let i = array.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[array[i], array[j]] = [array[j], array[i]];
+}
+return array;
+}
+
+// Sorting logic
+document.querySelectorAll('#filterTabs a').forEach(tab => {
+tab.addEventListener('click', function(e) {
+e.preventDefault();
+document.querySelectorAll('#filterTabs a').forEach(t => t.classList.remove('active'));
+this.classList.add('active');
+
+let filter = this.getAttribute('data-filter');
+let items = Array.from(document.querySelectorAll('.gallery-item'));
+
+// Shuffle on every sort
+let shuffled = shuffle(items);
+shuffled.forEach(item => item.parentNode.appendChild(item));
+
+// Staggered drop-in
+items.forEach((item, i) => {
+if (filter === "all" || item.classList.contains(filter)) {
+setTimeout(() => item.classList.remove('hide'), i * 120);
+} else {
+item.classList.add('hide');
+}
+});
+});
+});
+});
+</script>
+<script>
+// Simple share links (replace location.href + title)
+const pageUrl = encodeURIComponent(location.href);
+const pageTitle = encodeURIComponent(document.title);
+document.addEventListener('DOMContentLoaded', () => {
+const shareFb = document.getElementById('share-fb');
+if (shareFb) {
+const pageUrlFb = encodeURIComponent(window.location.href);
+shareFb.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrlFb}`;
+}
+});
+document.addEventListener('DOMContentLoaded', () => {
+const shareTw = document.getElementById('share-tw');
+if (shareTw) {
+const pageUrlTw = encodeURIComponent(window.location.href);
+shareTw.href = `https://twitter.com/intent/tweet?url=${pageUrlTw}&text=${pageTitle}`;
+}
+});
+document.addEventListener('DOMContentLoaded', () => {
+const shareLn = document.getElementById('share-ln');
+if (shareLn) {
+const pageUrlLn = encodeURIComponent(window.location.href);
+shareLn.href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${pageTitle}`;
+}
+});
+document.addEventListener('DOMContentLoaded', () => {
+const shareFb = document.getElementById('share-fb');
+const shareFbInline = document.getElementById('share-fb-inline');
+const shareTw = document.getElementById('share-tw');
+const shareTwInline = document.getElementById('share-tw-inline');
+const shareLn = document.getElementById('share-ln');
+const shareLnInline = document.getElementById('share-ln-inline');
+
+
+
+if (shareFb && shareFbInline) {
+shareFbInline.href = shareFb.href;
+}else if(shareTw && shareTwInline) {
+shareTwInline.href = shareTw.href;
+}else if(shareLn && shareLnInline) {
+shareLnInline.href = shareLn.href;
+}
+});
+
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const authorToggle = document.querySelector('.accordion-toggle');
+const authorCollapse = document.getElementById('authorInfo');
+
+if (authorCollapse && authorToggle) {
+authorCollapse.addEventListener('show.bs.collapse', () => {
+authorToggle.style.transform = 'rotate(180deg)';
+});
+authorCollapse.addEventListener('hide.bs.collapse', () => {
+authorToggle.style.transform = 'rotate(0deg)';
+});
+}
+});
+</script>
+<script>
+const videoModal = document.getElementById('videoModal');
+const iframe = document.getElementById('youtubeVideo');
+const videoURL = "https://www.youtube.com/embed/ZmDQ84ilWws?autoplay=1";
+
+videoModal.addEventListener('show.bs.modal', () => {
+iframe.src = videoURL;
+});
+
+videoModal.addEventListener('hidden.bs.modal', () => {
+iframe.src = ""; // stops video
+});
+</script>
+<script>
+const videoModal1 = document.getElementById('videoModal');
+const localVideo1 = document.getElementById('localVideo');
+
+videoModal1.addEventListener('shown.bs.modal', () => {
+localVideo1.play();
+});
+
+videoModal1.addEventListener('hidden.bs.modal', () => {
+localVideo1.pause();
+localVideo1.currentTime = 0;
+});
+</script>
+<script>
+new Swiper(".knowledgeSwiper", {
+slidesPerView: 1,
+loop: true,
+autoplay: {
+delay: 4000,
+disableOnInteraction: false
+},
+pagination: {
+el: ".knowledgeSwiper .swiper-pagination",
+clickable: true
+}
+});
+
+new Swiper(".behaviourSwiper", {
+slidesPerView: 1,
+loop: true,
+autoplay: {
+delay: 3500,
+disableOnInteraction: false
+},
+pagination: {
+el: ".behaviourSwiper .swiper-pagination",
+clickable: true
+}
+});
+new Swiper(".competencySwiper", {
+slidesPerView: 1,
+loop: true,
+autoplay: {
+delay: 3500,
+disableOnInteraction: false
+},
+pagination: {
+el: ".competencySwiper .swiper-pagination",
+clickable: true
+}
+});
+</script>

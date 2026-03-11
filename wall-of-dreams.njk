@@ -3,541 +3,477 @@ layout: layout.njk
 title: Wall of Dreams
 ---
 
-
 {% set page = null %}
-
 {% for p in pages %}
-  {% if p.slug == "wall-of-dreams" %}
-    {% set page = p %}
-  {% endif %}
+{% if p.slug == "wall-of-dreams" %}
+{% set page = p %}
+{% endif %}
 {% endfor %}
 
 {% if page %}
 
-  {% set heroSection = null %}
+{% set heroSection = null %}
 
-  {% for s in page.sections %}
-    {% if s.__component == "page-sections.wall-of-dreams-hero" %}
-      {% set heroSection = s %}
-    {% endif %}
-  {% endfor %}
-
-   <!-- heroSection -->
-
-  {% if heroSection %}
-  <section class="academy-container position-relative pt-100">
-    <div class="container">  
-      <div class="row g-4">
-
-        <div class="col-md-10 my-auto py-2">
-          <h1 class="fw-bold text-start text-white">
-            {{ heroSection.heading }}
-          </h1>
-
-          <h2 class="text-start text-white mb-2">
-            {{ heroSection.subHeading }}
-          </h2>
-        </div>
-
-        <div class="col-md-2 my-auto py-2 text-end">
-          {% if heroSection.image %}
-            <img 
-              src="http://localhost:1337{{ heroSection.image.url }}" 
-              class="img-fluid">
-          {% endif %}
-        </div>
-
-      </div>
-    </div>
-  </section>
-  {% endif %}
-
+{% for s in page.sections %}
+{% if s.__component == "page-sections.wall-of-dreams-hero" %}
+{% set heroSection = s %}
 {% endif %}
-
-
-<!-- heroSection  end -->
-
-
-
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+{% endfor %}
 
 {% if page %}
 
-  {% set gallerySection = null %}
+{% set gallerySection = null %}
 
-  {% for s in page.sections %}
-    {% if s.__component == "page-sections.gallery-section" %}
-      {% set gallerySection = s %}
-    {% endif %}
-  {% endfor %}
+{% for s in page.sections %}
+{% if s.__component == "page-sections.gallery-section" %}
+{% set gallerySection = s %}
+{% endif %}
+{% endfor %}
 
 {% endif %}
 
-
-<!-- PROGRAM FILTER -->
-<div class="container mt-4">
-  <ul class="nav nav-pills justify-content-center program-tabs" id="programTabs">
-  {% if gallerySection and gallerySection.program %}
-
-  {% for prog in gallerySection.program %}
-    <li class="nav-item mx-2">
-      <a class="nav-link {% if prog.key == 'all' %}active{% endif %}"
-         data-program="{{ prog.key | lower }}"
-         href="#">
-         {{ prog.label }}
-      </a>
-    </li>
-  {% endfor %}
-
-{% endif %}
-  </ul>
-</div>
-
-<!-- MAIN -->
-<section class="wall-of-fame mt-4 py-5">
-<!-- MOBILE FILTERS -->
-<div class="container d-md-none mt-4">
-  <div class="row g-2">
-
-    <!-- Program Dropdown -->
-    <div class="col-12">
-      <select class="form-select" id="mobileProgramFilter">
-      {% if gallerySection and gallerySection.program %}
-
-  {% for prog in gallerySection.program %}
-  <option value="{{ prog.key | lower }}">{{ prog.label }}</option>
-  {% endfor %}
-
-{% endif %}
-      </select>
-    </div>
-
-    <!-- School Dropdown -->
-    <div class="col-12">
-      <select class="form-select" id="mobileSchoolFilter">
-      {% if gallerySection and gallerySection.school %}
-
-  {% for schools in gallerySection.school %}
-  <option value="{{ schools.key | lower }}">{{ schools.name }}</option>
-  {% endfor %}
-
-{% endif %}
-      </select>
-    </div>
-
-  </div>
-</div>
-
-  <div class="container-fluid">
-    <div class="row">
-
-      <!-- SCHOOL FILTER -->
-      <div class="col-md-3 mb-4">
-        <div class="filter-tabs shadow-sm rounded p-3">
-          <ul class="nav nav-pills flex-column" id="schoolTabs">
-          {% if gallerySection and gallerySection.school %}
-
-  {% for schools in gallerySection.school %}
-    <li class="nav-item mb-2">
-      <a class="nav-link {% if schools.key == 'all' %}active{% endif %}"
-
-         data-school="{{ schools.key | lower }}"
-
-         
-         href="#">
-         {{ schools.name }}
-      </a>
-    </li>
-  {% endfor %}
-
-{% endif %}
-          </ul>
-        </div>
-      </div>
-
-      <!-- GALLERY -->
-      <div class="col-md-9">
-        <div class="masonry">
-          {% if gallerySection and gallerySection.galleryItem %}
-
-  {% for item in gallerySection.galleryItem %}
-
-    <div class="masonry-item gallery-item"
-         data-program="{{ item.program }}"
-         data-school="{{ item.school }}">
-
-      <div class="polaroid">
-
-        {% if item.image %}
-          <img src="http://localhost:1337{{ item.image.url }}" alt="{{ item.caption }}">
-        {% endif %}
-
-        <div class="caption">
-          {{ item.caption }}
-        </div>
-
-      </div>
-
-    </div>
-
-  {% endfor %}
-
-{% endif %}
-         
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 <style>
-/* -------------------------------------------------
-   GLOBAL
-------------------------------------------------- */
 .pt-100 {
-  padding-top: 180px;
+padding-top: 180px;
 }
-
 .wall-of-fame {
-  background: #f9f5ec;
-  min-height: 100vh;
+background: #f9f5ec;
+min-height: 100vh;
 }
-
-/* -------------------------------------------------
-   PROGRAM + SCHOOL FILTER TABS
-------------------------------------------------- */
 .program-tabs .nav-link,
 .filter-tabs .nav-link {
-  border-radius: 50px;
-  padding: 8px 16px;
-  background: #ffffff;
-  color: #333;
-  font-weight: 500;
-  border: 1px solid #ddd;
-  font-size: 16px;
-  transition: all 0.25s ease;
+border-radius: 50px;
+padding: 8px 16px;
+background: #ffffff;
+color: #333;
+font-weight: 500;
+border: 1px solid #ddd;
+font-size: 16px;
+transition: all 0.25s ease;
 }
 
 .program-tabs .nav-link:hover,
 .filter-tabs .nav-link:hover {
-  background: #f1f1f1;
+background: #f1f1f1;
 }
 
 .program-tabs .nav-link.active,
 .filter-tabs .nav-link.active {
-  background: #6f42c1;
-  color: #ffffff;
-  border-color: #6f42c1;
+background: #6f42c1;
+color: #ffffff;
+border-color: #6f42c1;
 }
-
-/* -------------------------------------------------
-   MASONRY LAYOUT
-------------------------------------------------- */
 .masonry {
-  column-count: 4;
-  column-gap: 1rem;
+column-count: 4;
+column-gap: 1rem;
 }
 
 @media (max-width: 992px) {
-  .masonry {
-    column-count: 2;
-  }
+.masonry {
+column-count: 2;
+}
 }
 
 @media (max-width: 576px) {
-  .masonry {
-    column-count: 1;
-  }
+.masonry {
+column-count: 1;
+}
 }
 
 .masonry-item {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+break-inside: avoid;
+margin-bottom: 1rem;
+transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-/* -------------------------------------------------
-   POLAROID CARD
-------------------------------------------------- */
 .polaroid {
-  background: #ffffff;
-  padding: 8px;
-  border: 1px solid #ddd;
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  animation: swing 5s ease-in-out infinite;
-  transform-origin: top center;
+background: #ffffff;
+padding: 8px;
+border: 1px solid #ddd;
+position: relative;
+display: inline-block;
+width: 100%;
+animation: swing 5s ease-in-out infinite;
+transform-origin: top center;
 }
 
 /* 🔧 IMAGE SIZE FIX – CRITICAL */
 .polaroid img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  object-fit: cover;
+width: 100%;
+height: auto;
+display: block;
+border-radius: 4px;
+object-fit: cover;
 }
 
 /* Caption */
 .caption {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 1rem;
-  text-align: center;
-  margin-top: 6px;
-  color: #333;
+font-family: 'Shadows Into Light', cursive;
+font-size: 1rem;
+text-align: center;
+margin-top: 6px;
+color: #333;
 }
-
-/* -------------------------------------------------
-   PIN / TAPE
-------------------------------------------------- */
 .pin {
-  width: 14px;
-  height: 14px;
-  background: #d9534f;
-  border-radius: 50%;
-  position: absolute;
-  top: -7px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  z-index: 2;
+width: 14px;
+height: 14px;
+background: #d9534f;
+border-radius: 50%;
+position: absolute;
+top: -7px;
+left: 50%;
+transform: translateX(-50%);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+z-index: 2;
 }
 
 /* .tape {
-  width: 40px;
-  height: 12px;
-  background: rgba(255, 255, 0, 0.7);
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-5deg);
-  z-index: 2;
+width: 40px;
+height: 12px;
+background: rgba(255, 255, 0, 0.7);
+position: absolute;
+top: -6px;
+left: 50%;
+transform: translateX(-50%) rotate(-5deg);
+z-index: 2;
 }
 */
 
-/* -------------------------------------------------
-   HOVER EFFECT
-------------------------------------------------- */
 .polaroid:hover {
-  transform: scale(1.05) rotate(0deg);
-  z-index: 5;
+transform: scale(1.05) rotate(0deg);
+z-index: 5;
 }
 
-/* -------------------------------------------------
-   SWING ANIMATION
-------------------------------------------------- */
 @keyframes swing {
-  0% {
-    transform: rotate(-1deg);
-  }
-  50% {
-    transform: rotate(1deg);
-  }
-  100% {
-    transform: rotate(-1deg);
-  }
+0% {
+transform: rotate(-1deg);
+}
+50% {
+transform: rotate(1deg);
+}
+100% {
+transform: rotate(-1deg);
+}
 }
 
-/* -------------------------------------------------
-   FILTERING VISIBILITY
-------------------------------------------------- */
 .gallery-item {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+opacity: 1;
+transform: scale(1);
+transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .gallery-item.hide {
-  opacity: 0;
-  transform: scale(0.85);
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden;
+opacity: 0;
+transform: scale(0.85);
+height: 0 !important;
+margin: 0 !important;
+padding: 0 !important;
+overflow: hidden;
 }
 
-/* -------------------------------------------------
-   MOBILE OPTIMIZATION
-------------------------------------------------- */
 @media (max-width: 576px) {
-  .program-tabs {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+.program-tabs {
+flex-wrap: wrap;
+gap: 8px;
+}
 
-  .program-tabs .nav-link {
-    font-size: 14px;
-    padding: 6px 14px;
-  }
+.program-tabs .nav-link {
+font-size: 14px;
+padding: 6px 14px;
+}
 }
 @media (max-width: 768px) {
-  .program-tabs,
-  .filter-tabs {
-    display: none;
-  }
+.program-tabs,
+.filter-tabs {
+display: none;
+}
 }
 
 </style>
+<!-- heroSection -->
+{% if heroSection %}
+<section class="academy-container position-relative pt-100">
+<div class="container">  
+<div class="row g-4">
 
+<div class="col-md-10 my-auto py-2">
+<h1 class="fw-bold text-start text-white">
+{{ heroSection.heading }}
+</h1>
+
+<h2 class="text-start text-white mb-2">
+{{ heroSection.subHeading }}
+</h2>
+</div>
+
+<div class="col-md-2 my-auto py-2 text-end">
+{% if heroSection.image %}
+<img 
+src="http://localhost:1337{{ heroSection.image.url }}" 
+class="img-fluid">
+{% endif %}
+</div>
+
+</div>
+</div>
+</section>
+{% endif %}
+{% endif %}
+
+<!-- heroSection  end -->
+<!-- PROGRAM FILTER -->
+<div class="container mt-4">
+<ul class="nav nav-pills justify-content-center program-tabs" id="programTabs">
+{% if gallerySection and gallerySection.program %}
+
+{% for prog in gallerySection.program %}
+<li class="nav-item mx-2">
+<a class="nav-link {% if prog.key == 'all' %}active{% endif %}"
+data-program="{{ prog.key | lower }}"
+href="#">
+{{ prog.label }}
+</a>
+</li>
+{% endfor %}
+
+{% endif %}
+</ul>
+</div>
+<!-- MAIN -->
+<section class="wall-of-fame mt-4 py-5">
+<!-- MOBILE FILTERS -->
+<div class="container d-md-none mt-4">
+<div class="row g-2">
+
+<!-- Program Dropdown -->
+<div class="col-12">
+<select class="form-select" id="mobileProgramFilter">
+{% if gallerySection and gallerySection.program %}
+
+{% for prog in gallerySection.program %}
+<option value="{{ prog.key | lower }}">{{ prog.label }}</option>
+{% endfor %}
+
+{% endif %}
+</select>
+</div>
+<!-- School Dropdown -->
+<div class="col-12">
+<select class="form-select" id="mobileSchoolFilter">
+{% if gallerySection and gallerySection.school %}
+
+{% for schools in gallerySection.school %}
+<option value="{{ schools.key | lower }}">{{ schools.name }}</option>
+{% endfor %}
+
+{% endif %}
+</select>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+
+<!-- SCHOOL FILTER -->
+<div class="col-md-3 mb-4">
+<div class="filter-tabs shadow-sm rounded p-3">
+<ul class="nav nav-pills flex-column" id="schoolTabs">
+{% if gallerySection and gallerySection.school %}
+
+{% for schools in gallerySection.school %}
+<li class="nav-item mb-2">
+<a class="nav-link {% if schools.key == 'all' %}active{% endif %}" data-school="{{ schools.key | lower }}" href="#">
+{{ schools.name }}
+</a>
+</li>
+{% endfor %}
+{% endif %}
+</ul>
+</div>
+</div>
+
+<!-- GALLERY -->
+<div class="col-md-9">
+<div class="masonry">
+{% if gallerySection and gallerySection.galleryItem %}
+
+{% for item in gallerySection.galleryItem %}
+
+<div class="masonry-item gallery-item"
+data-program="{{ item.program }}"
+data-school="{{ item.school }}">
+
+<div class="polaroid">
+
+{% if item.image %}
+<img src="http://localhost:1337{{ item.image.url }}" alt="{{ item.caption }}">
+{% endif %}
+
+<div class="caption">
+{{ item.caption }}
+</div>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</section>
+{% include "global-scripts.njk" %}
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+const programTabs = document.querySelectorAll("#programTabs .nav-link");
+const schoolTabs  = document.querySelectorAll("#schoolTabs .nav-link");
+const items       = document.querySelectorAll(".gallery-item");
 
-  const programTabs = document.querySelectorAll("#programTabs .nav-link");
-  const schoolTabs  = document.querySelectorAll("#schoolTabs .nav-link");
-  const items       = document.querySelectorAll(".gallery-item");
+const mobileProgramSelect = document.getElementById("mobileProgramFilter");
+const mobileSchoolSelect  = document.getElementById("mobileSchoolFilter");
 
-  const mobileProgramSelect = document.getElementById("mobileProgramFilter");
-  const mobileSchoolSelect  = document.getElementById("mobileSchoolFilter");
+let activeProgram = "all";
+let activeSchool  = "all";
 
-  let activeProgram = "all";
-  let activeSchool  = "all";
+const match = (value, list) =>
+list.split(",").map(v => v.trim()).includes(value);
 
-  const match = (value, list) =>
-    list.split(",").map(v => v.trim()).includes(value);
+/* ----------------------------------
+APPLY ACTIVE STATES (DESKTOP)
+---------------------------------- */
+function applyActiveTabs() {
+programTabs.forEach(tab =>
+tab.classList.toggle("active", tab.dataset.program === activeProgram)
+);
 
-  /* ----------------------------------
-     APPLY ACTIVE STATES (DESKTOP)
-  ---------------------------------- */
-  function applyActiveTabs() {
-    programTabs.forEach(tab =>
-      tab.classList.toggle("active", tab.dataset.program === activeProgram)
-    );
+schoolTabs.forEach(tab =>
+tab.classList.toggle("active", tab.dataset.school === activeSchool)
+);
+}
 
-    schoolTabs.forEach(tab =>
-      tab.classList.toggle("active", tab.dataset.school === activeSchool)
-    );
-  }
+/* ----------------------------------
+FILTER GALLERY
+---------------------------------- */
+function filterGallery() {
+items.forEach(item => {
+const programs = item.dataset.program || "";
+const schools  = item.dataset.school || "";
 
-  /* ----------------------------------
-     FILTER GALLERY
-  ---------------------------------- */
-  function filterGallery() {
-    items.forEach(item => {
-      const programs = item.dataset.program || "";
-      const schools  = item.dataset.school || "";
+const programMatch =
+activeProgram === "all" || match(activeProgram, programs);
+const schoolMatch =
+activeSchool === "all" || match(activeSchool, schools);
 
-      const programMatch =
-        activeProgram === "all" || match(activeProgram, programs);
-      const schoolMatch =
-        activeSchool === "all" || match(activeSchool, schools);
+item.classList.toggle("hide", !(programMatch && schoolMatch));
+});
 
-      item.classList.toggle("hide", !(programMatch && schoolMatch));
-    });
+/* Hide irrelevant schools (desktop) */
+schoolTabs.forEach(tab => {
+const school = tab.dataset.school;
+if (school === "all") {
+tab.parentElement.style.display = "block";
+return;
+}
 
-    /* Hide irrelevant schools (desktop) */
-    schoolTabs.forEach(tab => {
-      const school = tab.dataset.school;
-      if (school === "all") {
-        tab.parentElement.style.display = "block";
-        return;
-      }
+const exists = [...items].some(item =>
+(activeProgram === "all" ||
+match(activeProgram, item.dataset.program || "")) &&
+match(school, item.dataset.school || "")
+);
 
-      const exists = [...items].some(item =>
-        (activeProgram === "all" ||
-          match(activeProgram, item.dataset.program || "")) &&
-        match(school, item.dataset.school || "")
-      );
+tab.parentElement.style.display = exists ? "block" : "none";
+});
 
-      tab.parentElement.style.display = exists ? "block" : "none";
-    });
+/* Hide irrelevant schools (mobile dropdown) */
+if (mobileSchoolSelect) {
+[...mobileSchoolSelect.options].forEach(opt => {
+if (opt.value === "all") {
+opt.hidden = false;
+return;
+}
 
-    /* Hide irrelevant schools (mobile dropdown) */
-    if (mobileSchoolSelect) {
-      [...mobileSchoolSelect.options].forEach(opt => {
-        if (opt.value === "all") {
-          opt.hidden = false;
-          return;
-        }
+const exists = [...items].some(item =>
+(activeProgram === "all" ||
+match(activeProgram, item.dataset.program || "")) &&
+match(opt.value, item.dataset.school || "")
+);
 
-        const exists = [...items].some(item =>
-          (activeProgram === "all" ||
-            match(activeProgram, item.dataset.program || "")) &&
-          match(opt.value, item.dataset.school || "")
-        );
+opt.hidden = !exists;
+});
+}
 
-        opt.hidden = !exists;
-      });
-    }
+updateURL();
+applyActiveTabs();
 
-    updateURL();
-    applyActiveTabs();
+/* Sync mobile dropdowns */
+if (mobileProgramSelect) mobileProgramSelect.value = activeProgram;
+if (mobileSchoolSelect)  mobileSchoolSelect.value  = activeSchool;
+}
 
-    /* Sync mobile dropdowns */
-    if (mobileProgramSelect) mobileProgramSelect.value = activeProgram;
-    if (mobileSchoolSelect)  mobileSchoolSelect.value  = activeSchool;
-  }
+/* ----------------------------------
+UPDATE URL
+---------------------------------- */
+function updateURL() {
+const params = new URLSearchParams();
+if (activeProgram !== "all") params.set("program", activeProgram);
+if (activeSchool !== "all")  params.set("school", activeSchool);
+history.replaceState(null, "", "?" + params.toString());
+}
 
-  /* ----------------------------------
-     UPDATE URL
-  ---------------------------------- */
-  function updateURL() {
-    const params = new URLSearchParams();
-    if (activeProgram !== "all") params.set("program", activeProgram);
-    if (activeSchool !== "all")  params.set("school", activeSchool);
-    history.replaceState(null, "", "?" + params.toString());
-  }
+/* ----------------------------------
+DESKTOP EVENTS
+---------------------------------- */
+programTabs.forEach(tab => {
+tab.addEventListener("click", e => {
+e.preventDefault();
+activeProgram = tab.dataset.program;
+//activeSchool = "all";
+filterGallery();
+});
+});
 
-  /* ----------------------------------
-     DESKTOP EVENTS
-  ---------------------------------- */
-  programTabs.forEach(tab => {
-    tab.addEventListener("click", e => {
-      e.preventDefault();
-      activeProgram = tab.dataset.program;
-      //activeSchool = "all";
-      filterGallery();
-    });
-  });
+schoolTabs.forEach(tab => {
+tab.addEventListener("click", e => {
+e.preventDefault();
+activeSchool = tab.dataset.school;
+filterGallery();
+});
+});
 
-  schoolTabs.forEach(tab => {
-    tab.addEventListener("click", e => {
-      e.preventDefault();
-      activeSchool = tab.dataset.school;
-      filterGallery();
-    });
-  });
+/* ----------------------------------
+MOBILE DROPDOWNS
+---------------------------------- */
+if (mobileProgramSelect) {
+mobileProgramSelect.addEventListener("change", () => {
+activeProgram = mobileProgramSelect.value;
+//activeSchool = "all";
+filterGallery();
+});
+}
 
-  /* ----------------------------------
-     MOBILE DROPDOWNS
-  ---------------------------------- */
-  if (mobileProgramSelect) {
-    mobileProgramSelect.addEventListener("change", () => {
-      activeProgram = mobileProgramSelect.value;
-     //activeSchool = "all";
-      filterGallery();
-    });
-  }
+if (mobileSchoolSelect) {
+mobileSchoolSelect.addEventListener("change", () => {
+activeSchool = mobileSchoolSelect.value;
+filterGallery();
+});
+}
 
-  if (mobileSchoolSelect) {
-    mobileSchoolSelect.addEventListener("change", () => {
-      activeSchool = mobileSchoolSelect.value;
-      filterGallery();
-    });
-  }
+/* ----------------------------------
+LOAD FROM URL
+---------------------------------- */
+const params = new URLSearchParams(window.location.search);
+activeProgram = params.get("program") || "all";
+activeSchool  = params.get("school")  || "all";
 
-  /* ----------------------------------
-     LOAD FROM URL
-  ---------------------------------- */
-  const params = new URLSearchParams(window.location.search);
-  activeProgram = params.get("program") || "all";
-  activeSchool  = params.get("school")  || "all";
+filterGallery();
 
-  filterGallery();
-
-  /* ----------------------------------
-     PIN / TAPE
-  ---------------------------------- */
-  document.querySelectorAll(".polaroid").forEach(card => {
-    const el = document.createElement("span");
-    el.className = "pin";
-    card.appendChild(el);
-  });
+/* ----------------------------------
+PIN / TAPE
+---------------------------------- */
+document.querySelectorAll(".polaroid").forEach(card => {
+const el = document.createElement("span");
+el.className = "pin";
+card.appendChild(el);
+});
 
 });
 </script>
-
