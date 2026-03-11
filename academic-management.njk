@@ -1784,3 +1784,91 @@ setTimeout(() => typeText(textContainer, data), 100);
 });
 });
 </script>
+<script>
+// For client-swiper (autoplay scrolling logos etc.)
+var clientSwiper = new Swiper('.client-swiper', {
+spaceBetween: 20,
+loop: true,
+freeMode: true,
+speed: 4000,
+autoplay: {
+delay: 0,
+disableOnInteraction: false,
+},
+breakpoints: {
+0: {
+slidesPerView: 2,
+},
+576: {
+slidesPerView: 3,
+},
+768: {
+slidesPerView: 4,
+},
+992: {
+slidesPerView: 5,
+},
+1200: {
+slidesPerView: 6,
+},
+},
+freeModeMomentum: false,
+grabCursor: true,
+});
+</script>
+<script>
+var swiperss = new Swiper(".testimonialSwiper", {
+effect: "coverflow",
+grabCursor: true,
+centeredSlides: true,
+loop: true,
+autoplay: true,
+slidesPerView: "auto",
+coverflowEffect: {
+rotate: 20,
+stretch: 0,
+depth: 150,
+modifier: 2,
+slideShadows: false,
+},
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+});
+</script>
+<script>
+var drightSwiper = new Swiper(".dright", {
+direction: "vertical",
+slidesPerView: 3,
+spaceBetween: 20,
+loop: true,
+autoplay: {
+delay: 2500,
+disableOnInteraction: false,
+},
+pagination: {
+el: ".dright .swiper-pagination",
+clickable: true,
+type: "bullets",
+},
+navigation: {
+nextEl: ".dright .swiper-button-next",
+prevEl: ".dright .swiper-button-prev",
+},
+breakpoints: {
+0: { slidesPerView: 1, height: 400 },
+768: { slidesPerView: 3, height: 700 }
+}
+});
+</script>
+<script>
+// Show selected button visually
+const buttons = document.querySelectorAll('.survey-radio-btn');
+buttons.forEach(btn => {
+btn.addEventListener('click', () => {
+buttons.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+});
+});
+</script>

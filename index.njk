@@ -2280,3 +2280,139 @@ schoolSelect.selectedIndex = 1;
 }
 });
 </script>
+<script>
+// For client-swiper (autoplay scrolling logos etc.)
+var clientSwiper = new Swiper('.client-swiper', {
+spaceBetween: 20,
+loop: true,
+freeMode: true,
+speed: 4000,
+autoplay: {
+delay: 0,
+disableOnInteraction: false,
+},
+breakpoints: {
+0: {
+slidesPerView: 2,
+},
+576: {
+slidesPerView: 3,
+},
+768: {
+slidesPerView: 4,
+},
+992: {
+slidesPerView: 5,
+},
+1200: {
+slidesPerView: 6,
+},
+},
+freeModeMomentum: false,
+grabCursor: true,
+});
+</script>
+<script>
+var swiperss = new Swiper(".testimonialSwiper", {
+effect: "coverflow",
+grabCursor: true,
+centeredSlides: true,
+loop: true,
+autoplay: true,
+slidesPerView: "auto",
+coverflowEffect: {
+rotate: 20,
+stretch: 0,
+depth: 150,
+modifier: 2,
+slideShadows: false,
+},
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+});
+</script>
+<script>
+var drightSwiper = new Swiper(".dright", {
+direction: "vertical",
+slidesPerView: 3,
+spaceBetween: 20,
+loop: true,
+autoplay: {
+delay: 2500,
+disableOnInteraction: false,
+},
+pagination: {
+el: ".dright .swiper-pagination",
+clickable: true,
+type: "bullets",
+},
+navigation: {
+nextEl: ".dright .swiper-button-next",
+prevEl: ".dright .swiper-button-prev",
+},
+breakpoints: {
+0: { slidesPerView: 1, height: 400 },
+768: { slidesPerView: 3, height: 700 }
+}
+});
+</script>
+<script>
+var swiperslide = new Swiper(".featureSwiper", {
+effect: "cube",
+grabCursor: true,
+loop: true,
+cubeEffect: {
+shadow: true,
+slideShadows: true,
+shadowOffset: 20,
+shadowScale: 0.94,
+},
+autoplay: {
+delay: 3000,              // 3s delay
+disableOnInteraction: false, // keep autoplay after manual nav
+},
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+navigation: {
+nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev",
+},
+});
+document.addEventListener("DOMContentLoaded", () => {
+const swiperEl = document.querySelector(".featureSwiper");
+if (swiperEl && typeof swiperslide !== "undefined" && swiperslide.autoplay) {
+swiperEl.addEventListener("mouseenter", () => swiperslide.autoplay.stop());
+swiperEl.addEventListener("mouseleave", () => swiperslide.autoplay.start());
+}
+});
+</script>
+<script>
+const videoModal = document.getElementById('videoModal');
+const iframe = document.getElementById('youtubeVideo');
+const videoURL = "https://www.youtube.com/embed/ZmDQ84ilWws?autoplay=1";
+
+videoModal.addEventListener('show.bs.modal', () => {
+iframe.src = videoURL;
+});
+
+videoModal.addEventListener('hidden.bs.modal', () => {
+iframe.src = ""; // stops video
+});
+</script>
+<script>
+const videoModal1 = document.getElementById('videoModal');
+const localVideo1 = document.getElementById('localVideo');
+
+videoModal1.addEventListener('shown.bs.modal', () => {
+localVideo1.play();
+});
+
+videoModal1.addEventListener('hidden.bs.modal', () => {
+localVideo1.pause();
+localVideo1.currentTime = 0;
+});
+</script>

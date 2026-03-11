@@ -1196,3 +1196,42 @@ class="img-fluid">
 {% include "global-scripts.njk" %}
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic' });</script>
+<script>
+new Swiper(".knowledgeSwiper", {
+slidesPerView: 1,
+loop: true,
+autoplay: {
+delay: 4000,
+disableOnInteraction: false
+},
+pagination: {
+el: ".knowledgeSwiper .swiper-pagination",
+clickable: true
+}
+});
+
+new Swiper(".behaviourSwiper", {
+slidesPerView: 1,
+loop: true,
+autoplay: {
+delay: 3500,
+disableOnInteraction: false
+},
+pagination: {
+el: ".behaviourSwiper .swiper-pagination",
+clickable: true
+}
+});
+new Swiper(".competencySwiper", {
+slidesPerView: 1,
+loop: true,
+autoplay: {
+delay: 3500,
+disableOnInteraction: false
+},
+pagination: {
+el: ".competencySwiper .swiper-pagination",
+clickable: true
+}
+});
+</script>

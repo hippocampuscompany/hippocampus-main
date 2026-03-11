@@ -447,3 +447,18 @@ Section {{ sectionIndex }}: {{ headingText | striptags | trim }}
 </div>
 </section>
 {% include "global-scripts.njk" %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const authorToggle = document.querySelector('.accordion-toggle');
+const authorCollapse = document.getElementById('authorInfo');
+
+if (authorCollapse && authorToggle) {
+authorCollapse.addEventListener('show.bs.collapse', () => {
+authorToggle.style.transform = 'rotate(180deg)';
+});
+authorCollapse.addEventListener('hide.bs.collapse', () => {
+authorToggle.style.transform = 'rotate(0deg)';
+});
+}
+});
+</script>

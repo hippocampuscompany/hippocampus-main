@@ -616,3 +616,80 @@ applyFilters();
 
 });
 </script>
+<script>
+var swiperss = new Swiper(".testimonialSwiper", {
+effect: "coverflow",
+grabCursor: true,
+centeredSlides: true,
+loop: true,
+autoplay: true,
+slidesPerView: "auto",
+coverflowEffect: {
+rotate: 20,
+stretch: 0,
+depth: 150,
+modifier: 2,
+slideShadows: false,
+},
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+document.querySelectorAll('.polaroid').forEach(el => {
+let angle = (Math.random() * 16 - 8).toFixed(1);
+el.style.setProperty('--tilt', angle + 'deg');
+el.style.transform = `rotate(${angle}deg)`;
+
+let delay = (Math.random() * 3).toFixed(2);
+el.style.setProperty('--rand', delay);
+
+if (Math.random() > 0.5) {
+let pin = document.createElement("span");
+pin.classList.add("pin");
+el.appendChild(pin);
+} else {
+let tape = document.createElement("span");
+tape.classList.add("tape");
+el.appendChild(tape);
+}
+});
+
+// Shuffle helper
+function shuffle(array) {
+for (let i = array.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[array[i], array[j]] = [array[j], array[i]];
+}
+return array;
+}
+
+// Sorting logic
+document.querySelectorAll('#filterTabs a').forEach(tab => {
+tab.addEventListener('click', function(e) {
+e.preventDefault();
+document.querySelectorAll('#filterTabs a').forEach(t => t.classList.remove('active'));
+this.classList.add('active');
+
+let filter = this.getAttribute('data-filter');
+let items = Array.from(document.querySelectorAll('.gallery-item'));
+
+// Shuffle on every sort
+let shuffled = shuffle(items);
+shuffled.forEach(item => item.parentNode.appendChild(item));
+
+// Staggered drop-in
+items.forEach((item, i) => {
+if (filter === "all" || item.classList.contains(filter)) {
+setTimeout(() => item.classList.remove('hide'), i * 120);
+} else {
+item.classList.add('hide');
+}
+});
+});
+});
+});
+</script>
