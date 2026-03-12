@@ -701,7 +701,7 @@ a.whatsapp-btn :hover {
   width: 100%;
   height: 600px;
   border-radius: 0; /* optional: remove if you want full-width corners */
-  background-image: url('../img/hippocampus-group-photo-2.webp');
+  background-image: url('../../../img/hippocampus-group-photo-2.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1105,7 +1105,7 @@ background: linear-gradient(-45deg, #fcd84e, #674ea7, #674ea7, #fcd84e);
 }
 .testimonial-section {
       position: relative;
-      background: url('../img/bb2-2-11zon.webp') center center / cover no-repeat fixed;
+      background: url('../../../img/bb2-2-11zon.webp') center center / cover no-repeat fixed;
       padding: 100px 0;
       z-index: 1;
     }
@@ -1894,7 +1894,7 @@ background:#fff;
   position: relative;
   width: 100%;
   height: 15rem;
-  background-image: url("../img/survey.png");
+  background-image: url("../../../img/survey.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

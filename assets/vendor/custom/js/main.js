@@ -333,9 +333,9 @@ new Swiper('.mySwiper1', {
   /**
    * Initiate gallery lightbox 
    */
-  const galleryLightbox = GLightbox({
+  /*const galleryLightbox = GLightbox({
     selector: '.gallery-lightbox'
-  });
+  });*/
 
   /**
    * Animation on scroll
